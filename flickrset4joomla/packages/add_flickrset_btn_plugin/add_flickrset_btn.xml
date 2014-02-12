@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="plugin" group="editors-xtd" version="3.2" method="upgrade">
+    <name>plg_editors-xtd_add_flickrset_btn</name>
+    <description>ADD_FLICKRSET_BUTTON_PLUGIN_XML_DESCRIPTION</description>
+    <author>Olivier De Groef</author>
+    <copyright>(C) 2013-2014 Olivier De Groef. All rights reserved.</copyright>
+    <license>http://www.gnu.org/licenses/gpl-3.0.html GNU/GPL</license>
+    <authorEmail>ogroef@hotmail.com</authorEmail>
+    <authorUrl/>
+    <version>add_flickrset_btn_plugin_version</version>
+    <creationDate>add_flickrset_btn_plugin_version_creation_date</creationDate>
+    <!-- Files -->
+    <files folder="plugin" destination="add_flickrset_btn">
+        <filename plugin="add_flickrset_btn">add_flickrset_btn.php</filename>
+        <filename plugin="add_flickrset_btn">add_flickrset_btn.xml</filename>
+        <filename plugin="add_flickrset_btn">index.html</filename>
+        <folder>add_flickrset_btn</folder>
+        <folder>language</folder>
+    </files>
+    <!-- Translations -->
+    <languages folder="plugin">
+        <language tag="en-GB">language/en-GB/en-GB.plg_editors-xtd_add_flickrset_btn.ini</language>
+        <language tag="en-GB">language/en-GB/en-GB.plg_editors-xtd_add_flickrset_btn.sys.ini</language>
+        <language tag="nl-NL">language/nl-NL/nl-NL.plg_editors-xtd_add_flickrset_btn.ini</language>
+        <language tag="nl-NL">language/nl-NL/nl-NL.plg_editors-xtd_add_flickrset_btn.sys.ini</language>
+        <language tag="fr-FR">language/fr-FR/fr-FR.plg_editors-xtd_add_flickrset_btn.ini</language>
+        <language tag="fr-FR">language/fr-FR/fr-FR.plg_editors-xtd_add_flickrset_btn.sys.ini</language>
+    </languages>
+</extension>

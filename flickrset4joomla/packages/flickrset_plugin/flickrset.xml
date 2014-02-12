@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.2" type="plugin" group="content" method="upgrade">
+    <name>plg_content_flickrset</name>
+    <description>PLG_FLICKERSET_XML_DESCRIPTION</description>
+    <author>Olivier De Groef</author>
+    <authorEmail>ogroef@hotmail.com</authorEmail>
+    <authorUrl/>
+    <copyright>(C) 2013-2014 Olivier De Groef. All rights reserved.</copyright>
+    <license>http://www.gnu.org/licenses/gpl-3.0.html GNU/GPL</license>
+    <creationDate>flickrset_plugin_version_creation_date</creationDate>
+    <version>flickrset_plugin_version</version>
+    <!-- Parameters -->
+    <config>
+        <fields name="params">
+            <fieldset name="BASIC">
+                <field name="flickrset_flickrid" required="true" type="text" size="20" label="PLG_FLICKERSET_FIELD_FLICKRSET_FLICKRID_LBL" description="PLG_FLICKERSET_FIELD_FLICKRSET_FLICKRID_DESC"/>
+                <field name="flickrset_spacer" type="spacer" class="text" label="PLG_FLICKERSET_FIELD_FLICKRSET_LAYOUT_LBL"/>
+                <field name="flickrset_allowfullscreen" type="radio" class="btn-group btn-group-yesno" default="Y" label="PLG_FLICKERSET_FIELD_FLICKRSET_ALLOWFULLSCREEN_LBL" description="PLG_FLICKERSET_FIELD_FLICKRSET_ALLOWFULLSCREEN_DESC">
+                    <option value="Y">JYES</option>
+                    <option value="N">JNO</option>
+                </field>
+                <field name="flickrset_objectwidth" required="true" type="text" size="10" label="PLG_FLICKERSET_FIELD_FLICKRSET_OBJECTWIDTH_LBL" description="PLG_FLICKERSET_FIELD_FLICKRSET_OBJECTWIDTH_DESC" default= "400"/>
+                <field name="flickrset_objectheight" required="true" type="text" size="10" label="PLG_FLICKERSET_FIELD_FLICKRSET_OBJECTHEIGHT_LBL" description="PLG_FLICKERSET_FIELD_FLICKRSET_OBJECTHEIGHT_DESC" default= "300"/>
+            </fieldset>
+        </fields>
+    </config>
+    <!-- Files -->
+    <files folder="plugin" destination="flickrset">
+        <filename plugin="flickrset">flickrset.xml</filename>
+        <filename plugin="flickrset">flickrset.php</filename>
+        <filename plugin="flickrset">index.html</filename>
+        <folder>flickrset</folder>
+        <folder>language</folder>
+    </files>
+    <!-- Translations -->
+    <languages folder="plugin">
+        <language tag="en-GB">language/en-GB/en-GB.plg_content_flickrset.ini</language>
+        <language tag="en-GB">language/en-GB/en-GB.plg_content_flickrset.sys.ini</language>
+        <language tag="nl-NL">language/nl-NL/nl-NL.plg_content_flickrset.ini</language>
+        <language tag="nl-NL">language/nl-NL/nl-NL.plg_content_flickrset.sys.ini</language>
+        <language tag="fr-FR">language/fr-FR/fr-FR.plg_content_flickrset.ini</language>
+        <language tag="fr-FR">language/fr-FR/fr-FR.plg_content_flickrset.sys.ini</language>
+    </languages>
+</extension>
