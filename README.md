@@ -1,7 +1,9 @@
 Flickrset4joomla:
 =================
 
-The flickrset4joomla is a project that holds joomla plugins that enable the integration of public flickrsets into joomla articles.  The prerequisite of the flickrset is that it has to be public.  These plugins are developed/tested on a Joomla 3.2.1/3.2.2 instance.  The following plugins are part of the Flickrset4joomla project.
+The flickrset4joomla is a project that holds joomla plugins that enable the integration of public flickrsets into joomla articles.  The prerequisite is that only plubic phots of the flickrset will be shown in the widget.  These plugins are developed/tested on a Joomla 3.2.1/3.2.2 instance.
+
+The following plugins are part of the Flickrset4joomla project.
 
 Flickrset Plugin:
 =================
