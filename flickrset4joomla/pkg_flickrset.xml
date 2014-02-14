@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <extension type="package" version="3.2">
-    <name>PKG_FLICKRSET</name>
+    <name>pkg_flickrset</name>
     <description>PKG_FLICKRSET_XML_DESCRIPTION</description>
     <packagename>flickrset</packagename>
     <copyright>(C) 2013-2014 Olivier De Groef. All rights reserved.</copyright>
