@@ -2,11 +2,11 @@
 
 /**
  *
- * @version             $Id: add_flickrset_btn.php 0.1 2014/02/01 Olivier $
- * @package             Joomla
+ * @version     $Id: add_flickrset_btn.php 0.1 2014/02/01 Olivier $
+ * @package     Joomla
  * @subpackage  Content
  * @copyright   Copyright (C) 2005-2014 Open Source Matters. All rights reserved.
- * @license             GNU/GPL, see LICENSE.php
+ * @license     GNU/GPL, see LICENSE.php
  *
  * Joomla! is free software. This version may have been modified pursuant
  * to the GNU General Public License, and as distributed it includes or
