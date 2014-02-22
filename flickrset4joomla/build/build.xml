@@ -1,31 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="flickrset4joomla" default="release-all" basedir=".">
-    <description>Builds the joomla package project "flickrset4joomla".</description>
+<project name="flickrset4joomla" default="release-flickrset4joomla_pkg" basedir=".">
+    <description>Builds the joomla package project flickrset4joomla</description>
+    <property name="build-version" value="$Id: build.xml 0.1 2014/01/01 olivier $" />
+    
+    <echo message="Building according version ${build-version}" />
     
     <property file="build.properties" />
-    
-    <tstamp>
-        <format property="TODAY_BE" pattern="MMMM d ,YYYY" locale="nl,BE"/>
-    </tstamp>
     
     <property name="project-name" value="${ant.project.name}" />
     <property name="packages-folder" value="packages" />
 
     <property name="flickrset_plugin-name" value="flickrset_plugin" />
-    <property name="flickrset_plugin-folder-to-zip" value="${packages-folder}\${flickrset_plugin-name}" />
-    <property name="flickrset_plugin-destfile" value="${flickrset_plugin-name}_v${flickrset_plugin-version}.zip" /> 
-    
     <property name="add_flickrset_btn_plugin-name" value="add_flickrset_btn_plugin" />
-    <property name="add_flickrset_btn_plugin-folder-to-zip" value="${packages-folder}\${add_flickrset_btn_plugin-name}" /> 
-    <property name="add_flickrset_btn_plugin-destfile" value="${add_flickrset_btn_plugin-name}_v${add_flickrset_btn_plugin-version}.zip" /> 
-    
     <property name="package-name" value="${project-name}_pkg" />
-    <property name="flickrset4joomla_pkg-destfile" value="${package-name}_v${package-version}.zip" /> 
     
-    <property name="release-version-dir" value="../releases/REL${flickrset_release-version}" />
+    <!-- Init Globals-->
+    <target name="init_globals" description="Initializes the globals">
+        <tstamp>
+            <format property="TODAY_BE" pattern="MMMM d ,YYYY" locale="nl,BE"/>
+        </tstamp>
+    </target>
     
-    <target name="zip-flickrset_plugin" description="Generate the zipped file for flickrset_plugin.">
+    <!-- User inputs -->
+    <target name="input_release-version" description="Provide the release verion.">
+        <input message="What is the flickrset release version" defaultvalue="${default_flickrset_release-version}" addproperty="flickrset_release-version"></input>
+        <property name="release-version-dir" value="../releases/REL${flickrset_release-version}" />
+    </target>
+
+    <target name="input_flickrset_plugin-version" description="Provide the flickrset plugin version.">
+        <input message="What is the flickrset plugin version" defaultvalue="${default_flickrset_plugin-version}" addproperty="flickrset_plugin-version"></input>
+        <property name="flickrset_plugin-destfile" value="${flickrset_plugin-name}_v${flickrset_plugin-version}.zip" />
+    </target>
+    
+    <target name="input_add_flickrset_btn_plugin-version" description="Provide the add flickrset button plugin version.">
+        <input message="What is the add flickrset button plugin version" defaultvalue="${default_add_flickrset_btn_plugin-version}" addproperty="add_flickrset_btn_plugin-version"></input>
+        <property name="add_flickrset_btn_plugin-destfile" value="${add_flickrset_btn_plugin-name}_v${add_flickrset_btn_plugin-version}.zip" />
+    </target>
+    
+    <target name="input_flickrset_pkg-version" description="Provide the package plugin version.">
+        <input message="What is the package plugin version" defaultvalue="${default_package-version}" addproperty="package-version"></input>
+        <property name="flickrset4joomla_pkg-destfile" value="${package-name}_v${package-version}.zip" /> 
+    </target>
+
+    <!-- Flickrset plugin targets -->
+    <target name="zip-flickrset_plugin" description="Generate the zipped file for flickrset_plugin." depends="init_globals,input_flickrset_plugin-version">
         <property name="flickrset_plugin-xml_file" value="flickrset.xml" />
+        <property name="flickrset_plugin-folder-to-zip" value="${packages-folder}\${flickrset_plugin-name}" /> 
         
         <copy file="../${flickrset_plugin-folder-to-zip}/${flickrset_plugin-xml_file}" preservelastmodified="" todir="../.." outputencoding="UTF-8" />
         
@@ -40,17 +60,19 @@
         <delete file="../../${flickrset_plugin-xml_file}" />
     </target>
     
-    <target name="release-flickrset_plugin" description="Release the zipped file for flickrset_plugin." depends="zip-flickrset_plugin" >
+    <target name="release-flickrset_plugin" description="Release the zipped file for flickrset_plugin." depends="init_globals,input_release-version,zip-flickrset_plugin" >
         <move file="../../${flickrset_plugin-destfile}" preservelastmodified="yes" todir="${release-version-dir}" />
     </target>
-    
-    <target name="zip-add_flickrset_btn_plugin" description="Generate the zipped file for add_flickrset_btn_plugin.">
+
+    <!-- add flickrset button plugin targets -->
+    <target name="zip-add_flickrset_btn_plugin" description="Generate the zipped file for add_flickrset_btn_plugin." depends="init_globals,input_add_flickrset_btn_plugin-version">
         <property name="add_flickrset_btn_plugin-xml_file" value="add_flickrset_btn.xml" />
+        <property name="add_flickrset_btn_plugin-folder-to-zip" value="${packages-folder}\${add_flickrset_btn_plugin-name}" /> 
         
         <copy file="../${add_flickrset_btn_plugin-folder-to-zip}/${add_flickrset_btn_plugin-xml_file}" preservelastmodified="" todir="../.." outputencoding="UTF-8" />
         
         <replace file="../../${add_flickrset_btn_plugin-xml_file}" token="add_flickrset_btn_plugin_version_creation_date" value="${TODAY_BE}" />
-        <replace file="../../${add_flickrset_btn_plugin-xml_file}" token="add_flickrset_btn_plugin_version" value="${flickrset_plugin-version}" />
+        <replace file="../../${add_flickrset_btn_plugin-xml_file}" token="add_flickrset_btn_plugin_version" value="${add_flickrset_btn_plugin-version}" />
         
         <zip destfile="../../${add_flickrset_btn_plugin-destfile}" excludes="dont*.*">
             <zipfileset dir="../${add_flickrset_btn_plugin-folder-to-zip}" excludes="${add_flickrset_btn_plugin-xml_file}" />
@@ -60,11 +82,12 @@
         <delete file="../../${add_flickrset_btn_plugin-xml_file}" />
     </target>
     
-    <target name="release-add_flickrset_btn_plugin" description="Release the zipped file for add_flickrset_btn_plugin." depends="zip-add_flickrset_btn_plugin" >
+    <target name="release-add_flickrset_btn_plugin" description="Release the zipped file for add_flickrset_btn_plugin." depends="init_globals,input_release-version,zip-add_flickrset_btn_plugin" >
         <move file="../../${add_flickrset_btn_plugin-destfile}" preservelastmodified="yes" todir="${release-version-dir}" />
     </target>
 
-    <target name="zip-flickrset4joomla_pkg" description="Generate the zipped file for flickrset package." depends="zip-flickrset_plugin,zip-add_flickrset_btn_plugin">
+    <!-- flickrset package targets -->
+    <target name="zip-flickrset4joomla_pkg" description="Generate the zipped file for flickrset package." depends="init_globals,zip-flickrset_plugin,zip-add_flickrset_btn_plugin">
         <property name="flickrset4joomla_pkg-xml_file" value="pkg_flickrset.xml" />
         
         <copy file="../${flickrset4joomla_pkg-xml_file}" preservelastmodified="yes" todir="../.." outputencoding="UTF-8" />
@@ -81,16 +104,13 @@
             <zipfileset dir="../.." includes="${add_flickrset_btn_plugin-destfile}" />
         </zip>
         
+        <delete file="../../${flickrset4joomla_pkg-xml_file}" />
         <delete file="../../${flickrset_plugin-destfile}" />
         <delete file="../../${add_flickrset_btn_plugin-destfile}" />
-        <delete file="../../${flickrset4joomla_pkg-xml_file}" />
-        
     </target>
     
-    <target name="release-flickrset4joomla_pkg" description="Release the zipped file for flickrset package." depends="zip-flickrset4joomla_pkg" >
+    <target name="release-flickrset4joomla_pkg" description="Release the zipped file for flickrset package." depends="init_globals,input_release-version,input_flickrset_pkg-version,zip-flickrset4joomla_pkg" >
         <move file="../../${flickrset4joomla_pkg-destfile}" preservelastmodified="yes" todir="${release-version-dir}" />
     </target>
-    
-    <target name="release-all" description="Release plugins/package" depends="release-flickrset_plugin,release-add_flickrset_btn_plugin,release-flickrset4joomla_pkg" />
-    
+
 </project>
