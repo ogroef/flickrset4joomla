@@ -2,7 +2,7 @@
 
 /**
  *
- * @version     $Id: flickrset.php 0.1 2014/01/01 olivier $
+ * @version     $Id: flickrset.php 0.2 2014/03/01 olivier $
  * @package     Joomla
  * @subpackage  Content
  * @copyright   Copyright (C) 2005-2014 Open Source Matters. All rights reserved.
@@ -21,13 +21,18 @@ defined('_JEXEC') or die('Restricted access');
 // Import Joomla! Plugin library file
 jimport('joomla.plugin.plugin');
 
+// Get Application handler
+jimport('joomla.environment.browser');
+
 class plgContentflickrset extends JPlugin {
 
     var $plg_name = 'flickrset';
     var $plg_tag = 'flickrset';
+    var $plg_tag_url = 'flickrseturl';
 
     /**
      * Plugin that replaces {flickrset}-tags with flickr embeded code
+     *  When on a mobile device we show an URL instead of a flash object
      *
      * @param   string   $context    The context of the content being passed to the plugin.
      * @param   mixed    &$article   A reference to the article that is being rendered by the view.
@@ -37,6 +42,9 @@ class plgContentflickrset extends JPlugin {
      * @return  boolean        true on success.
      */
     function onContentPrepare($context, &$article, &$params, $limitstart) {
+        $browser = &JBrowser::getInstance();
+        $agent = $browser->getAgentString();      
+
         // Don't run this plugin when the content is being indexed
         if ($context === 'com_finder.indexer') {
             return true;
@@ -67,15 +75,15 @@ class plgContentflickrset extends JPlugin {
         $plgparam_flickrset_objectwidth = trim($this->params->get('flickrset_objectwidth', 400));
         $plgparam_flickrset_objectheight = trim($this->params->get('flickrset_objectheight', 300));
 
-        // Plugin wont be executed when flickerid is empty
+        // Plugin wont be executed when default flickerid is empty
         if ($plgparam_flickrset_flickrid == '') {
             return true;
         }
-
+        
         // Expression to search for (positions)
         $regex = "/{" . $this->plg_tag . "}.*?{\/" . $this->plg_tag . "}/i";
 
-        // Determine if theire are instances of $plg_tag and put in $matches
+        // Determine if there are instances of $plg_tag and put them in $matches
         //  when no instances found do not perform tag replacement
         if (preg_match_all($regex, $article->text, $matches)) {
             // start the replace loop
@@ -84,7 +92,7 @@ class plgContentflickrset extends JPlugin {
                 $tagcontent = preg_replace("/{.+?}/", "", $match);
 
                 // Get an array of parameters
-                // order of parameters: flickersetid|width|height
+                // order of parameters: flickersetid|flickrid|width|height|AllowFullScreen
                 $tagparams = explode('|', $tagcontent);
 
                 // Get the flickersetid strip html/php tags
@@ -94,11 +102,15 @@ class plgContentflickrset extends JPlugin {
                 $final_objectwidth = (@$tagparams[1]) ? $tagparams[1] : $plgparam_flickrset_objectwidth;
                 $final_objectheight = (@$tagparams[2]) ? $tagparams[2] : $plgparam_flickrset_objectheight;
 
+                // Determine the flickrid
+                $final_flickrid = (@$tagparams[3]) ? $tagparams[3] : $plgparam_flickrset_flickrid;
+
                 // Determine the allow fullscreen
-                $final_allowfullscreen = (@$plgparam_flickrset_allowfullscreen === 'Y') ? 'true' : 'false';
+                $tag_allowfullscreen = (@$tagparams[4]) ? $tagparams[4] : $plgparam_flickrset_allowfullscreen;
+                $final_allowfullscreen = (@$tag_allowfullscreen === 'Y') ? 'true' : 'false';
 
                 // Set a unique ID
-                $flickerset_playerID = 'FlickerSetID_' . substr(md5($tagparam_flickersetid), 1, 10) . '_' . rand();
+                $flickerset_playerID = 'FlickrSetID_' . substr(md5($tagparam_flickersetid), 1, 10) . '_' . rand();
 
                 // An array of all different elements used in the flickerset template
                 $TmplElmtParams = array(
@@ -114,14 +126,20 @@ class plgContentflickrset extends JPlugin {
                 $TmplElmtParamValues = array(
                     $flickerset_playerID,
                     $tagparam_flickersetid,
-                    $plgparam_flickrset_flickrid,
+                    $final_flickrid,
                     $final_objectwidth,
                     $final_objectheight,
                     $final_allowfullscreen
                 );
 
+                // Determine which tagsource to use depending on mobile device
+                if ($browser->isMobile() || stristr($agent, 'mobile')) {
+                    $usedtagsource = $newtagsource[$this->plg_tag_url];
+                } else {
+                    $usedtagsource = $newtagsource[$this->plg_tag];
+                }
                 // Perform the actual tag replacement
-                $convertedtag = JFilterOutput::ampReplace(str_replace($TmplElmtParams, $TmplElmtParamValues, $newtagsource[$this->plg_tag]));
+                $convertedtag = JFilterOutput::ampReplace(str_replace($TmplElmtParams, $TmplElmtParamValues, $usedtagsource));
 
                 // Output
                 $regex = "/{" . $this->plg_tag . "}" . preg_quote($tagcontent) . "{\/" . $this->plg_tag . "}/i";

@@ -1,8 +1,8 @@
-﻿<?php
+<?php
 
 /**
  *
- * @version     $Id: sources.php 0.1 2014/01/01 olivier $
+ * @version     $Id: sources.php 0.2 2014/01/01 olivier $
  * @package     Joomla
  * @subpackage  Content
  * @copyright   Copyright (C) 2005-2014 Open Source Matters. All rights reserved.
@@ -21,12 +21,21 @@ defined('_JEXEC') or die('Restricted access');
 /* -------------------------------- Embeded template code for FlickerSet -------------------------------- */
 $flickrset = "
 <div id=\"{PLAYERID}\">
-<object width=\"{OBJECT_WIDTH}\" height=\"{OBJECT_HEIGHT}\">
- <param name=\"flashvars\" value=\"offsite=true&lang=en-us&page_show_url=/photos/{FLICKRID}/sets/{FLICKR_SETID}/show/&page_show_back_url=/photos/{FLICKRID}/sets/{FLICKR_SETID}/&set_id={FLICKR_SETID}&jump_to=\" />
- <param name=\"movie\" value=\"http://www.flickr.com/apps/slideshow/show.swf?v=138195\" />
- <param name=\"allowFullScreen\" value=\"{ALLOWFULLSCREEN}\" />
- <embed type=\"application/x-shockwave-flash\" src=\"http://www.flickr.com/apps/slideshow/show.swf?v=138195\" allowFullScreen=\"{ALLOWFULLSCREEN}\" flashvars=\"offsite=true&lang=en-us&page_show_url=/photos/{FLICKRID}/sets/{FLICKR_SETID}/show/&page_show_back_url=/photos/{FLICKRID}/sets/{FLICKR_SETID}/&set_id={FLICKR_SETID}&jump_to=\" width=\"{OBJECT_WIDTH}\" height=\"{OBJECT_HEIGHT}\" />
-</object>
+ <object width=\"{OBJECT_WIDTH}\" height=\"{OBJECT_HEIGHT}\">
+  <param name=\"flashvars\" value=\"offsite=true&lang=en-us&page_show_url=/photos/{FLICKRID}/sets/{FLICKR_SETID}/show/&page_show_back_url=/photos/{FLICKRID}/sets/{FLICKR_SETID}/&set_id={FLICKR_SETID}&jump_to=\" />
+  <param name=\"movie\" value=\"http://www.flickr.com/apps/slideshow/show.swf?v=138195\" />
+  <param name=\"allowFullScreen\" value=\"{ALLOWFULLSCREEN}\" />
+  <embed type=\"application/x-shockwave-flash\" src=\"http://www.flickr.com/apps/slideshow/show.swf?v=138195\" allowFullScreen=\"{ALLOWFULLSCREEN}\" flashvars=\"offsite=true&lang=en-us&page_show_url=/photos/{FLICKRID}/sets/{FLICKR_SETID}/show/&page_show_back_url=/photos/{FLICKRID}/sets/{FLICKR_SETID}/&set_id={FLICKR_SETID}&jump_to=\" width=\"{OBJECT_WIDTH}\" height=\"{OBJECT_HEIGHT}\" />
+ </object>
+</div>
+";
+
+/* -------------------------------- Embeded template code for FlickerSet Url ---------------------------- */
+$flickrseturl = "
+<div id=\"{PLAYERID}\">
+ <form action=\"http://www.flickr.com/photos/{FLICKRID}/sets/{FLICKR_SETID}\">
+   <input type=\"submit\" value=\"Bekijk foto reportage hier\">
+ </form>
 </div>
 ";
 
@@ -34,4 +43,8 @@ $flickrset = "
 $newtagsource = array(
 // flickr.com - http://www.flickr.com/photos/sciandra/sets/72157631445023884/show/?embed=1
     "flickrset" => $flickrset,
+// flickr.com - http://www.flickr.com/photos/sciandra/sets/72157631445023884
+    "flickrseturl" => $flickrseturl
 );
+
+?>
