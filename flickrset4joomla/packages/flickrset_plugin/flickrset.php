@@ -27,8 +27,10 @@ jimport('joomla.environment.browser');
 class plgContentflickrset extends JPlugin {
 
     var $plg_name = 'flickrset';
+    // This is the tag where we look for in the article content
     var $plg_tag = 'flickrset';
-    var $plg_tag_url = 'flickrseturl';
+    var $plg_tag_button = 'flickrsetbutton';
+    var $plg_tag_link = 'flickrsetlink';
 
     /**
      * Plugin that replaces {flickrset}-tags with flickr embeded code
@@ -42,9 +44,6 @@ class plgContentflickrset extends JPlugin {
      * @return  boolean        true on success.
      */
     function onContentPrepare($context, &$article, &$params, $limitstart) {
-        $browser = &JBrowser::getInstance();
-        $agent = $browser->getAgentString();      
-
         // Don't run this plugin when the content is being indexed
         if ($context === 'com_finder.indexer') {
             return true;
@@ -74,12 +73,17 @@ class plgContentflickrset extends JPlugin {
         $plgparam_flickrset_allowfullscreen = trim($this->params->get('flickrset_allowfullscreen', 'Y'));
         $plgparam_flickrset_objectwidth = trim($this->params->get('flickrset_objectwidth', 400));
         $plgparam_flickrset_objectheight = trim($this->params->get('flickrset_objectheight', 300));
+        $plgparam_flickrset_mobile_type = trim($this->params->get('flickrset_mobile_type', 'L'));
 
         // Plugin wont be executed when default flickerid is empty
         if ($plgparam_flickrset_flickrid == '') {
             return true;
         }
         
+        // Only when we are sure that plugin needs to be executed get mobile input
+        $browser = &JBrowser::getInstance();
+        $agent = $browser->getAgentString();
+
         // Expression to search for (positions)
         $regex = "/{" . $this->plg_tag . "}.*?{\/" . $this->plg_tag . "}/i";
 
@@ -134,7 +138,11 @@ class plgContentflickrset extends JPlugin {
 
                 // Determine which tagsource to use depending on mobile device
                 if ($browser->isMobile() || stristr($agent, 'mobile')) {
-                    $usedtagsource = $newtagsource[$this->plg_tag_url];
+                    if ($plgparam_flickrset_mobile_type == 'L') {
+                        $usedtagsource = $newtagsource[$this->plg_tag_link];
+                    } else {
+                        $usedtagsource = $newtagsource[$this->plg_tag_button];
+                    }
                 } else {
                     $usedtagsource = $newtagsource[$this->plg_tag];
                 }

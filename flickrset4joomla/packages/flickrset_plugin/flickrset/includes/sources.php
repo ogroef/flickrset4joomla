@@ -18,8 +18,8 @@
 // no direct access
 defined('_JEXEC') or die('Restricted access');
 
-/* -------------------------------- Embeded template code for FlickerSet -------------------------------- */
-$flickrset = "
+/* ---------------------------- Embeded template code for FlickerSet as FlashObject --------------------------- */
+$flickrsetflash = "
 <div id=\"{PLAYERID}\">
  <object width=\"{OBJECT_WIDTH}\" height=\"{OBJECT_HEIGHT}\">
   <param name=\"flashvars\" value=\"offsite=true&lang=en-us&page_show_url=/photos/{FLICKRID}/sets/{FLICKR_SETID}/show/&page_show_back_url=/photos/{FLICKRID}/sets/{FLICKR_SETID}/&set_id={FLICKR_SETID}&jump_to=\" />
@@ -30,8 +30,8 @@ $flickrset = "
 </div>
 ";
 
-/* -------------------------------- Embeded template code for FlickerSet Url ---------------------------- */
-$flickrseturl = "
+/* -------------------------------- Embeded template code for FlickerSet as button ---------------------------- */
+$flickrsetbutton = "
 <div id=\"{PLAYERID}\">
  <form action=\"http://www.flickr.com/photos/{FLICKRID}/sets/{FLICKR_SETID}\">
    <input type=\"submit\" value=\"Bekijk foto reportage hier\">
@@ -39,12 +39,20 @@ $flickrseturl = "
 </div>
 ";
 
+/* -------------------------------- Embeded template code for FlickerSet as link ---------------------------- */
+$flickrsetlink = "
+<div id=\"{PLAYERID}\">
+   <a href=\"http://www.flickr.com/photos/{FLICKRID}/sets/{FLICKR_SETID}\">Bekijk foto reportage hier</a>
+</div>
+";
+
 /* -------------------------------- Tags & formats -------------------------------- */
 $newtagsource = array(
 // flickr.com - http://www.flickr.com/photos/sciandra/sets/72157631445023884/show/?embed=1
-    "flickrset" => $flickrset,
+    "flickrset" => $flickrsetflash,
 // flickr.com - http://www.flickr.com/photos/sciandra/sets/72157631445023884
-    "flickrseturl" => $flickrseturl
+    "flickrsetlink" => $flickrsetlink,
+    "flickrsetbutton" => $flickrsetbutton
 );
 
 ?>
