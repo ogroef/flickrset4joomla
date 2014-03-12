@@ -33,8 +33,8 @@ $flickrsetflash = "
 /* -------------------------------- Embeded template code for FlickerSet as button ---------------------------- */
 $flickrsetbutton = "
 <div id=\"{PLAYERID}\">
- <form action=\"http://www.flickr.com/photos/{FLICKRID}/sets/{FLICKR_SETID}\">
-   <input type=\"submit\" value=\"Bekijk foto reportage hier\">
+ <form action=\"http://www.flickr.com/photos/{FLICKRID}/sets/{FLICKR_SETID}\" target=\"_blank\">
+   <input type=\"submit\" value=\"{LINK_DISPLAY}\">
  </form>
 </div>
 ";
@@ -42,7 +42,7 @@ $flickrsetbutton = "
 /* -------------------------------- Embeded template code for FlickerSet as link ---------------------------- */
 $flickrsetlink = "
 <div id=\"{PLAYERID}\">
-   <a href=\"http://www.flickr.com/photos/{FLICKRID}/sets/{FLICKR_SETID}\">Bekijk foto reportage hier</a>
+   <a href=\"http://www.flickr.com/photos/{FLICKRID}/sets/{FLICKR_SETID}\" target=\"_blank\">{LINK_DISPLAY}</a>
 </div>
 ";
 
