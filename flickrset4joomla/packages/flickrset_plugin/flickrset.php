@@ -83,6 +83,9 @@ class plgContentflickrset extends JPlugin {
         // Only when we are sure that plugin needs to be executed get mobile input
         $browser = &JBrowser::getInstance();
         $agent = $browser->getAgentString();
+        
+        // Load plugin language file
+        JPlugin::loadLanguage('plg_content_flickrset',JPATH_ADMINISTRATOR);
 
         // Expression to search for (positions)
         $regex = "/{" . $this->plg_tag . "}.*?{\/" . $this->plg_tag . "}/i";
@@ -123,7 +126,8 @@ class plgContentflickrset extends JPlugin {
                     "{FLICKRID}",
                     "{OBJECT_WIDTH}",
                     "{OBJECT_HEIGHT}",
-                    "{ALLOWFULLSCREEN}"
+                    "{ALLOWFULLSCREEN}",
+                    "{LINK_DISPLAY}"
                 );
 
                 // An array of all different elements values used in the flickerset template
@@ -133,7 +137,8 @@ class plgContentflickrset extends JPlugin {
                     $final_flickrid,
                     $final_objectwidth,
                     $final_objectheight,
-                    $final_allowfullscreen
+                    $final_allowfullscreen,
+                    JText::_('PLG_FLICKERSET_PROMPT_LINK_DISPLAY')
                 );
 
                 // Determine which tagsource to use depending on mobile device
