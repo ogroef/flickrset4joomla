@@ -1,0 +1,9 @@
+/*!
+ * @package Flickrset Button
+ * @author Olivier De Groef
+ * @copyright (C) Olivier De Groef
+ * @license GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
+ */
+.icon-flickrset {
+    background: transparent url(../images/flickrset-icon-button.png) 100% 0px no-repeat;
+}

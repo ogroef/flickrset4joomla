@@ -84,9 +84,10 @@ class plgContentflickrset extends JPlugin {
         $browser = &JBrowser::getInstance();
         $agent = $browser->getAgentString();
         
-        // Load plugin language file
+        // Load plugin language,stylesheet file
         JPlugin::loadLanguage('plg_content_flickrset',JPATH_ADMINISTRATOR);
-
+        JHTML::stylesheet(JURI::base().'plugins/content/flickrset/flickrset/includes/css/plg_content_flickrset.css');
+        
         // Expression to search for (positions)
         $regex = "/{" . $this->plg_tag . "}.*?{\/" . $this->plg_tag . "}/i";
 

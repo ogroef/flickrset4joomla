@@ -33,9 +33,10 @@ $flickrsetflash = "
 /* -------------------------------- Embeded template code for FlickerSet as button ---------------------------- */
 $flickrsetbutton = "
 <div id=\"{PLAYERID}\">
- <form action=\"http://www.flickr.com/photos/{FLICKRID}/sets/{FLICKR_SETID}\" target=\"_blank\">
-   <input type=\"submit\" value=\"{LINK_DISPLAY}\">
- </form>
+   <p> <a class=\"btn\" target=\"_blank\" title=\"{LINK_DISPLAY}\" href=\"http://www.flickr.com/photos/{FLICKRID}/sets/{FLICKR_SETID}\" rel=\"\">
+       <span class=\"icon-flickrset\"></span>
+        {LINK_DISPLAY}
+       </a></p>
 </div>
 ";
 
