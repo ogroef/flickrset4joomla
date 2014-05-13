@@ -34,7 +34,7 @@ $flickrsetflash = "
 $flickrsetbutton = "
 <div id=\"{PLAYERID}\">
    <p> <a class=\"btn\" target=\"_blank\" title=\"{LINK_DISPLAY}\" href=\"http://www.flickr.com/photos/{FLICKRID}/sets/{FLICKR_SETID}\" rel=\"\">
-       <span class=\"icon-flickrset\"></span>
+       <i class=\"icon-flickrset\" />
         {LINK_DISPLAY}
        </a></p>
 </div>
@@ -43,7 +43,7 @@ $flickrsetbutton = "
 /* -------------------------------- Embeded template code for FlickerSet as link ---------------------------- */
 $flickrsetlink = "
 <div id=\"{PLAYERID}\">
-   <a href=\"http://www.flickr.com/photos/{FLICKRID}/sets/{FLICKR_SETID}\" target=\"_blank\">{LINK_DISPLAY}</a>
+   <a href=\"http://www.flickr.com/photos/{FLICKRID}/sets/{FLICKR_SETID}\" target=\"_blank\"><i class=\"icon-flickrset\" />{LINK_DISPLAY}</a>
 </div>
 ";
 
