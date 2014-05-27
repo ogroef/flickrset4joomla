@@ -39,6 +39,10 @@
         <folder>flickrset</folder>
         <folder>language</folder>
     </files>
+    <!-- Media Files -->
+    <media folder="media" destination="flickrset">
+        <filename>flickrset4joomla_300x119.png</filename>
+    </media>
     <!-- Translations -->
     <languages folder="plugin">
         <language tag="en-GB">language/en-GB/en-GB.plg_content_flickrset.ini</language>
