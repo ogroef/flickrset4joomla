@@ -26,6 +26,9 @@ jimport('joomla.environment.browser');
 
 class plgContentflickrset extends JPlugin {
 
+    // Loading the language file on instantiation
+    protected $autoloadLanguage = true;
+    
     var $plg_name = $this->_name;
     // This is the tag where we look for in the article content
     var $plg_tag = 'flickrset';
