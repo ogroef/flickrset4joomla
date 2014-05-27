@@ -144,6 +144,7 @@ class plgContentflickrset extends JPlugin {
 
                 // Determine which tagsource to use depending on mobile device
                 if ($browser->isMobile() || stristr($agent, 'mobile')) {
+                    // Show flickerset depending on the plugin mobile setting
                     if ($plgparam_flickrset_mobile_type == 'L') {
                         $usedtagsource = $newtagsource[$this->plg_tag_link];
                     } else {
