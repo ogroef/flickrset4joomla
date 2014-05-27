@@ -40,7 +40,7 @@
         <folder>language</folder>
     </files>
     <!-- Media Files -->
-    <media folder="media" destination="flickrset">
+    <media folder="media" destination="plg_content_flickrset">
         <filename>flickrset4joomla_300x119.png</filename>
     </media>
     <!-- Translations -->
