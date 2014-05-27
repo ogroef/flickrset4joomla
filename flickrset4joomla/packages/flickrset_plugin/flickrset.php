@@ -26,7 +26,7 @@ jimport('joomla.environment.browser');
 
 class plgContentflickrset extends JPlugin {
 
-    var $plg_name = 'flickrset';
+    var $plg_name = $this->_name;
     // This is the tag where we look for in the article content
     var $plg_tag = 'flickrset';
     var $plg_tag_button = 'flickrsetbutton';
