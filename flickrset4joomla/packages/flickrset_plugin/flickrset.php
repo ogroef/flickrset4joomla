@@ -29,7 +29,9 @@ class plgContentflickrset extends JPlugin {
     // Loading the language file on instantiation
     protected $autoloadLanguage = true;
     
-    var $plg_name = $this->_name;
+    var $plg_name             = 'flickrset';
+    var $plg_copyrights_start = "\n\n<!-- \"FlickrSet\" Plugin (\$Id: flickrset.php 0.2 2014/03/01 olivier \$) starts here -->\n";
+    var $plg_copyrights_end   = "\n<!-- \"FlickrSet\" Plugin (\$Id: flickrset.php 0.2 2014/03/01 olivier \$) ends here -->\n\n";
     // This is the tag where we look for in the article content
     var $plg_tag = 'flickrset';
     var $plg_tag_button = 'flickrsetbutton';
@@ -89,7 +91,7 @@ class plgContentflickrset extends JPlugin {
         
         // Load plugin language,stylesheet file
         JPlugin::loadLanguage('plg_content_flickrset',JPATH_ADMINISTRATOR);
-        JHTML::stylesheet(JURI::base().'plugins/content/flickrset/flickrset/includes/css/plg_content_flickrset.css');
+        JHTML::stylesheet('plg_content_flickrset/plg_editors-xtd_add_flickrset_btn.css', Array(), true);
         
         // Expression to search for (positions)
         $regex = "/{" . $this->plg_tag . "}.*?{\/" . $this->plg_tag . "}/i";
@@ -103,7 +105,7 @@ class plgContentflickrset extends JPlugin {
                 $tagcontent = preg_replace("/{.+?}/", "", $match);
 
                 // Get an array of parameters
-                // order of parameters: flickersetid|flickrid|width|height|AllowFullScreen
+                // order of parameters: flickersetid|width|height|flickrid|AllowFullScreen
                 $tagparams = explode('|', $tagcontent);
 
                 // Get the flickersetid strip html/php tags
@@ -157,11 +159,12 @@ class plgContentflickrset extends JPlugin {
                     $usedtagsource = $newtagsource[$this->plg_tag];
                 }
                 // Perform the actual tag replacement
-                $convertedtag = JFilterOutput::ampReplace(str_replace($TmplElmtParams, $TmplElmtParamValues, $usedtagsource));
+                $convertedtag = $this->plg_copyrights_start.JFilterOutput::ampReplace(str_replace($TmplElmtParams, $TmplElmtParamValues, $usedtagsource)).$this->plg_copyrights_end;
 
                 // Output
                 $regex = "/{" . $this->plg_tag . "}" . preg_quote($tagcontent) . "{\/" . $this->plg_tag . "}/i";
                 $article->text = preg_replace($regex, $convertedtag, $article->text);
+
             } // End foreach replacing loop
         } else { //when code comes here, no flickrset tags found to replace
         }// End if find all instance of $plg_tag
