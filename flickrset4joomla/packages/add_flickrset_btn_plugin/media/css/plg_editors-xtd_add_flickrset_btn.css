@@ -13,5 +13,7 @@
  * 
  * See COPYRIGHT.php for copyright notices and details.
  *
- * Starting from plg_editors-xtd_add_flickrset_btn version 0.2 this file has been moved to the media folder
  */
+.btn-toolbar .icon-flickrset-add-button {
+    background: transparent url(../images/flickrset-icon-add-button.png) 100% 0px no-repeat;
+}

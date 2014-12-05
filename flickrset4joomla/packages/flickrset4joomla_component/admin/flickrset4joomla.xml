@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="3.2" method="upgrade">
+    <name>com_flickrset4joomla</name>
+    <author>Olivier De Groef</author>
+    <creationDate>flickrset4joomla_component_version_creation_date</creationDate>
+    <copyright>(C) 2013-2015 Olivier De Groef. All rights reserved.</copyright>
+    <authorEmail>ogroef@hotmail.com</authorEmail>
+    <authorUrl/>
+    <version>flickrset4joomla_component_version</version>
+    <license>http://www.gnu.org/copyleft/gpl.html GNU/GPL</license>
+    <description>COM_FLICKRSET4JOOMLA_XML_DESCRIPTION</description>
+    
+    <scriptfile>script.php</scriptfile>
+    
+    <!-- Files -->
+    <files folder="site">
+        <filename>index.html</filename>
+        <filename>controller.php</filename>
+        <filename>flickrset4joomla.php</filename>
+        <filename>views/article/tmpl/addflickrsetbtn.php</filename>
+        <filename>views/article/tmpl/index.html</filename>
+        <filename>views/article/view.html.php</filename>
+        <filename>views/article/index.html</filename>
+        <filename>views/index.html</filename>
+        <folder>language</folder>
+    </files>
+    
+    <administration>
+        <menu>COM_FLICKRSET4JOOMLA_XML_MENU</menu>
+        
+        <files folder="admin">
+            <!-- Files -->
+            <filename>script.php</filename>
+            <filename>controller.php</filename>
+            <filename>flickrset4joomla.php</filename>
+            <filename>flickrset4joomla.xml</filename>
+            <filename>index.html</filename>
+            <filename>libraries/flickrset_btn/plugin.php</filename>
+            <filename>libraries/flickrset_btn/index.html</filename>
+            <filename>libraries/index.html</filename>
+            <filename>views/about/tmpl/default.php</filename>
+            <filename>views/about/tmpl/index.html</filename>
+            <filename>views/about/index.html</filename>
+            <filename>views/about/view.html.php</filename>
+            <filename>views/index.html</filename>
+            <filename>views/article/tmpl/addflickrsetbtn.php</filename>
+            <filename>views/article/tmpl/index.html</filename>
+            <filename>views/article/view.html.php</filename>
+            <filename>views/article/index.html</filename>
+            <filename>sql/index.html</filename>
+            <folder>language</folder>
+        </files>
+        
+        <!-- Translations -->
+        <languages folder="component">
+            
+        </languages>
+    </administration>
+    
+</extension>

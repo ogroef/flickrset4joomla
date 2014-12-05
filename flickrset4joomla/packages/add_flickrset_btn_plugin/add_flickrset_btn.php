@@ -2,8 +2,8 @@
 
 /**
  *
- * @version     $Id: add_flickrset_btn.php 0.1 2014/02/01 Olivier $
- * @package     Joomla
+ * @version     $Id: add_flickrset_btn.php 0.2 2014/02/01 Olivier $
+ * @package     add_flickrset_btn_plugin
  * @subpackage  Content
  * @copyright   Copyright (C) 2005-2014 Open Source Matters. All rights reserved.
  * @license     GNU/GPL, see LICENSE.php
@@ -18,12 +18,21 @@
 // no direct access
 defined('_JEXEC') or die('Restricted access');
 
+JLoader::import('components.com_flickrset_btn.libraries.flickrset_btn.plugin', JPATH_ADMINISTRATOR);
+
+if (!class_exists('FlickrSetPlugin')) {
+    return;
+}
+
 // Import Joomla! Plugin library file
 jimport('joomla.plugin.plugin');
 
-class plgButtonadd_flickrset_btn extends JPlugin {
+class plgButtonadd_flickrset_btn extends FlickrSetPlugin {
 
+    protected $com_content = 'com_content';
+    
     var $plg_name = 'add_flickrset_btn';
+    var $plg_version = '0.2';
     var $plg_tag = 'flickrset';
 
     /**
@@ -34,43 +43,54 @@ class plgButtonadd_flickrset_btn extends JPlugin {
      */
     protected $autoloadLanguage = true;
 
-    function onDisplay($name) {
-        $doc = JFactory::getDocument();
+    /**
+     * Display the button
+     *
+     * @param   string   $name    The name of the button to display.
+     * @param   string   $asset   The name of the asset being edited.
+     * @param   integer  $author  The id of the author owning the asset being edited.
+     *
+     * @return button 
+     */
+    function onDisplay($name, $asset, $author) {
+        
         $app = JFactory::getApplication();
+        $user = JFactory::getUser();
+        $doc = JFactory::getDocument();
 
-        JHTML::stylesheet('plugins/editors-xtd/add_flickrset_btn/add_flickrset_btn/includes/css/plg_editors-xtd_add_flickrset_btn.css');
+        $extension = $app->input->get('option');
 
-        $flickersetidprompt = JText::_('PLG_EDITORSXTD_FLICKRSET_PROMPT');
-        $flickersetidpromptalert = JText::_('PLG_EDITORSXTD_FLICKRSET_PROMPT_ALERT');
+        // $this->log($extension);
 
-        $jsCode = "function insertflickrset(nameOfEditor) {
-				    flickrsetid = prompt('$flickersetidprompt','0123456789');
-					
-					if (flickrsetid)
-					{ if (flickrsetid !== null && isFinite(flickrsetid) && flickrsetid.length>0)
-					  { // JInsertEditorText has to be defined by the editor in use (fe: TinyMCE editor or JCE does)
-                                            var tag = '\{$this->plg_tag\}'+flickrsetid+'{\/$this->plg_tag}';
-                                            jInsertEditorText(tag, nameOfEditor);
-					    return true;
-					  }
-					  else
-					  { alert('$flickersetidpromptalert');
-                                            return false;
-					  }
-					}
-                   }
-            ";
-        $doc->addScriptDeclaration($jsCode);
+        // Only generate the flickrset button in the content component
+        if ($extension === $this->com_content) {
+            // Add the regular css file
+            JHtml::stylesheet('plg_content_flickrset/plg_editors-xtd_add_flickrset_btn.css', Array(), true);
 
-        $button = new JObject();
-        $button->set('modal', false);
-        $button->set('class', 'btn');
-        $button->set('text', JText::_('PLG_EDITORSXTD_FLICKRSET_BUTTON'));
-        $button->set('onclick', 'insertflickrset(\'' . $name . '\');return false;');
-        $button->set('name', 'flickrset');
-        $button->set('link', 'javascript:void(0)');
+            JHtml::_('behavior.modal');
 
-        return $button;
+            $link = 'index.php?option=com_flickrset4joomla&amp;view=article&amp;layout=addflickrsetbtn&amp;tmpl=component&amp;e_name=' . $name . '&amp;flickrsettag=' . $this->plg_tag . '&amp;$addflickrsetbuttonversion=' . $this->plg_version;
+            
+            // Create the [Add Flickrset] button object
+            $button = new JObject();
+
+            // Finalize the [Add Flickrset] button info
+            $button->set('modal', true);
+            $button->set('class', 'btn');
+            $button->set('text', JText::_('PLG_EDITORS-XTD_FLICKRSET_BUTTON'));
+            if ($app->isAdmin()) {
+                $button->set('name', 'flickrset-add-button');
+            } else {
+                $button->set('name', 'flickrset-add-button-frontend');
+            }
+            $button->set('rel', '');
+            $button->set('link', $link);
+            $button->set('options', "{handler: 'iframe', size: {x:500, y:310}}");
+
+            return $button;
+        } else {
+            return false;
+        }
     }
 
 }

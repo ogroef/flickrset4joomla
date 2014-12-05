@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="plugin" group="editors-xtd" version="3.2" method="upgrade">
-    <name>plg_editors-xtd_add_flickrset_btn</name>
+    <name>ADD_FLICKRSET_BUTTON_PLUGIN_XML_NAME</name>
     <description>ADD_FLICKRSET_BUTTON_PLUGIN_XML_DESCRIPTION</description>
     <author>Olivier De Groef</author>
-    <copyright>(C) 2013-2014 Olivier De Groef. All rights reserved.</copyright>
+    <copyright>(C) 2013-2015 Olivier De Groef. All rights reserved.</copyright>
     <license>http://www.gnu.org/licenses/gpl-3.0.html GNU/GPL</license>
     <authorEmail>ogroef@hotmail.com</authorEmail>
     <authorUrl/>
@@ -16,7 +16,15 @@
         <filename plugin="add_flickrset_btn">index.html</filename>
         <folder>add_flickrset_btn</folder>
         <folder>language</folder>
+        <folder>media</folder>
+        <folder>administrator</folder>
     </files>
+    <!-- Media Files -->
+    <media folder="media" destination="add_flickrset_btn">
+        <folder>css</folder>
+        <folder>images</folder>
+        <folder>js</folder>
+    </media>
     <!-- Translations -->
     <languages folder="plugin">
         <language tag="en-GB">language/en-GB/en-GB.plg_editors-xtd_add_flickrset_btn.ini</language>
