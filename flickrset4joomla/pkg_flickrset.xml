@@ -16,6 +16,8 @@
     <files folder="packages">
         <file type="plugin" id="flickrset" group="content">flickrset_plugin_zip_file</file>
         <file type="plugin" id="add_flickrset_btn" group="editors-xtd">add_flickrset_btn_plugin_zip_file</file>
+		
+        <file type="component" id="flickrset4joomla">flickrset4joomla_component_zip_file</file>
         <folder>language</folder>
     </files>
     <!-- Translations -->
