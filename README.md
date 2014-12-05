@@ -16,6 +16,11 @@ Add Flickrset Button Plugin:
 
 This Joomla plugin renders an extra button, under the article editor, which eases the creation of special tokens for flickrset widget generation.
 
+Flickrset for Joomla Component
+==============================
+
+This Joomla component supports both the Flickrset and AddFlickrsetButton plugins.
+
 
 Flickrset Package:
 ==================
