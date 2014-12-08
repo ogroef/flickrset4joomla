@@ -18,11 +18,14 @@
 // no direct access
 defined('_JEXEC') or die('Restricted access');
 
+$php_min_version = "5.3.1";
+
 // verify PHP version
-if (version_compare(PHP_VERSION, '5.3.1') < 0) {
-    return JError::raiseWarning(20000, JText::sprintf('COM_FLICKRSET4JOOMLA_PHP_VERSION_INCOMPATIBLE', PHP_VERSION, '5.3.1'));
+if (version_compare(PHP_VERSION, $this->php_min_version ) < 0) {
+    return JError::raiseWarning(20000, JText::sprintf('COM_FLICKRSET4JOOMLA_PHP_VERSION_INCOMPATIBLE', PHP_VERSION, $this->php_min_version));
 }
 
+// 
 if (!JFactory::getUser()->authorise('core.manage', 'com_flickrset4joomla')) {
     return JError::raiseWarning(20404, JText::_('JERROR_ALERTNOAUTHOR'));
 }
@@ -38,7 +41,7 @@ $input = JFactory::getApplication()->input;
 $view = $input->getCmd('view', '');
 
 if ($view == '' && $input->getCmd('task', '') == '') {
-    $input->set('view', 'about');
+    $input->set('view', 'cpanel');
 }
 $controller->execute($input->getCmd('task', ''));
 

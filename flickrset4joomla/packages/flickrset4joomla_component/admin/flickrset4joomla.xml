@@ -30,13 +30,15 @@
         
         <files folder="admin">
             <!-- Files -->
+            <filename>CHANGELOG.php</filename>
+            <filename>COPYRIGHT.php</filename>
             <filename>script.php</filename>
             <filename>controller.php</filename>
             <filename>flickrset4joomla.php</filename>
             <filename>flickrset4joomla.xml</filename>
             <filename>index.html</filename>
-            <filename>libraries/flickrset_btn/plugin.php</filename>
-            <filename>libraries/flickrset_btn/index.html</filename>
+            <filename>libraries/flickrset/plugin.php</filename>
+            <filename>libraries/flickrset/index.html</filename>
             <filename>libraries/index.html</filename>
             <filename>views/about/tmpl/default.php</filename>
             <filename>views/about/tmpl/index.html</filename>
