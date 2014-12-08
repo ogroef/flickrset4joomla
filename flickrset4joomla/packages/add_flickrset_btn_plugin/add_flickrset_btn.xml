@@ -2,10 +2,10 @@
 <extension type="plugin" group="editors-xtd" version="3.2" method="upgrade">
     <name>ADD_FLICKRSET_BUTTON_PLUGIN_XML_NAME</name>
     <description>ADD_FLICKRSET_BUTTON_PLUGIN_XML_DESCRIPTION</description>
-    <author>Olivier De Groef</author>
-    <copyright>(C) 2013-2015 Olivier De Groef. All rights reserved.</copyright>
+    <author>add_flickrset_btn_plugin_author</author>
+    <copyright>Copyright (C) 2013-2015 add_flickrset_btn_plugin_author. Open Source Matters. All rights reserved.</copyright>
     <license>http://www.gnu.org/licenses/gpl-3.0.html GNU/GPL</license>
-    <authorEmail>ogroef@hotmail.com</authorEmail>
+    <authorEmail>add_flickrset_btn_plugin_authoremail</authorEmail>
     <authorUrl/>
     <version>add_flickrset_btn_plugin_version</version>
     <creationDate>add_flickrset_btn_plugin_version_creation_date</creationDate>
@@ -16,16 +16,22 @@
         <filename plugin="add_flickrset_btn">index.html</filename>
         <filename plugin="add_flickrset_btn">CHANGELOG.php</filename>
         <filename plugin="add_flickrset_btn">COPYRIGHT.php</filename>
-        <folder>add_flickrset_btn</folder>
-        <folder>language</folder>
-        <folder>media</folder>
-        <folder>administrator</folder>
+        <filename plugin="add_flickrset_btn">add_flickrset_btn/index.html</filename>
+        <filename plugin="add_flickrset_btn">add_flickrset_btn/includes</filename>
+        <filename plugin="add_flickrset_btn">add_flickrset_btn/includes/index.html</filename>
+        <filename plugin="add_flickrset_btn">add_flickrset_btn/includes/css/index.html</filename>
+        <filename plugin="add_flickrset_btn">add_flickrset_btn/includes/css/plg_editors-xtd_add_flickrset_btn.css</filename>
+        <filename plugin="add_flickrset_btn">add_flickrset_btn/includes/images/index.html</filename>
     </files>
     <!-- Media Files -->
     <media folder="media" destination="add_flickrset_btn">
-        <folder>css</folder>
-        <folder>images</folder>
-        <folder>js</folder>
+        <filename>index.html</filename>
+        <filename>css/index.html</filename>
+        <filename>css/plg_editors-xtd_add_flickrset_btn.css</filename>
+        <filename>images/index.html</filename>
+        <filename>images/flickrset-icon-add-button.png</filename>
+        <filename>js/index.html</filename>
+        <filename>js/add_flickrset_btn.js</filename>
     </media>
     <!-- Translations -->
     <languages folder="plugin">
