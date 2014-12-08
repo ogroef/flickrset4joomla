@@ -3,12 +3,12 @@
     <name>pkg_flickrset</name>
     <description>PKG_FLICKRSET_XML_DESCRIPTION</description>
     <packagename>flickrset</packagename>
-    <copyright>(C) 2013-2014 Olivier De Groef. All rights reserved.</copyright>
+    <copyright>(C) 2013-2014 flickrset4joomla_package_author. All rights reserved.</copyright>
     <license>http://www.gnu.org/licenses/gpl-3.0.html GNU/GPL</license>
-    <author>Olivier De Groef</author>
-    <authorEmail>ogroef@hotmail.com</authorEmail>
+    <author>flickrset4joomla_package_author</author>
+    <authorEmail>flickrset4joomla_package_authoremail</authorEmail>
     <authorUrl/>
-    <packager>Olivier De Groef</packager>
+    <packager>flickrset4joomla_package_author</packager>
     <packagerurl/>
     <version>package_version</version>
     <creationDate>package_version_creation_date</creationDate>
