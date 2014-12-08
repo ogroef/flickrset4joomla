@@ -18,24 +18,29 @@
 // no direct access
 defined('_JEXEC') or die('Restricted access');
 
-// Import Joomla! Plugin library file
-jimport('joomla.plugin.plugin');
+// Import the FlickrsetPlugin base class for common methods
+JLoader::import('components.com_flickrset_btn.libraries.flickrset.plugin', JPATH_ADMINISTRATOR);
+
+if (!class_exists('FlickrSetPlugin')) {
+    return;
+}
 
 // Get Application handler
 jimport('joomla.environment.browser');
 
-class plgContentflickrset extends JPlugin {
+class plgContentflickrset extends FlickrSetPlugin {
 
     // Loading the language file on instantiation
     protected $autoloadLanguage = true;
     
     var $plg_name             = 'flickrset';
-    var $plg_copyrights_start = "\n\n<!-- \"FlickrSet\" Plugin (\$Id: flickrset.php 0.2 2014/03/01 olivier \$) starts here -->\n";
-    var $plg_copyrights_end   = "\n<!-- \"FlickrSet\" Plugin (\$Id: flickrset.php 0.2 2014/03/01 olivier \$) ends here -->\n\n";
+    var $plg_version          = '';
+    var $plg_copyrights_start = '';
+    var $plg_copyrights_end   = '';
     // This is the tag where we look for in the article content
-    var $plg_tag = 'flickrset';
-    var $plg_tag_button = 'flickrsetbutton';
-    var $plg_tag_link = 'flickrsetlink';
+    var $plg_tag              = 'flickrset';
+    var $plg_tag_button       = 'flickrsetbutton';
+    var $plg_tag_link         = 'flickrsetlink';
 
     /**
      * Plugin that replaces {flickrset}-tags with flickr embeded code
@@ -72,6 +77,12 @@ class plgContentflickrset extends JPlugin {
         if ($matchresult == false) {
             return;
         }
+        
+        //Get the version number of the plugin
+        $xml = JFactory::getXML(JPATH_PLUGINS . DS . 'content'. DS . $this->plg_name . DS . $this->plg_name .'.xml');
+        $this->plg_version = $xml->version;
+        $this->plg_copyrights_start = "\n\n<!-- \"FlickrSet\" Plugin version ".$this->plg_version." starts here -->\n";
+        $this->plg_copyrights_end   = "\n<!-- \"FlickrSet\" Plugin version ".$this->plg_version." ends here -->\n\n";
 
         // Get plugin parameters
         $plgparam_flickrset_flickrid = trim($this->params->get('flickrset_flickrid'));
