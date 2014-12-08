@@ -14,6 +14,8 @@
         <filename plugin="add_flickrset_btn">add_flickrset_btn.php</filename>
         <filename plugin="add_flickrset_btn">add_flickrset_btn.xml</filename>
         <filename plugin="add_flickrset_btn">index.html</filename>
+        <filename plugin="add_flickrset_btn">CHANGELOG.php</filename>
+        <filename plugin="add_flickrset_btn">COPYRIGHT.php</filename>
         <folder>add_flickrset_btn</folder>
         <folder>language</folder>
         <folder>media</folder>
