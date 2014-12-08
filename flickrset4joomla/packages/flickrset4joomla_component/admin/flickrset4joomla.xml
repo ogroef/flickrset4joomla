@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="component" version="3.2" method="upgrade">
     <name>com_flickrset4joomla</name>
-    <author>Olivier De Groef</author>
-    <creationDate>flickrset4joomla_component_version_creation_date</creationDate>
-    <copyright>(C) 2013-2015 Olivier De Groef. All rights reserved.</copyright>
-    <authorEmail>ogroef@hotmail.com</authorEmail>
+    <description>COM_FLICKRSET4JOOMLA_XML_DESCRIPTION</description>
+    <author>flickrset4joomla_component_author</author>
+    <copyright>(C) 2013-2015 flickrset4joomla_component_author. All rights reserved.</copyright>
+    <license>http://www.gnu.org/copyleft/gpl.html GNU/GPL</license>
+    <authorEmail>flickrset4joomla_component_authoremail</authorEmail>
     <authorUrl/>
     <version>flickrset4joomla_component_version</version>
-    <license>http://www.gnu.org/copyleft/gpl.html GNU/GPL</license>
-    <description>COM_FLICKRSET4JOOMLA_XML_DESCRIPTION</description>
+    <creationDate>flickrset4joomla_component_version_creation_date</creationDate>
     
     <scriptfile>script.php</scriptfile>
     
