@@ -18,21 +18,19 @@
 // no direct access
 defined('_JEXEC') or die('Restricted access');
 
-JLoader::import('components.com_flickrset_btn.libraries.flickrset_btn.plugin', JPATH_ADMINISTRATOR);
+// Import the FlickrsetPlugin class for common methods
+JLoader::import('components.com_flickrset_btn.libraries.flickrset.plugin', JPATH_ADMINISTRATOR);
 
 if (!class_exists('FlickrSetPlugin')) {
     return;
 }
-
-// Import Joomla! Plugin library file
-jimport('joomla.plugin.plugin');
 
 class plgButtonadd_flickrset_btn extends FlickrSetPlugin {
 
     protected $com_content = 'com_content';
     
     var $plg_name = 'add_flickrset_btn';
-    var $plg_version = '0.2';
+    var $plg_version = '';
     var $plg_tag = 'flickrset';
 
     /**
@@ -64,6 +62,10 @@ class plgButtonadd_flickrset_btn extends FlickrSetPlugin {
 
         // Only generate the flickrset button in the content component
         if ($extension === $this->com_content) {
+            //Get the version number of the plugin
+            $xml = JFactory::getXML(JPATH_PLUGINS . DS . $this->plg_name .'.xml');
+            $this->plg_version = $xml->version;
+        
             // Add the regular css file
             JHtml::stylesheet('plg_content_flickrset/plg_editors-xtd_add_flickrset_btn.css', Array(), true);
 
