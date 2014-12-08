@@ -11,7 +11,7 @@
     <property name="project-name" value="${ant.project.name}" />
     
     <property name="packages-folder" value="packages" />
-    <property name="building-rootfolder" value="../building" />
+    <property name="building-rootfolder" value="${basedir}/../building" />
 
     <property name="flickrset_plugin-name" value="flickrset_plugin" />
     <property name="add_flickrset_btn_plugin-name" value="add_flickrset_btn_plugin" />
@@ -63,7 +63,7 @@
         <property name="flickrset4joomla_component-destfile" value="${flickrset4joomla_component-name}_v${flickrset4joomla_component-version}.zip" />
     </target>
     
-    <target name="input_flickrset_package-version" description="Provide the package plugin version.">
+    <target name="input_flickrset4joomla_package-version" description="Provide the package plugin version.">
         <input message="What is the package plugin version" defaultvalue="${default_package-version}" addproperty="package-version"></input>
         <property name="building-folder" value="${building-rootfolder}/${flickrset4joomla_package-name}" />
         <property name="flickrset4joomla_package-destfile" value="${flickrset4joomla_package-name}_v${package-version}.zip" /> 
@@ -149,29 +149,35 @@
 
     <!-- flickrset4joomla package targets -->
     <target name="zip-flickrset4joomla_package" description="Generate the zipped file for flickrset package." depends="zip-flickrset_plugin,zip-add_flickrset_btn_plugin,zip-flickrset4joomla_component">
-        <property name="flickrset4joomla_package-xml_file" value="package_flickrset.xml" />
+        <property name="flickrset4joomla_package-xml_file" value="pkg_flickrset.xml" />
         
-        <copy file="../${flickrset4joomla_package-xml_file}" preservelastmodified="yes" todir="../.." outputencoding="UTF-8" />
+        <delete file="${building-folder}" />
         
-        <replace file="../../${flickrset4joomla_package-xml_file}" token="package_version_creation_date" value="${TODAY_BE}" />
-        <replace file="../../${flickrset4joomla_package-xml_file}" token="package_version" value="${package-version}" />
-        <replace file="../../${flickrset4joomla_package-xml_file}" token="flickrset_plugin_zip_file" value="${flickrset_plugin-destfile}" />
-        <replace file="../../${flickrset4joomla_package-xml_file}" token="add_flickrset_btn_plugin_zip_file" value="${add_flickrset_btn_plugin-destfile}" />
+        <copy file="../${flickrset4joomla_package-xml_file}" preservelastmodified="yes" todir="${building-folder}" outputencoding="UTF-8" />
+        <copy preservelastmodified="" todir="${building-folder}" outputencoding="UTF-8">
+            <fileset dir="../language" />
+        </copy>
+        
+        <replace file="${building-folder}/${flickrset4joomla_package-xml_file}" token="package_version_creation_date" value="${TODAY_BE}" />
+        <replace file="${building-folder}/${flickrset4joomla_package-xml_file}" token="package_version" value="${package-version}" />
+        <replace file="${building-folder}/${flickrset4joomla_package-xml_file}" token="flickrset4joomla_package_authoremail" value="${flickrset4joomla_author_email}" />
+        <replace file="${building-folder}/${flickrset4joomla_package-xml_file}" token="flickrset4joomla_package_author" value="${flickrset4joomla_author}" />
+        <replace file="${building-folder}/${flickrset4joomla_package-xml_file}" token="flickrset_plugin_zip_file" value="${flickrset_plugin-destfile}" />
+        <replace file="${building-folder}/${flickrset4joomla_package-xml_file}" token="add_flickrset_btn_plugin_zip_file" value="${add_flickrset_btn_plugin-destfile}" />
+        <replace file="${building-folder}/${flickrset4joomla_package-xml_file}" token="flickrset4joomla_component_zip_file" value="${flickrset4joomla_component-destfile}" />
         
         <zip destfile="../../${flickrset4joomla_package-destfile}" excludes="dont*.*">
-            <zipfileset dir="../.." includes="${flickrset4joomla_package-xml_file}" />
-            <zipfileset dir="../language" prefix="language" />
-            <zipfileset dir="../.." includes="${flickrset_plugin-destfile}" />
-            <zipfileset dir="../.." includes="${add_flickrset_btn_plugin-destfile}" />
+            <zipfileset dir="${building-folder}" includes="${flickrset4joomla_package-xml_file}" />
+            <zipfileset dir="${building-folder}/language" prefix="language" />
+            <zipfileset dir="${building-folder}" includes="${flickrset_plugin-destfile}" />
+            <zipfileset dir="${building-folder}" includes="${add_flickrset_btn_plugin-destfile}" />
+            <zipfileset dir="${building-folder}" includes="${flickrset4joomla_component-destfile}" />
         </zip>
-        
-        <delete file="../../${flickrset4joomla_package-xml_file}" />
-        <delete file="../../${flickrset_plugin-destfile}" />
-        <delete file="../../${add_flickrset_btn_plugin-destfile}" />
     </target>
     
-    <target name="release-flickrset4joomla_package" description="Release the zipped file for flickrset package." depends="init_globals,input_release-version,input_flickrset_package-version,zip-flickrset4joomla_package" >
-        <move file="../../${flickrset4joomla_package-destfile}" preservelastmodified="yes" todir="${release-version-dir}" />
+    <target name="release-flickrset4joomla_package" description="Release the zipped file for flickrset package." depends="init_globals,input_release-version,input_flickrset4joomla_package-version,zip-flickrset4joomla_package" >
+        <move file="${building-folder}/${flickrset4joomla_package-destfile}" preservelastmodified="yes" todir="${release-version-dir}" />
+        <delete file="${building-folder}" />
     </target>
 
 </project>
