@@ -33,6 +33,8 @@
     </config>
     <!-- Plugin Files -->
     <files folder="plugin" destination="flickrset">
+        <filename plugin="flickrset">CHANGELOG.php</filename>
+        <filename plugin="flickrset">COPYRIGHT.php</filename>
         <filename plugin="flickrset">flickrset.xml</filename>
         <filename plugin="flickrset">flickrset.php</filename>
         <filename plugin="flickrset">index.html</filename>
