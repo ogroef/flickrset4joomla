@@ -21,12 +21,13 @@ defined('_JEXEC') or die('Restricted access');
 class com_flickrset4joomlaInstallerScript {
 
     protected $extension = 'com_flickrset4joomla';
+    protected $php_min_version = '5.3.1';
 
     function preflight($type, $parent) {
         $this->parent = $parent;
-        if (version_compare(PHP_VERSION, '5.3.1', '<')) {
+        if (version_compare(PHP_VERSION, $this->php_min_version, '<')) {
             $this->loadLanguage();
-            Jerror::raiseWarning(null, JText::sprintf('COM_FLICKRSET4JOOMLA_PHP_VERSION_INCOMPATIBLE', PHP_VERSION, '5.3.1'));
+            Jerror::raiseWarning(null, JText::sprintf('COM_FLICKRSET4JOOMLA_PHP_VERSION_INCOMPATIBLE', PHP_VERSION, $this->php_min_version));
             return false;
         }
     }
