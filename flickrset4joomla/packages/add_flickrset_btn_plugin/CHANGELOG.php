@@ -2,7 +2,7 @@
 /**
  * @package		flickrset
  * @subpackage	        com_flickrser4joomla
- * @version		0.1
+ * @version		$Id$
  *
  * @author		Olivier De Groef
  * @authoremail         ogroef@hotmail.com
@@ -19,9 +19,13 @@
 ?>
 ----------------------- 0.1 Release  [01-December-2014] -----------------------
 
-01-December-2014
-  ! Initial Release for Joomla! 3.x
+20-December-2014
+  + Making possible to add flickr sets of other flickr users
+  $ Fixing small language spelling mistakes
 
+3-March-2014
+  ! Initial Release for Joomla! 3.x
+  
 Legend:
 
 * -> Security Fix

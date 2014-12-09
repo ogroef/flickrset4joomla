@@ -19,7 +19,12 @@
 ?>
 ----------------------- 0.1 Release  [01-December-2014] -----------------------
 
-01-December-2014
+20-December-2014
+  + Making possible to add flickr sets of other flickr users
+  + Using shared libraries of the component
+  $ Fixing small language spelling mistakes
+
+3-March-2014
   ! Initial Release for Joomla! 3.x
 
 Legend:
