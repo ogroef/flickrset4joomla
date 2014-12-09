@@ -164,6 +164,7 @@
         <delete file="${building-folder}" />
 
         <copy file="../${flickrset4joomla_package-xml_file}" preservelastmodified="yes" todir="${building-folder}" outputencoding="UTF-8" />
+        <copy file="../ReadFirst.txt" preservelastmodified="yes" todir="${building-folder}" outputencoding="UTF-8" />
         <copy preservelastmodified="" todir="${building-folder}/language" outputencoding="UTF-8">
             <fileset dir="../language" />
         </copy>
@@ -178,6 +179,7 @@
 
         <zip destfile="${building-folder}/${flickrset4joomla_package-destfile}" excludes="dont*.*">
             <zipfileset dir="${building-folder}" includes="${flickrset4joomla_package-xml_file}" />
+            <zipfileset dir="${building-folder}" includes="ReadFirst.txt" />
             <zipfileset dir="${building-folder}/language" prefix="language" />
             <zipfileset dir="${building-rootfolder}/${flickrset_plugin-name}" includes="${flickrset_plugin-destfile}" prefix="packages" />
             <zipfileset dir="${building-rootfolder}/${add_flickrset_btn_plugin-name}" includes="${add_flickrset_btn_plugin-destfile}" prefix="packages" />
