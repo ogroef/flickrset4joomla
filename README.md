@@ -28,4 +28,4 @@ Flickrset Package:
 This Joomla package holds the two Joomla plugins and the componant which eases the installation on Joomla.
 
 
-Last updated: 12-Feb-2014
+Last updated: 09-Dec-2014
