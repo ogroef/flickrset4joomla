@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="component" version="3.2" method="upgrade">
-    <name>com_flickrset4joomla</name>
+    <name>COM_FLICKRSET4JOOMLA_XML_NAME</name>
     <description>COM_FLICKRSET4JOOMLA_XML_DESCRIPTION</description>
     <author>flickrset4joomla_component_author</author>
     <copyright>(C) 2013-2015 flickrset4joomla_component_author. All rights reserved.</copyright>
