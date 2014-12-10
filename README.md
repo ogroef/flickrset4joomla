@@ -1,7 +1,11 @@
 Flickrset4joomla:
 =================
 
-The flickrset4joomla is a project that holds joomla plugins that enable the integration of flickrset widget into joomla articles.  Only public photos will be visible in the embedded flickrset widget.  These plugins are developed/tested on a Joomla 3.2.1/3.2.2 instance.
+The flickrset4joomla is a project that holds joomla plugins/component that enable the integration of a flickrset widget into joomla articles. This generated widget is a shokwave-flash object during Joomla article loading. In de flickrset plugin you can define how to schow this on mobile device.  Either you show it as a button or as a link.
+
+Only public photos will be visible in the embedded flickrset widget/button/link.
+
+These plugins/component are developed/tested against a Joomla 3.2.1/3.2.2/3.3.5/3.3.6 instance.
 
 The following plugins are part of the Flickrset4joomla project.
 
