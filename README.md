@@ -1,4 +1,4 @@
-[![Analytics](https://github.com/ogroef/flickrset4joomla/media/flickrset4joomla.gif)](https://github.com/ogroef/flickrset4joomla)
+[![Analytics](https://github.com/ogroef/flickrset4joomla/blob/master/flickrset4joomla/media/flickrset4joomla.gif)](https://github.com/ogroef/flickrset4joomla)
 Flickrset4joomla:
 =================
 
