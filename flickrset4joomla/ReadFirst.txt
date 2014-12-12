@@ -1,4 +1,5 @@
 Hello
+
 This is the install package for a joomla 3.x.
 Here you will find the component and plugins of Flickrset4Joomla.
 
@@ -8,10 +9,11 @@ Here you will find the component and plugins of Flickrset4Joomla.
 - PHP >= 5.3.1
 
 ***** INSTALLATION *****
-To install Flickrset4Joomla extract the component, your desired plugins zip files and install them
+To install Flickrset4Joomla extract the component and plugins zip-files and install them
 with the joomla installer.
+If you install each zip file seperatly you must first install the component and afterwards the plugins.
 You can also install the whole suite with all extensions trough the joomla installer. After 
-a successfull installation configure the 'Add Flickrset button'-plugin and publish him. 
+a successfull installation configure the 'Add Flickrset button'-plugin and publish him.
 
 Have fun
 Olivier De Groef
