@@ -3,8 +3,9 @@
 /**
  *
  * @version     $Id: flickrset.php 0.2 2014/03/01 olivier $
- * @package     Joomla
- * @subpackage  Content
+ * @package     Joomla.Platform
+ * @subpackage  Plugin
+ * @author      Olivier
  * @copyright   Copyright (C) 2005-2014 Open Source Matters. All rights reserved.
  * @license     GNU/GPL, see LICENSE.php
  *

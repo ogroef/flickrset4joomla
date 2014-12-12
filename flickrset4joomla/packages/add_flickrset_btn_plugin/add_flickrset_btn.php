@@ -3,8 +3,9 @@
 /**
  *
  * @version     $Id: add_flickrset_btn.php 0.2 2014/02/01 Olivier $
- * @package     add_flickrset_btn_plugin
- * @subpackage  Content
+ * @package     Joomla.Platform
+ * @subpackage  Plugin
+ * @author      Olivier
  * @copyright   Copyright (C) 2005-2014 Open Source Matters. All rights reserved.
  * @license     GNU/GPL, see LICENSE.php
  *

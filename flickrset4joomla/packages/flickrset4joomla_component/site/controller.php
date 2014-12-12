@@ -2,9 +2,10 @@
 
 /**
  *
- * @version     $Id$
- * @package     flickrset
- * @subpackage  Content
+ * @version     $Id: controller.php 0.1 2014/02/01 Olivier $
+ * @package     Joomla.Platform
+ * @subpackage  Component
+ * @author      Olivier
  * @copyright   Copyright (C) 2005-2014 Open Source Matters. All rights reserved.
  * @license     GNU/GPL, see LICENSE.php
  *

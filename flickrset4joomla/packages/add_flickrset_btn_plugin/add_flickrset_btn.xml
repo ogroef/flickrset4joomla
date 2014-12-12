@@ -6,9 +6,10 @@
     <copyright>Copyright (C) 2013-2015 add_flickrset_btn_plugin_author. Open Source Matters. All rights reserved.</copyright>
     <license>http://www.gnu.org/licenses/gpl-3.0.html GNU/GPL</license>
     <authorEmail>add_flickrset_btn_plugin_authoremail</authorEmail>
-    <authorUrl/>
+    <authorUrl>https://github.com/ogroef/flickrset4joomla</authorUrl>
     <version>add_flickrset_btn_plugin_version</version>
     <creationDate>add_flickrset_btn_plugin_version_creation_date</creationDate>
+    
     <!-- Files -->
     <files folder="plugin" destination="add_flickrset_btn">
         <filename plugin="add_flickrset_btn">add_flickrset_btn.php</filename>
@@ -23,6 +24,7 @@
         <filename plugin="add_flickrset_btn">add_flickrset_btn/includes/css/plg_editors-xtd_add_flickrset_btn.css</filename>
         <filename plugin="add_flickrset_btn">add_flickrset_btn/includes/images/index.html</filename>
     </files>
+    
     <!-- Media Files -->
     <media folder="media" destination="add_flickrset_btn">
         <filename>index.html</filename>
@@ -33,6 +35,7 @@
         <filename>js/index.html</filename>
         <filename>js/add_flickrset_btn.js</filename>
     </media>
+    
     <!-- Translations -->
     <languages folder="plugin">
         <language tag="en-GB">language/en-GB/en-GB.plg_editors-xtd_add_flickrset_btn.ini</language>
@@ -42,4 +45,5 @@
         <language tag="fr-FR">language/fr-FR/fr-FR.plg_editors-xtd_add_flickrset_btn.ini</language>
         <language tag="fr-FR">language/fr-FR/fr-FR.plg_editors-xtd_add_flickrset_btn.sys.ini</language>
     </languages>
+    
 </extension>

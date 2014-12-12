@@ -2,9 +2,10 @@
 
 /**
  *
- * @version     $Id: sources.php 0.2 2014/01/01 olivier $
- * @package     Joomla
- * @subpackage  Content
+ * @version     $Id: sources.php 0.2 2014/12/20 olivier $
+ * @package     Joomla.Platform
+ * @subpackage  Plugin
+ * @author      Olivier
  * @copyright   Copyright (C) 2005-2014 Open Source Matters. All rights reserved.
  * @license     GNU/GPL, see LICENSE.php
  *

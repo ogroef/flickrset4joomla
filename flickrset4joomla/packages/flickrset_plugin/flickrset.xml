@@ -6,9 +6,10 @@
     <copyright>Copyright (C) 2013-2015 flickrset_plugin_author. Open Source Matters. All rights reserved.</copyright>
     <license>http://www.gnu.org/licenses/gpl-3.0.html GNU/GPL</license>
     <authorEmail>flickrset_plugin_authoremail</authorEmail>
-    <authorUrl/>
+    <authorUrl>https://github.com/ogroef/flickrset4joomla</authorUrl>
     <version>flickrset_plugin_version</version>
     <creationDate>flickrset_plugin_version_creation_date</creationDate>
+    
     <!-- Parameters -->
     <config>
         <fields name="params">
@@ -31,6 +32,7 @@
             </fieldset>
         </fields>
     </config>
+    
     <!-- Plugin Files -->
     <files folder="plugin" destination="flickrset">
         <filename plugin="flickrset">CHANGELOG.php</filename>
@@ -46,11 +48,13 @@
         <filename plugin="flickrset">flickrset/includes/images/index.html</filename>
         <filename plugin="flickrset">flickrset/includes/images/flickrset-icon-button.png</filename>
     </files>
+    
     <!-- Media Files -->
     <media folder="media" destination="plg_content_flickrset">
         <filename>flickrset4joomla_300x119.png</filename>
         <filename>index.html</filename>
     </media>
+    
     <!-- Translations -->
     <languages folder="plugin">
         <language tag="en-GB">language/en-GB/en-GB.plg_content_flickrset.ini</language>
