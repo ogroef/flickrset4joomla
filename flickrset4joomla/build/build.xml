@@ -115,8 +115,8 @@
         <replace file="${building-folder}/${add_flickrset_btn_plugin-xml_file}" token="add_flickrset_btn_plugin_version" value="${add_flickrset_btn_plugin-version}" />
         <replace file="${building-folder}/${add_flickrset_btn_plugin-xml_file}" token="add_flickrset_btn_plugin_authoremail" value="${flickrset4joomla_author_email}" />
         <replace file="${building-folder}/${add_flickrset_btn_plugin-xml_file}" token="add_flickrset_btn_plugin_author" value="${flickrset4joomla_author}" />
-        <replace dir="${building-folder}/language" token="flickrset_plugin_version_creation_date" value="${TODAY_BE}" />
-        <replace dir="${building-folder}/language" token="flickrset_plugin_version" value="${flickrset_plugin-version}" />
+        <replace dir="${building-folder}/language" token="add_flickrset_btn_plugin_version_creation_date" value="${TODAY_BE}" />
+        <replace dir="${building-folder}/language" token="add_flickrset_btn_plugin_version" value="${add_flickrset_btn_plugin-version}" />
         <replace dir="${building-folder}/language" token="add_flickrset_btn_plugin_author" value="${flickrset4joomla_author}" />
         <replace dir="${building-folder}/language" token="add_flickrset_btn_plugin_author" value="${flickrset4joomla_author}" />
 
@@ -149,11 +149,11 @@
         <replace file="${building-folder}/admin/${flickrset4joomla_component-xml_file}" token="flickrset4joomla_component_version" value="${flickrset4joomla_component-version}" />
         <replace file="${building-folder}/admin/${flickrset4joomla_component-xml_file}" token="flickrset4joomla_component_authoremail" value="${flickrset4joomla_author_email}" />
         <replace file="${building-folder}/admin/${flickrset4joomla_component-xml_file}" token="flickrset4joomla_component_author" value="${flickrset4joomla_author}" />
-        <replace dir="${building-folder}/admin/language" token="flickrset_plugin_version_creation_date" value="${TODAY_BE}" />
-        <replace dir="${building-folder}/admin/language" token="flickrset_plugin_version" value="${flickrset_plugin-version}" />
+        <replace dir="${building-folder}/admin/language" token="flickrset4joomla_component_version_creation_date" value="${TODAY_BE}" />
+        <replace dir="${building-folder}/admin/language" token="flickrset4joomla_component_version" value="${flickrset4joomla_component-version}" />
         <replace dir="${building-folder}/admin/language" token="flickrset4joomla_component_author" value="${flickrset4joomla_author}" />
-        <replace dir="${building-folder}/site/language" token="flickrset_plugin_version_creation_date" value="${TODAY_BE}" />
-        <replace dir="${building-folder}/site/language" token="flickrset_plugin_version" value="${flickrset_plugin-version}" />
+        <replace dir="${building-folder}/site/language" token="flickrset4joomla_component_version_creation_date" value="${TODAY_BE}" />
+        <replace dir="${building-folder}/site/language" token="flickrset4joomla_component_version" value="${flickrset4joomla_component-version}" />
         <replace dir="${building-folder}/site/language" token="flickrset4joomla_component_author" value="${flickrset4joomla_author}" />
 
         <zip destfile="${building-folder}/${flickrset4joomla_component-destfile}" excludes="dont*.*">
