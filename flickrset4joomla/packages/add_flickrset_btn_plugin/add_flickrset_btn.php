@@ -64,7 +64,7 @@ class plgButtonadd_flickrset_btn extends FlickrSetPlugin {
         // Only generate the flickrset button in the content component
         if ($extension === $this->com_content) {
             //Get the version number of the plugin
-            $xml = JFactory::getXML(JPATH_PLUGINS . DS . $this->plg_name .'.xml');
+            $xml = JFactory::getXML(JPATH_PLUGINS . DS . 'editors-xtd' . DS . $this->plg_name . DS . $this->plg_name .'.xml');
             $this->plg_version = $xml->version;
         
             // Add the regular css file
@@ -72,7 +72,7 @@ class plgButtonadd_flickrset_btn extends FlickrSetPlugin {
 
             JHtml::_('behavior.modal');
 
-            $link = 'index.php?option=com_flickrset4joomla&amp;view=article&amp;layout=addflickrsetbtn&amp;tmpl=component&amp;e_name=' . $name . '&amp;flickrsettag=' . $this->plg_tag . '&amp;$addflickrsetbuttonversion=' . $this->plg_version;
+            $link = 'index.php?option=com_flickrset4joomla&amp;view=article&amp;layout=addflickrsetbtn&amp;tmpl=component&amp;e_name=' . $name . '&amp;flickrsettag=' . $this->plg_tag . '&amp;addflickrsetbuttonversion=' . $this->plg_version;
             
             // Create the [Add Flickrset] button object
             $button = new JObject();
@@ -80,7 +80,7 @@ class plgButtonadd_flickrset_btn extends FlickrSetPlugin {
             // Finalize the [Add Flickrset] button info
             $button->set('modal', true);
             $button->set('class', 'btn');
-            $button->set('text', JText::_('PLG_EDITORS-XTD_FLICKRSET_BUTTON'));
+            $button->set('text', JText::_('PLG_EDITORS-XTD_FLICKRSET_ADD_BUTTON'));
             if ($app->isAdmin()) {
                 $button->set('name', 'flickrset-add-button');
             } else {
