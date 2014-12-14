@@ -20,7 +20,7 @@
 defined('_JEXEC') or die('Restricted access');
 
 // Import the FlickrsetPlugin base class for common methods
-JLoader::import('components.com_flickrset_btn.libraries.flickrset.plugin', JPATH_ADMINISTRATOR);
+JLoader::import('components.com_flickrset4joomla.libraries.flickrset.plugin', JPATH_ADMINISTRATOR);
 
 if (!class_exists('FlickrSetPlugin')) {
     return;
