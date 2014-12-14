@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="component" version="3.2" method="upgrade">
-    <name>COM_FLICKRSET4JOOMLA_XML_NAME</name>
+    <name>com_flickrset4joomla</name>
     <description>COM_FLICKRSET4JOOMLA_XML_DESCRIPTION</description>
     <author>flickrset4joomla_component_author</author>
     <copyright>(C) 2013-2015 flickrset4joomla_component_author. All rights reserved.</copyright>
@@ -40,10 +40,10 @@
             <filename>libraries/flickrset/plugin.php</filename>
             <filename>libraries/flickrset/index.html</filename>
             <filename>libraries/index.html</filename>
-            <filename>views/about/tmpl/default.php</filename>
-            <filename>views/about/tmpl/index.html</filename>
-            <filename>views/about/index.html</filename>
-            <filename>views/about/view.html.php</filename>
+            <filename>views/cpanel/tmpl/default.php</filename>
+            <filename>views/cpanel/tmpl/index.html</filename>
+            <filename>views/cpanel/index.html</filename>
+            <filename>views/cpanel/view.html.php</filename>
             <filename>views/index.html</filename>
             <filename>views/article/tmpl/addflickrsetbtn.php</filename>
             <filename>views/article/tmpl/index.html</filename>

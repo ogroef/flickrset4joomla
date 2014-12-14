@@ -21,8 +21,8 @@ defined('_JEXEC') or die('Restricted access');
 $php_min_version = "5.3.1";
 
 // verify PHP version
-if (version_compare(PHP_VERSION, $this->php_min_version ) < 0) {
-    return JError::raiseWarning(20000, JText::sprintf('COM_FLICKRSET4JOOMLA_PHP_VERSION_INCOMPATIBLE', PHP_VERSION, $this->php_min_version));
+if (version_compare(PHP_VERSION, $php_min_version ) < 0) {
+    return JError::raiseWarning(20000, JText::sprintf('COM_FLICKRSET4JOOMLA_PHP_VERSION_INCOMPATIBLE', PHP_VERSION, $php_min_version));
 }
 
 // 

@@ -24,7 +24,7 @@ jimport('joomla.application.component.viewlegacy');
 /**
  * Class Flickrset4JoomlaViewUploads
  */
-class Flickrset4JoomlaViewAbout extends JViewLegacy {
+class Flickrset4JoomlaViewCpanel extends JViewLegacy {
 
     /**
      * Display method
