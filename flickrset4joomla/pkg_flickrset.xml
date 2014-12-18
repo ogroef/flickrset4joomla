@@ -14,19 +14,16 @@
     <creationDate>package_version_creation_date</creationDate>
     <!-- Files -->
     <files folder="packages">
+        <folder>language</folder>
+        <file type="component" id="flickrset4joomla">flickrset4joomla_component_zip_file</file>
+        
         <file type="plugin" id="flickrset" group="content">flickrset_plugin_zip_file</file>
         <file type="plugin" id="add_flickrset_btn" group="editors-xtd">add_flickrset_btn_plugin_zip_file</file>
-
-        <file type="component" id="flickrset4joomla">flickrset4joomla_component_zip_file</file>
-        <folder>language</folder>
     </files>
     <!-- Translations -->
     <languages>
-        <language tag="en-GB">language/en-GB/en-GB.pkg_flickrset.ini</language>
         <language tag="en-GB">language/en-GB/en-GB.pkg_flickrset.sys.ini</language>
-        <language tag="nl-NL">language/nl-NL/nl-NL.pkg_flickrset.ini</language>
         <language tag="nl-NL">language/nl-NL/nl-NL.pkg_flickrset.sys.ini</language>
-        <language tag="fr-FR">language/fr-FR/fr-FR.pkg_flickrset.ini</language>
         <language tag="fr-FR">language/fr-FR/fr-FR.pkg_flickrset.sys.ini</language>
     </languages>
 </extension>
