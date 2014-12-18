@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="plugin" group="editors-xtd" version="3.2" method="upgrade">
-    <name>ADD_FLICKRSET_BUTTON_PLUGIN_XML_NAME</name>
-    <description>ADD_FLICKRSET_BUTTON_PLUGIN_XML_DESCRIPTION</description>
+    <name>PLG_ADD_FLICKRSET_BUTTON_XML_NAME</name>
+    <description>PLG_ADD_FLICKRSET_BUTTON_XML_DESCRIPTION</description>
     <author>add_flickrset_btn_plugin_author</author>
     <copyright>Copyright (C) 2013-2015 add_flickrset_btn_plugin_author. Open Source Matters. All rights reserved.</copyright>
     <license>http://www.gnu.org/licenses/gpl-3.0.html GNU/GPL</license>
