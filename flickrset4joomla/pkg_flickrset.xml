@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <extension type="package" version="3.2">
-    <name>pkg_flickrset</name>
+    <name>PKG_FLICKRSET_XML_NAME</name>
     <description>PKG_FLICKRSET_XML_DESCRIPTION</description>
     <packagename>flickrset</packagename>
     <copyright>(C) 2013-2015 flickrset4joomla_package_author. All rights reserved.</copyright>
     <license>http://www.gnu.org/licenses/gpl-3.0.html GNU/GPL</license>
     <author>flickrset4joomla_package_author</author>
     <authorEmail>flickrset4joomla_package_authoremail</authorEmail>
-    <authorUrl/>
+    <authorUrl>flickrset4joomla_package_authorurl</authorUrl>
     <packager>flickrset4joomla_package_author</packager>
-    <packagerurl/>
+    <packagerurl>flickrset4joomla_packageurl</packagerurl>
     <version>package_version</version>
     <creationDate>package_version_creation_date</creationDate>
     <!-- Files -->
     <files folder="packages">
-        <folder>language</folder>
         <file type="component" id="flickrset4joomla">flickrset4joomla_component_zip_file</file>
         
         <file type="plugin" id="flickrset" group="content">flickrset_plugin_zip_file</file>
