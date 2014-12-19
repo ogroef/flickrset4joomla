@@ -18,10 +18,10 @@
 defined('_JEXEC') or die;
 
 // add javascript dialog onclick code
-JHTML::script('plg_content_flickrset/add_flickrset_btn.js', Array(), true);
+JHtml::script('plg_editors-xtd_add_flickrset_btn/add_flickrset_btn.js', false, true);
 
 // Import Joomla! Plugin library file
-jimport('joomla.plugin.plugin');
+JImport('joomla.plugin.plugin');
 
 $ename = $_GET['e_name'];
 $flickrsettag = $_GET['flickrsettag'];
