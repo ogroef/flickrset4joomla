@@ -2,7 +2,7 @@
 
 /**
  *
- * @version     $Id$
+ * @version     $Id: view.html.php 0.1 2014/02/01 Olivier $
  * @package     flickrset
  * @subpackage  Content
  * @copyright   Copyright (C) 2005-2014 Open Source Matters. All rights reserved.

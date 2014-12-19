@@ -1,15 +1,15 @@
 <?php
 /**
- * @package		flickrset
- * @subpackage	        com_flickrser4joomla
- * @version		$Id$
+ * @package      flickrset
+ * @subpackage   com_flickrser4joomla
+ * @version      $Id: CHANGELOG.php 0.1 2014/12/20 Olivier $
  *
- * @author		Olivier De Groef
- * @authoremail         ogroef@hotmail.com
- * @link		
- * @copyright	Copyright (C) 2010-2013 Helios Ciancio. All Rights Reserved
+ * @author       Olivier De Groef
+ * @authoremail  ogroef@hotmail.com
+ * @link
+ * @copyright    Copyright (C) 2014-2015 Olivier De Groef. All Rights Reserved
  * 
- * @license		http://www.gnu.org/licenses/gpl-3.0.html GNU/GPL v3
+ * @license      http://www.gnu.org/licenses/gpl-3.0.html GNU/GPL v3
  *
  * * Flickrset4Joomla is free software. This version may have been modified pursuant
  * to the GNU General Public License, and as distributed it includes or
@@ -17,7 +17,7 @@
  * other free or open source software licenses.
  */
 ?>
------------------------ 0.1 Release  [01-December-2014] -----------------------
+----------------------- 0.1 Release  [December-2014] -----------------------
 
 20-December-2014
   ! Initial Release for Joomla! 3.x
