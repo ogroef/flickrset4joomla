@@ -68,7 +68,7 @@ class plgButtonadd_flickrset_btn extends FlickrSetPlugin {
             $this->plg_version = $xml->version;
         
             // Add the regular css file
-            JHtml::stylesheet('plg_content_flickrset/plg_editors-xtd_add_flickrset_btn.css', Array(), true);
+            JHtml::stylesheet('plg_editors-xtd_add_flickrset_btn/plg_editors-xtd_add_flickrset_btn.css', array(), true);
 
             JHtml::_('behavior.modal');
 

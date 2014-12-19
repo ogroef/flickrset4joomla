@@ -25,7 +25,7 @@
     </files>
     
     <!-- Media Files -->
-    <media folder="media" destination="add_flickrset_btn">
+    <media folder="media" destination="plg_editors-xtd_add_flickrset_btn">
         <filename>index.html</filename>
         <filename>css/index.html</filename>
         <filename>css/plg_editors-xtd_add_flickrset_btn.css</filename>
