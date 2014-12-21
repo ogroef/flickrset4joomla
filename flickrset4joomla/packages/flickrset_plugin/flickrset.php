@@ -103,7 +103,7 @@ class plgContentflickrset extends FlickrSetPlugin {
         
         // Load plugin language,stylesheet file
         JPlugin::loadLanguage('plg_content_flickrset',JPATH_ADMINISTRATOR);
-        JHTML::stylesheet('plg_content_flickrset/plg_editors-xtd_add_flickrset_btn.css', Array(), true);
+        JHtml::stylesheet('plg_content_flickrset/plg_content_flickrset.css', array(),true);
         
         // Expression to search for (positions)
         $regex = "/{" . $this->plg_tag . "}.*?{\/" . $this->plg_tag . "}/i";
@@ -111,6 +111,28 @@ class plgContentflickrset extends FlickrSetPlugin {
         // Determine if there are instances of $plg_tag and put them in $matches
         //  when no instances found do not perform tag replacement
         if (preg_match_all($regex, $article->text, $matches)) {
+            // An array of all different elements used in the flickerset template
+            $TmplElmtParams = array(
+                    "{PLAYERID}",
+                    "{FLICKR_SETID}",
+                    "{FLICKRID}",
+                    "{OBJECT_WIDTH}",
+                    "{OBJECT_HEIGHT}",
+                    "{ALLOWFULLSCREEN}",
+                    "{LINK_DISPLAY}");
+
+           // Determine which tagsource to use depending on mobile device
+           if ($browser->isMobile() || stristr($agent, 'mobile')) {
+              // Show flickerset depending on the plugin mobile setting
+              if ($plgparam_flickrset_mobile_type == 'L') {
+                  $usedtagsource = $newtagsource[$this->plg_tag_link];
+                  } else {
+                    $usedtagsource = $newtagsource[$this->plg_tag_button];
+                  }
+              } else {
+                $usedtagsource = $newtagsource[$this->plg_tag];
+              }
+
             // start the replace loop
             foreach ($matches[0] as $key => $match) {
                 // Remove the tags
@@ -137,17 +159,6 @@ class plgContentflickrset extends FlickrSetPlugin {
                 // Set a unique ID
                 $flickerset_playerID = 'FlickrSetID_' . substr(md5($tagparam_flickersetid), 1, 10) . '_' . rand();
 
-                // An array of all different elements used in the flickerset template
-                $TmplElmtParams = array(
-                    "{PLAYERID}",
-                    "{FLICKR_SETID}",
-                    "{FLICKRID}",
-                    "{OBJECT_WIDTH}",
-                    "{OBJECT_HEIGHT}",
-                    "{ALLOWFULLSCREEN}",
-                    "{LINK_DISPLAY}"
-                );
-
                 // An array of all different elements values used in the flickerset template
                 $TmplElmtParamValues = array(
                     $flickerset_playerID,
@@ -159,17 +170,6 @@ class plgContentflickrset extends FlickrSetPlugin {
                     JText::_('PLG_FLICKERSET_PROMPT_LINK_DISPLAY')
                 );
 
-                // Determine which tagsource to use depending on mobile device
-                if ($browser->isMobile() || stristr($agent, 'mobile')) {
-                    // Show flickerset depending on the plugin mobile setting
-                    if ($plgparam_flickrset_mobile_type == 'L') {
-                        $usedtagsource = $newtagsource[$this->plg_tag_link];
-                    } else {
-                        $usedtagsource = $newtagsource[$this->plg_tag_button];
-                    }
-                } else {
-                    $usedtagsource = $newtagsource[$this->plg_tag];
-                }
                 // Perform the actual tag replacement
                 $convertedtag = $this->plg_copyrights_start.JFilterOutput::ampReplace(str_replace($TmplElmtParams, $TmplElmtParamValues, $usedtagsource)).$this->plg_copyrights_end;
 
