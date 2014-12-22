@@ -34,14 +34,22 @@ class plgContentflickrset extends FlickrSetPlugin {
     // Loading the language file on instantiation
     protected $autoloadLanguage = true;
     
+    // Flickr API url
+    protected $flickrapiurl = 'https://api.flickr.com/services/rest/?';
+    protected $flickrphotosetsgetInfomethod = 'flickr.photosets.getInfo';
+    protected $flickrrestformat = 'php_serial';
+
     var $plg_name             = 'flickrset';
+    // These are used when rendering the flickrset
     var $plg_version          = '';
     var $plg_copyrights_start = '';
     var $plg_copyrights_end   = '';
     // This is the tag where we look for in the article content
     var $plg_tag              = 'flickrset';
+    // These are used when navigating with a mobile device
     var $plg_tag_button       = 'flickrsetbutton';
     var $plg_tag_link         = 'flickrsetlink';
+    var $plg_link_display     = '';
 
     /**
      * Plugin that replaces {flickrset}-tags with flickr embeded code
@@ -90,6 +98,7 @@ class plgContentflickrset extends FlickrSetPlugin {
         $plgparam_flickrset_allowfullscreen = trim($this->params->get('flickrset_allowfullscreen', 'Y'));
         $plgparam_flickrset_objectwidth = trim($this->params->get('flickrset_objectwidth', 400));
         $plgparam_flickrset_objectheight = trim($this->params->get('flickrset_objectheight', 300));
+        $plgparam_flickrset_flickrapikey = trim($this->params->get('flickrset_flickrapikey'));
         $plgparam_flickrset_mobile_type = trim($this->params->get('flickrset_mobile_type', 'L'));
 
         // Plugin wont be executed when default flickerid is empty
@@ -116,6 +125,7 @@ class plgContentflickrset extends FlickrSetPlugin {
                     "{PLAYERID}",
                     "{FLICKR_SETID}",
                     "{FLICKRID}",
+                    "{LANGUAGE}",
                     "{OBJECT_WIDTH}",
                     "{OBJECT_HEIGHT}",
                     "{ALLOWFULLSCREEN}",
@@ -125,13 +135,16 @@ class plgContentflickrset extends FlickrSetPlugin {
            if ($browser->isMobile() || stristr($agent, 'mobile')) {
               // Show flickerset depending on the plugin mobile setting
               if ($plgparam_flickrset_mobile_type == 'L') {
-                  $usedtagsource = $newtagsource[$this->plg_tag_link];
-                  } else {
-                    $usedtagsource = $newtagsource[$this->plg_tag_button];
-                  }
+                 $usedtagsource = $newtagsource[$this->plg_tag_link];
+                 } else {
+                   $usedtagsource = $newtagsource[$this->plg_tag_button];
+                 }
               } else {
                 $usedtagsource = $newtagsource[$this->plg_tag];
               }
+              
+            // Get the current language
+            $lang = JFactory::getLanguage();
 
             // start the replace loop
             foreach ($matches[0] as $key => $match) {
@@ -159,15 +172,30 @@ class plgContentflickrset extends FlickrSetPlugin {
                 // Set a unique ID
                 $flickerset_playerID = 'FlickrSetID_' . substr(md5($tagparam_flickersetid), 1, 10) . '_' . rand();
 
+                // Construct the link name when on mobile device
+                if ($browser->isMobile() || stristr($agent, 'mobile')) {
+                    $flickrapi = $this->flickrapiurl.'method='.$this->flickrphotosetsgetInfomethod.'&api_key='.$plgparam_flickrset_flickrapikey.'&photoset_id='.$tagparam_flickersetid.'&format='.$this->flickrrestformat;
+                    $resp = file_get_contents($flickrapi);
+                    $resp_obj = unserialize($resp);
+                    if($resp_obj['stat'] == 'ok') {
+                       $flickerset_title = $resp_obj['photoset']['title']['_content'];
+                    } else {
+                        $flickerset_title = '';
+                    }
+                    $this->plg_link_display = JText::sprintf('PLG_FLICKERSET_PROMPT_LINK_DISPLAY',$flickerset_title);
+                    $this->log('Link display: '.$this->plg_link_display);
+                };
+
                 // An array of all different elements values used in the flickerset template
                 $TmplElmtParamValues = array(
                     $flickerset_playerID,
                     $tagparam_flickersetid,
                     $final_flickrid,
+                    $lang->getTag(),
                     $final_objectwidth,
                     $final_objectheight,
                     $final_allowfullscreen,
-                    JText::_('PLG_FLICKERSET_PROMPT_LINK_DISPLAY')
+                    $this->plg_link_display
                 );
 
                 // Perform the actual tag replacement
