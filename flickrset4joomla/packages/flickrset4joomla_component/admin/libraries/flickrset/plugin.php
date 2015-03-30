@@ -3,8 +3,8 @@
 /**
  *
  * @version     $Id: add_flickrset_btn.js 0.2 2014/02/01 Olivier $
- * @package     add_flickrset_btn_plugin
- * @subpackage  Content
+ * @package     FlickrSet4Joomla
+ * @subpackage  FlickrSet4Joomla_Component
  * @copyright   Copyright (C) 2005-2014 Open Source Matters. All rights reserved.
  * @license     GNU/GPL, see LICENSE.php
  *
@@ -29,8 +29,23 @@ abstract class FlickrSetPlugin extends JPlugin {
         $this->loadLanguage();
     }
 
-    protected function log($message) {
-        JFactory::getApplication()->enqueueMessage((string) $message, 'warning');
+    private function log($msg,$msg_type) {
+        JFactory::getApplication()->enqueueMessage((string) $msg, $msg_type);
     }
 
+    protected function log_message($msg) {
+        log((string) $msg, 'message');
+    }
+
+    protected function log_warning($msg) {
+        log((string) $msg, 'warning');
+    }
+
+    protected function log_notice($msg) {
+        log((string) $msg, 'notice');
+    }
+
+    protected function log_error($msg) {
+        log((string) $msg, 'error');
+    }
 }
