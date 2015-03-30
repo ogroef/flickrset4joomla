@@ -2,7 +2,7 @@
 
 /**
  *
- * @version     $Id: FlickrSet4JoomlaHelper.php 0.2 2014/02/01 Olivier $
+ * @version     $Id: FlickrSet4JoomlaPluginHelper.php 0.2 2014/02/01 Olivier $
  * @package     FlickrSet4Joomla
  * @subpackage  FlickrSet4Joomla_Component
  * @copyright   Copyright (C) 2005-2014 Open Source Matters. All rights reserved.
@@ -20,9 +20,9 @@ defined('_JEXEC') or die();
 JLoader::import('joomla.plugin.plugin');
 
 /**
- * This is the base class for the flickrset_btn plugins.
+ * This is the base class for the flickrset4joomla plugins.
  */
-abstract class FlickrSet4JoomlaHelper extends JPlugin {
+abstract class FlickrSet4JoomlaPluginHelper extends JPlugin {
 
     public function __construct(&$subject, $config = array()) {
         parent::__construct($subject, $config);
