@@ -22,7 +22,7 @@ JLoader::import('joomla.plugin.plugin');
 /**
  * This is the base class for the flickrset_btn plugins.
  */
-abstract class FlickrSetPlugin extends JPlugin {
+abstract class FlickrSetPluginHelper extends JPlugin {
 
     public function __construct(&$subject, $config = array()) {
         parent::__construct($subject, $config);
