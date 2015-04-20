@@ -3,8 +3,8 @@
 /**
  *
  * @version     $Id: flickrset4joomla.php 0.1 2014/02/01 Olivier $
- * @package     Joomla.Platform
- * @subpackage  Component
+ * @package     FlickrSet4Joomla
+ * @subpackage  FlickrSet4Joomla_Component
  * @author      Olivier
  * @copyright   Copyright (C) 2005-2014 Open Source Matters. All rights reserved.
  * @license     GNU/GPL, see LICENSE.php
