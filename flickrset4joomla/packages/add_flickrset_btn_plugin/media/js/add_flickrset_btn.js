@@ -1,8 +1,8 @@
 /**
  *
  * @version     $Id: add_flickrset_btn.js 0.2 2014/02/01 Olivier $
- * @package     Joomla.Platform
- * @subpackage  Plugin
+ * @package     FlickrSet4Joomla
+ * @subpackage  Add_FlickrSet4Joomla_Button_Plugin
  * @author      Olivier
  * @copyright   Copyright (C) 2005-2014 Open Source Matters. All rights reserved.
  * @license     GNU/GPL, see LICENSE.php

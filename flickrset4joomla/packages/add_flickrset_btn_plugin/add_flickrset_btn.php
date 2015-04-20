@@ -3,8 +3,8 @@
 /**
  *
  * @version     $Id: add_flickrset_btn.php 0.2 2014/02/01 Olivier $
- * @package     Joomla.Platform
- * @subpackage  Plugin
+ * @package     FlickrSet4Joomla
+ * @subpackage  Add_FlickrSet4Joomla_Button_Plugin
  * @author      Olivier
  * @copyright   Copyright (C) 2005-2014 Open Source Matters. All rights reserved.
  * @license     GNU/GPL, see LICENSE.php
@@ -19,16 +19,19 @@
 // no direct access
 defined('_JEXEC') or die('Restricted access');
 
-// Import the FlickrsetPlugin class for common methods
-JLoader::import('components.com_flickrset_btn.libraries.flickrset.plugin', JPATH_ADMINISTRATOR);
+// Import the Flickrset4Joomla Helpers class for common methods
+JLoader::import('components.com_flickrset4joomla.libraries.flickrset.flickrset4joomlapluginhelper', JPATH_ADMINISTRATOR);
 
-if (!class_exists('FlickrSetPlugin')) {
+if (!class_exists('FlickrSet4JoomlaPluginHelper')) {
     return;
 }
 
-class plgButtonadd_flickrset_btn extends FlickrSetPlugin {
+class plgButtonadd_flickrset_btn extends FlickrSet4JoomlaPluginHelper {
 
     protected $com_content = 'com_content';
+
+    // Debug module name
+    protected $modulename = 'FLICKRSETBTN';
     
     var $plg_name = 'add_flickrset_btn';
     var $plg_version = '';
@@ -59,12 +62,10 @@ class plgButtonadd_flickrset_btn extends FlickrSetPlugin {
 
         $extension = $app->input->get('option');
 
-        // $this->log($extension);
-
         // Only generate the flickrset button in the content component
         if ($extension === $this->com_content) {
             //Get the version number of the plugin
-            $xml = JFactory::getXML(JPATH_PLUGINS . DS . 'editors-xtd' . DS . $this->plg_name . DS . $this->plg_name .'.xml');
+            $xml = JFactory::getXML(JPATH_PLUGINS.DIRECTORY_SEPARATOR.'editors-xtd'.DIRECTORY_SEPARATOR.$this->plg_name.DIRECTORY_SEPARATOR.$this->plg_name .'.xml');
             $this->plg_version = $xml->version;
         
             // Add the regular css file
