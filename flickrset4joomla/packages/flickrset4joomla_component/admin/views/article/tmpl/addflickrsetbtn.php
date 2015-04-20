@@ -2,8 +2,8 @@
 /**
  *
  * @version     $Id: insertflickrset.php 0.1 2014/02/01 Olivier $
- * @package     add_flickrset_btn_plugin
- * @subpackage  Content
+ * @package     FlickrSet4Joomla
+ * @subpackage  FlickrSet4Joomla_Component
  * @copyright   Copyright (C) 2005-2014 Open Source Matters. All rights reserved.
  * @license     GNU/GPL, see LICENSE.php
  *
@@ -15,7 +15,7 @@
  * See COPYRIGHT.php for copyright notices and details.
  */
 // no direct access
-defined('_JEXEC') or die;
+defined('_JEXEC') or die('Restricted access');
 
 // add javascript dialog onclick code
 JHtml::script('plg_editors-xtd_add_flickrset_btn/add_flickrset_btn.js', false, true);

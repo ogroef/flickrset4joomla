@@ -3,8 +3,8 @@
 /**
  *
  * @version     $Id: flickrset4joomla.php 0.1 2014/02/01 Olivier $
- * @package     flickrset
- * @subpackage  Content
+ * @package     FlickrSet4Joomla
+ * @subpackage  FlickrSet4Joomla_Component
  * @copyright   Copyright (C) 2005-2014 Open Source Matters. All rights reserved.
  * @license     GNU/GPL, see LICENSE.php
  *
@@ -25,7 +25,7 @@ if (version_compare(PHP_VERSION, $php_min_version ) < 0) {
     return JError::raiseWarning(20000, JText::sprintf('COM_FLICKRSET4JOOMLA_PHP_VERSION_INCOMPATIBLE', PHP_VERSION, $php_min_version));
 }
 
-// 
+// check JUser object authorization against an access control object and optionally an access extension object
 if (!JFactory::getUser()->authorise('core.manage', 'com_flickrset4joomla')) {
     return JError::raiseWarning(20404, JText::_('JERROR_ALERTNOAUTHOR'));
 }

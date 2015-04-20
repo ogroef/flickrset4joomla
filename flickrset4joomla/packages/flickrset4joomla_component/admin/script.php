@@ -2,9 +2,9 @@
 
 /**
  *
- * @version     $Id$
- * @package     flickrset
- * @subpackage  Content
+ * @version     $Id: script.php 0.1 2014/02/01 Olivier $
+ * @package     FlickrSet4Joomla
+ * @subpackage  FlickrSet4Joomla_Component
  * @copyright   Copyright (C) 2005-2014 Open Source Matters. All rights reserved.
  * @license     GNU/GPL, see LICENSE.php
  *

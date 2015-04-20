@@ -3,8 +3,8 @@
 /**
  *
  * @version     $Id: view.html.php 0.1 2014/02/01 Olivier $
- * @package     flickrset
- * @subpackage  Content
+ * @package     FlickrSet4Joomla
+ * @subpackage  FlickrSet4Joomla_Component
  * @copyright   Copyright (C) 2005-2014 Open Source Matters. All rights reserved.
  * @license     GNU/GPL, see LICENSE.php
  *

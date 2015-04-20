@@ -34,10 +34,11 @@
             <filename>COPYRIGHT.php</filename>
             <filename>script.php</filename>
             <filename>controller.php</filename>
+            <filename>config.php</filename>
             <filename>flickrset4joomla.php</filename>
             <filename>flickrset4joomla.xml</filename>
             <filename>index.html</filename>
-            <filename>libraries/flickrset/plugin.php</filename>
+            <filename>libraries/flickrset/flickrset4joomlapluginhelper.php</filename>
             <filename>libraries/flickrset/index.html</filename>
             <filename>libraries/index.html</filename>
             <filename>views/cpanel/tmpl/default.php</filename>
