@@ -3,8 +3,8 @@
 /**
  *
  * @version     $Id: flickrset.php 0.2 2014/03/01 olivier $
- * @package     Joomla.Platform
- * @subpackage  Plugin
+ * @package     FlickrSet4Joomla
+ * @subpackage  FlickrSet4Joomla_Plugin
  * @author      Olivier
  * @copyright   Copyright (C) 2005-2014 Open Source Matters. All rights reserved.
  * @license     GNU/GPL, see LICENSE.php
@@ -19,17 +19,17 @@
 // no direct access
 defined('_JEXEC') or die('Restricted access');
 
-// Import the FlickrsetPlugin base class for common methods
-JLoader::import('components.com_flickrset4joomla.libraries.flickrset.plugin', JPATH_ADMINISTRATOR);
+// Import the Flickrset4Joomla Helpers class for common methods
+JLoader::import('components.com_flickrset4joomla.libraries.flickrset.flickrset4joomlapluginhelper', JPATH_ADMINISTRATOR);
 
-if (!class_exists('FlickrSetPlugin')) {
+if (!class_exists('FlickrSet4JoomlaPluginHelper')) {
     return;
 }
 
 // Get Application handler
 jimport('joomla.environment.browser');
 
-class plgContentflickrset extends FlickrSetPlugin {
+class plgContentflickrset extends FlickrSet4JoomlaPluginHelper {
 
     // Loading the language file on instantiation
     protected $autoloadLanguage = true;
@@ -39,13 +39,20 @@ class plgContentflickrset extends FlickrSetPlugin {
     protected $flickrphotosetsgetInfomethod = 'flickr.photosets.getInfo';
     protected $flickrrestformat = 'php_serial';
 
+    // Debug module name
+    protected $modulename = 'FLICKRSET';
+    
+    // Plugin name
     var $plg_name             = 'flickrset';
+    
     // These are used when rendering the flickrset
     var $plg_version          = '';
     var $plg_copyrights_start = '';
     var $plg_copyrights_end   = '';
+    
     // This is the tag where we look for in the article content
     var $plg_tag              = 'flickrset';
+    
     // These are used when navigating with a mobile device
     var $plg_tag_button       = 'flickrsetbutton';
     var $plg_tag_link         = 'flickrsetlink';
@@ -74,24 +81,18 @@ class plgContentflickrset extends FlickrSetPlugin {
         }
 
         // Includes
-        require(dirname(__FILE__) . DIRECTORY_SEPARATOR . $this->plg_name . DIRECTORY_SEPARATOR . 'includes' . DIRECTORY_SEPARATOR . 'sources.php');
+        require(dirname(__FILE__).DIRECTORY_SEPARATOR.$this->plg_name.DIRECTORY_SEPARATOR.'includes'.DIRECTORY_SEPARATOR.'sources.php');
 
         // Simple performance check to determine whether plugin should process further
         //  Verify if tag is found as a key in the newtagsource array
         $grabTags = str_replace("(", "", str_replace(")", "", implode(array_keys($newtagsource), "|")));
 
-        $regex = '/\{(' . $grabTags . ')\}/i';
+        $regex = '/\{('.$grabTags.')\}/i';
         $matchresult = preg_match($regex, $article->text);
 
         if ($matchresult == false) {
             return;
         }
-        
-        //Get the version number of the plugin
-        $xml = JFactory::getXML(JPATH_PLUGINS . DS . 'content'. DS . $this->plg_name . DS . $this->plg_name .'.xml');
-        $this->plg_version = $xml->version;
-        $this->plg_copyrights_start = "\n\n<!-- \"FlickrSet\" Plugin version ".$this->plg_version." starts here -->\n";
-        $this->plg_copyrights_end   = "\n<!-- \"FlickrSet\" Plugin version ".$this->plg_version." ends here -->\n\n";
 
         // Get plugin parameters
         $plgparam_flickrset_flickrid = trim($this->params->get('flickrset_flickrid'));
@@ -106,6 +107,12 @@ class plgContentflickrset extends FlickrSetPlugin {
             return true;
         }
         
+        //Get the version number of the plugin
+        $xml = JFactory::getXML(JPATH_PLUGINS.DIRECTORY_SEPARATOR.'content'.DIRECTORY_SEPARATOR.$this->plg_name.DIRECTORY_SEPARATOR.$this->plg_name.'.xml');
+        $this->plg_version = $xml->version;
+        $this->plg_copyrights_start = "\n\n<!-- \"FlickrSet\" Plugin version ".$this->plg_version." starts here -->\n";
+        $this->plg_copyrights_end   = "\n<!-- \"FlickrSet\" Plugin version ".$this->plg_version." ends here -->\n\n";
+        
         // Only when we are sure that plugin needs to be executed get mobile input
         $browser = &JBrowser::getInstance();
         $agent = $browser->getAgentString();
@@ -115,7 +122,7 @@ class plgContentflickrset extends FlickrSetPlugin {
         JHtml::stylesheet('plg_content_flickrset/plg_content_flickrset.css', array(),true);
         
         // Expression to search for (positions)
-        $regex = "/{" . $this->plg_tag . "}.*?{\/" . $this->plg_tag . "}/i";
+        $regex = "/{".$this->plg_tag."}.*?{\/".$this->plg_tag."}/i";
 
         // Determine if there are instances of $plg_tag and put them in $matches
         //  when no instances found do not perform tag replacement
@@ -170,7 +177,7 @@ class plgContentflickrset extends FlickrSetPlugin {
                 $final_allowfullscreen = (@$tag_allowfullscreen === 'Y') ? 'true' : 'false';
 
                 // Set a unique ID
-                $flickerset_playerID = 'FlickrSetID_' . substr(md5($tagparam_flickersetid), 1, 10) . '_' . rand();
+                $flickerset_playerID = 'FlickrSetID_'.substr(md5($tagparam_flickersetid), 1, 10).'_'.rand();
 
                 // Construct the link name when on mobile device
                 if ($browser->isMobile() || stristr($agent, 'mobile')) {
@@ -183,7 +190,7 @@ class plgContentflickrset extends FlickrSetPlugin {
                         $flickerset_title = '';
                     }
                     $this->plg_link_display = JText::sprintf('PLG_FLICKERSET_PROMPT_LINK_DISPLAY',$flickerset_title);
-                    $this->log('Link display: '.$this->plg_link_display);
+                    $this->log_message($this->modulename, $this->log_level_statement, 'Link display: '.$this->plg_link_display);
                 };
 
                 // An array of all different elements values used in the flickerset template
@@ -202,7 +209,7 @@ class plgContentflickrset extends FlickrSetPlugin {
                 $convertedtag = $this->plg_copyrights_start.JFilterOutput::ampReplace(str_replace($TmplElmtParams, $TmplElmtParamValues, $usedtagsource)).$this->plg_copyrights_end;
 
                 // Output
-                $regex = "/{" . $this->plg_tag . "}" . preg_quote($tagcontent) . "{\/" . $this->plg_tag . "}/i";
+                $regex = "/{".$this->plg_tag."}".preg_quote($tagcontent)."{\/".$this->plg_tag."}/i";
                 $article->text = preg_replace($regex, $convertedtag, $article->text);
 
             } // End foreach replacing loop
