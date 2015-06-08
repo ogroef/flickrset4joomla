@@ -2,12 +2,12 @@
 /**
  * @package		flickrset
  * @subpackage	        com_flickrser4joomla
- * @version		0.1
+ * @version		0.2
  *
  * @author		Olivier De Groef
  * @authoremail         ogroef@hotmail.com
  * @link		
- * @copyright	Copyright (C) 2010-2013 Helios Ciancio. All Rights Reserved
+ * @copyright	        Copyright (C) 2005-2014 Open Source Matters. All rights reserved.
  * 
  * @license		http://www.gnu.org/licenses/gpl-3.0.html GNU/GPL v3
  *
@@ -22,6 +22,7 @@
 20-December-2014
   + Making possible to add flickr sets of other flickr users
   + Using shared libraries of the component
+  ^ Performance fixes
   $ Fixing small language spelling mistakes
 
 3-March-2014

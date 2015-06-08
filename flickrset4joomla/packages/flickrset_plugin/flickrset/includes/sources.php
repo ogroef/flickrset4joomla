@@ -23,10 +23,10 @@ defined('_JEXEC') or die('Restricted access');
 $flickrsetflash = "
 <div id=\"{PLAYERID}\">
  <object width=\"{OBJECT_WIDTH}\" height=\"{OBJECT_HEIGHT}\">
-  <param name=\"flashvars\" value=\"offsite=true&lang=\"{LANGUAGE}\"&page_show_url=/photos/{FLICKRID}/sets/{FLICKR_SETID}/show/&page_show_back_url=/photos/{FLICKRID}/sets/{FLICKR_SETID}/&set_id={FLICKR_SETID}&jump_to=\" />
+  <param name=\"flashvars\" value=\"offsite=true&lang={LANGUAGE}&page_show_url=/photos/{FLICKRID}/sets/{FLICKR_SETID}/show/&page_show_back_url=/photos/{FLICKRID}/sets/{FLICKR_SETID}/&set_id={FLICKR_SETID}&jump_to=\" />
   <param name=\"movie\" value=\"http://www.flickr.com/apps/slideshow/show.swf?v=138195\" />
   <param name=\"allowFullScreen\" value=\"{ALLOWFULLSCREEN}\" />
-  <embed type=\"application/x-shockwave-flash\" src=\"http://www.flickr.com/apps/slideshow/show.swf?v=138195\" allowFullScreen=\"{ALLOWFULLSCREEN}\" flashvars=\"offsite=true&lang=\"{LANGUAGE}\"&page_show_url=/photos/{FLICKRID}/sets/{FLICKR_SETID}/show/&page_show_back_url=/photos/{FLICKRID}/sets/{FLICKR_SETID}/&set_id={FLICKR_SETID}&jump_to=\" width=\"{OBJECT_WIDTH}\" height=\"{OBJECT_HEIGHT}\" />
+  <embed type=\"application/x-shockwave-flash\" src=\"http://www.flickr.com/apps/slideshow/show.swf?v=138195\" allowFullScreen=\"{ALLOWFULLSCREEN}\" flashvars=\"offsite=true&lang={LANGUAGE}&page_show_url=/photos/{FLICKRID}/sets/{FLICKR_SETID}/show/&page_show_back_url=/photos/{FLICKRID}/sets/{FLICKR_SETID}/&set_id={FLICKR_SETID}&jump_to=\" width=\"{OBJECT_WIDTH}\" height=\"{OBJECT_HEIGHT}\" />
  </object>
 </div>
 ";
