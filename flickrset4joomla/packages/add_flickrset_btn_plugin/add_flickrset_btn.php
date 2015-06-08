@@ -29,9 +29,6 @@ if (!class_exists('FlickrSet4JoomlaPluginHelper')) {
 class plgButtonadd_flickrset_btn extends FlickrSet4JoomlaPluginHelper {
 
     protected $com_content = 'com_content';
-
-    // Debug module name
-    protected $modulename = 'FLICKRSETBTN';
     
     var $plg_name = 'add_flickrset_btn';
     var $plg_version = '';
@@ -64,10 +61,12 @@ class plgButtonadd_flickrset_btn extends FlickrSet4JoomlaPluginHelper {
 
         // Only generate the flickrset button in the content component
         if ($extension === $this->com_content) {
+            log_message($this->plg_name,log_level_module,'Starting...');
+
             //Get the version number of the plugin
             $xml = JFactory::getXML(JPATH_PLUGINS.DIRECTORY_SEPARATOR.'editors-xtd'.DIRECTORY_SEPARATOR.$this->plg_name.DIRECTORY_SEPARATOR.$this->plg_name .'.xml');
             $this->plg_version = $xml->version;
-        
+
             // Add the regular css file
             JHtml::stylesheet('plg_editors-xtd_add_flickrset_btn/plg_editors-xtd_add_flickrset_btn.css', array(), true);
 
@@ -90,6 +89,8 @@ class plgButtonadd_flickrset_btn extends FlickrSet4JoomlaPluginHelper {
             $button->set('rel', '');
             $button->set('link', $link);
             $button->set('options', "{handler: 'iframe', size: {x:500, y:310}}");
+
+            log_message($this->plg_name,log_level_module,'End');
 
             return $button;
         } else {
