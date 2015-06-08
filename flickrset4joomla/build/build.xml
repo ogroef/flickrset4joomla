@@ -41,8 +41,8 @@
 
     <!-- User inputs -->
     <target name="input_release-version" description="Provide the release verion.">
-        <input message="What is the flickrset release version" defaultvalue="${default_flickrset_release-version}" addproperty="flickrset_release-version"></input>
-        <property name="release-version-dir" value="../releases/REL${flickrset_release-version}" />
+        <input message="What is the release version" defaultvalue="${default_release-version}" addproperty="release-version"></input>
+        <property name="release-version-dir" value="../releases/REL${release-version}" />
     </target>
 
     <target name="input_flickrset_plugin-version" description="Provide the flickrset plugin version.">
@@ -87,8 +87,17 @@
         <replace dir="${building-folder}/language" token="flickrset_plugin_version" value="${flickrset_plugin-version}" />
         <replace dir="${building-folder}/language" token="flickrset_plugin_author" value="${flickrset4joomla_author}" />
 
-        <zip destfile="${building-folder}/${flickrset_plugin-destfile}" excludes="dont*.*">
-            <zipfileset dir="${building-folder}" />
+        <zip destfile="${building-folder}/${flickrset_plugin-destfile}" comment="Version ${flickrset_plugin-version} of the flickrset Joomla content plugin">
+            <zipfileset dir="${building-folder}" excludes="dont*.*,**/*.png"/>
+        </zip>
+
+        <zip destfile="${building-folder}/${flickrset_plugin-destfile}" update="true" >
+            <zipfileset dir="${building-folder}/media" prefix="media/" >
+                <include name="flickrset4joomla_300x119.png" />
+            </zipfileset>
+            <zipfileset dir="${building-folder}/media/images" prefix="media/images" >
+                <include name="flickrset-icon-button.png" />
+            </zipfileset>
         </zip>
     </target>
 
@@ -122,7 +131,7 @@
         <replace dir="${building-folder}/language" token="add_flickrset_btn_plugin_author" value="${flickrset4joomla_author}" />
         <replace dir="${building-folder}/language" token="add_flickrset_btn_plugin_author" value="${flickrset4joomla_author}" />
 
-        <zip destfile="${building-folder}/${add_flickrset_btn_plugin-destfile}" excludes="dont*.*">
+        <zip destfile="${building-folder}/${add_flickrset_btn_plugin-destfile}" excludes="dont*.*" comment="Version ${add_flickrset_btn_plugin-version} of the add flickrset button Joomla Editor xtd plugin">
             <zipfileset dir="${building-folder}" />
         </zip>
     </target >
@@ -159,7 +168,7 @@
         <replace dir="${building-folder}/site/language" token="flickrset4joomla_component_version" value="${flickrset4joomla_component-version}" />
         <replace dir="${building-folder}/site/language" token="flickrset4joomla_component_author" value="${flickrset4joomla_author}" />
 
-        <zip destfile="${building-folder}/${flickrset4joomla_component-destfile}" excludes="dont*.*">
+        <zip destfile="${building-folder}/${flickrset4joomla_component-destfile}" excludes="dont*.*" comment="Version ${flickrset4joomla_component-version} of the flickrset Joomla component">
             <zipfileset dir="${building-folder}" />
         </zip>
     </target>
