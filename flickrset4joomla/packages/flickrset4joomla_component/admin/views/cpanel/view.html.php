@@ -34,18 +34,28 @@ class Flickrset4JoomlaViewCpanel extends JViewLegacy {
      * @return mixed|void
      */
     public function display($tpl = null) {
-        $this->setToolbar();
+        $this->setToolbarTitle();
+        $this->addToolBarOptionsButton();
         parent::display($tpl);
     }
 
     /**
-     * Creates the toolbar options
+     * Set the toolbar title
      *
      * @return void
      */
-    public function setToolbar() {
+    public function setToolbarTitle() {
         JToolBarHelper::title(JText::_('COM_FLICKRSET4JOOMLA_ABOUT_TOOLBAR_TITLE'));
     }
+    
+    /**
+     * Add the options button to the toolbar.
+     *
+     * @return void
+     */
+     protected function addToolBarOptionsButton(){
+         JToolBarHelper::preferences('com_flickrset4joomla');
+     }
 
 }
 

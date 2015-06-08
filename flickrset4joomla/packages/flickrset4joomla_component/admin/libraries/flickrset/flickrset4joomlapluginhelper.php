@@ -27,15 +27,15 @@ abstract class FlickrSet4JoomlaPluginHelper extends JPlugin {
 
     // Plugin name
     private $com_name = 'com_flickrset4joomla';
-    
-    private $log_type_message = 'message';
+
+    private $log_type_error = 'error';
     private $log_type_warning = 'warning';
     private $log_type_notice = 'notice';
-    private $log_type_error = 'error';
-    
+    private $log_type_message = 'message';
+
     protected $log_level_unexcepted = '1';
     protected $log_level_error = '2';
-    protected $log_level_function = '3';
+    protected $log_level_module = '3';
     protected $log_level_statement = '4';
 
     public function __construct(&$subject, $config = array()) {
@@ -44,6 +44,7 @@ abstract class FlickrSet4JoomlaPluginHelper extends JPlugin {
     }
 
     private function log_flickrset4joomla($msg, $msg_type) {
+        // Add a message to the message queue
         JFactory::getApplication()->enqueueMessage((string) $msg, $msg_type);
     }
 
@@ -66,12 +67,16 @@ abstract class FlickrSet4JoomlaPluginHelper extends JPlugin {
     protected function log_message($module, $level, $msg) {
         // Get the component parameters
         $params = JComponentHelper::getParams($this->com_name);
-        
+
         //Get the component debug enabled, module, level parameters
         $comparam_flickr4joomla_debugenabled = $params->get('flickrset4joomla_debugenabled', 'N');
-        $comparam_flickr4joomla_debugmodule = $params->get('flickrset4joomla_debugmodule', 'FLICKRSET');
-        $comparam_flickr4joomla_debuglevel = $params->get('flickrset4joomla_debuglevel', '4');
+        $comparam_flickr4joomla_debugmodule = $params->get('flickrset4joomla_debugmodule', 'flickrset');
+        $comparam_flickr4joomla_debuglevel = $params->get('flickrset4joomla_debuglevel', $this->log_level_unexcepted);
         
+        // These lines can be commented out to see what the component/function parameters are.
+        //$this->log_flickrset4joomla_notice('Component Paramter Debug enabled/module/level: '.$comparam_flickr4joomla_debugenabled.'/'.$comparam_flickr4joomla_debugmodule.'/'.$comparam_flickr4joomla_debuglevel);
+        //$this->log_flickrset4joomla_notice('Function Paramter Debug module/level/message: '.$module.'/'.$level.'/'.$msg);
+
         //According component debug settings, show message on screen
         if ($comparam_flickr4joomla_debugenabled == 'Y' || $comparam_flickr4joomla_debugmodule == $module) {
             if ($comparam_flickr4joomla_debuglevel >= $level) {
@@ -81,7 +86,7 @@ abstract class FlickrSet4JoomlaPluginHelper extends JPlugin {
                 if ($this->log_level_error == $level) {
                     $this->log_flickrset4joomla_warning($msg);
                 }
-                if ($this->log_level_function == $level) {
+                if ($this->log_level_module == $level) {
                     $this->log_flickrset4joomla_notice($msg);
                 }
                 if ($this->log_level_statement == $level) {
@@ -90,5 +95,5 @@ abstract class FlickrSet4JoomlaPluginHelper extends JPlugin {
             }
         }
     }
-    
+
 }

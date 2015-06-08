@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <config>
     <fieldset name="basic" label="COM_FLICKRSET4JOOMLA_FIELD_FLICKRSET4JOOMLA_DEBUG_LBL">
-        <field name="flickrset4joomla_debugenabled" type="radio" class="btn-group btn-group-yesno" default="N" label="COM_FLICKRSET4JOOMLA_FIELD_FLICKRSET4JOOMLA_DEBUGENALBED_LBL" description="PLG_FLICKERSET_FIELD_FLICKRSET_DEBUGENALBED_DESC">
+        <field name="flickrset4joomla_debugenabled" type="radio" class="btn-group btn-group-yesno" default="N" label="COM_FLICKRSET4JOOMLA_FIELD_FLICKRSET4JOOMLA_DEBUGENALBED_LBL" description="COM_FLICKRSET4JOOMLA_FIELD_FLICKRSET4JOOMLA_DEBUGENALBED_DESC">
             <option value="Y">JYES</option>
             <option value="N">JNO</option>
         </field>
-        <field name="flickrset4joomla_debugmodule" type="list" size="50" default="FLICKRSET" label="COM_FLICKRSET4JOOMLA_FIELD_FLICKRSET4JOOMLA_DEBUGMODULE_LBL" description="COM_FLICKRSET4JOOMLA_FIELD_FLICKRSET4JOOMLA_DEBUGENALBED_DESC">
-            <option value="FLICKRSET">COM_FLICKRSET4JOOMLA_FIELD_FLICKRSET4JOOMLA_DEBUGMODULE_FLICKRSET</option>
-            <option value="FLICKRSETBTN">COM_FLICKRSET4JOOMLA_FIELD_FLICKRSET4JOOMLA_DEBUGMODULE_FLICKRSETBTN</option>
+        <field name="flickrset4joomla_debugmodule" type="list" size="50" default="flickrset" label="COM_FLICKRSET4JOOMLA_FIELD_FLICKRSET4JOOMLA_DEBUGMODULE_LBL" description="COM_FLICKRSET4JOOMLA_FIELD_FLICKRSET4JOOMLA_DEBUGMODULE_DESC">
+            <option value="flickrset">COM_FLICKRSET4JOOMLA_FIELD_FLICKRSET4JOOMLA_DEBUGMODULE_OPTION_FLICKRSET_LBL</option>
+            <option value="add_flickrset_btn">COM_FLICKRSET4JOOMLA_FIELD_FLICKRSET4JOOMLA_DEBUGMODULE_OPTION_FLICKRSETBTN_LBL</option>
         </field>
-        <field name="flickrset4joomla_debuglevel" required="true" type="list" size="20" default="U" label="COM_FLICKRSET4JOOMLA_FIELD_FLICKRSET4JOOMLA_DEBUGLEVEL_LBL" description="COM_FLICKRSET4JOOMLA_FIELD_FLICKRSET4JOOMLA_DEBUGLEVEL_DESC">
-            <option value="1">COM_FLICKRSET4JOOMLA_FIELD_FLICKRSET4JOOMLA_DEBUGLEVEL_U_LBL</option>
-            <option value="2">COM_FLICKRSET4JOOMLA_FIELD_FLICKRSET4JOOMLA_DEBUGLEVEL_E_LBL</option>
-            <option value="3">COM_FLICKRSET4JOOMLA_FIELD_FLICKRSET4JOOMLA_DEBUGLEVEL_F_LBL</option>
-            <option value="4">COM_FLICKRSET4JOOMLA_FIELD_FLICKRSET4JOOMLA_DEBUGLEVEL_S_LBL</option>
+        <field name="flickrset4joomla_debuglevel" required="true" type="list" size="20" default="1" label="COM_FLICKRSET4JOOMLA_FIELD_FLICKRSET4JOOMLA_DEBUGLEVEL_LBL" description="COM_FLICKRSET4JOOMLA_FIELD_FLICKRSET4JOOMLA_DEBUGLEVEL_DESC">
+            <option value="1">COM_FLICKRSET4JOOMLA_FIELD_FLICKRSET4JOOMLA_DEBUGLEVEL_OPTION_U_LBL</option>
+            <option value="2">COM_FLICKRSET4JOOMLA_FIELD_FLICKRSET4JOOMLA_DEBUGLEVEL_OPTION_E_LBL</option>
+            <option value="3">COM_FLICKRSET4JOOMLA_FIELD_FLICKRSET4JOOMLA_DEBUGLEVEL_OPTION_M_LBL</option>
+            <option value="4">COM_FLICKRSET4JOOMLA_FIELD_FLICKRSET4JOOMLA_DEBUGLEVEL_OPTION_S_LBL</option>
         </field>
     </fieldset>
 </config>
