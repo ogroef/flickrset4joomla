@@ -13,7 +13,7 @@ To install Flickrset4Joomla extract the component and plugins zip-files and inst
 with the joomla installer.
 If you install each zip file seperatly you must first install the component and afterwards the plugins.
 You can also install the whole suite with all extensions trough the joomla installer. After 
-a successfull installation configure the 'Add Flickrset button'-plugin and publish him.
+a successfull installation configure the 'Add Flickrset button' and 'Flickrset' plugins. Donot forget to enable/publish each plugin.
 
 Have fun
 Olivier De Groef
