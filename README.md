@@ -8,7 +8,7 @@ Only public photos will be visible in the embedded flickrset widget/button/link.
 
 These plugins/component are developed/tested against a Joomla 3.2.1/3.2.2/3.3.5/3.3.6/3.4 instance.
 
-The following plugins are part of the Flickrset4joomla project.
+The following plugins and component are part of the Flickrset4joomla project.
 
 Flickrset Plugin:
 =================
