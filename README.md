@@ -24,7 +24,7 @@ This Joomla plugin renders an extra button, under the article editor, which ease
 Flickrset for Joomla Component:
 ===============================
 
-This Joomla component supports both the Flickrset and AddFlickrsetButton plugins.
+This Joomla component supports both the Flickrset and AddFlickrsetButton plugins. The component is used to (dis)enable debugging by means of show messages on screen.  This can be used to identify possible problems with the plugins.
 
 
 Flickrset Package:
