@@ -35,7 +35,7 @@ This Joomla package holds the two Joomla plugins and the componant which eases t
 Copyright:
 ==========
 * Copyright (C) 2014 - 2015 Open Source Matters. All rights reserved.
-* [Credits](http://docs.joomla.org/Joomla!_Credits_and_Thanks)
+* Credits: Olivier De Groef
 * Distributed under the GNU General Public License version 2 or later
 * See [License details](http://docs.joomla.org/Joomla_Licenses)
 
