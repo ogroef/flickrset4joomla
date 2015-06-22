@@ -10,30 +10,25 @@ These plugins/component are developed/tested against a Joomla 3.2.1/3.2.2/3.3.5/
 
 The following plugins and component are part of the Flickrset4joomla project.
 
-Flickrset Plugin:
-=================
+### Flickrset Plugin: ###
 
 This Joomla plugin renders the flickrset widget within joomla articles.  Several plugin parameters are at your disposal to control the layout of the flickrset widget.
 
 
-Add Flickrset Button Plugin:
-============================
+### Add Flickrset Button Plugin: ###
 
 This Joomla plugin renders an extra button, under the article editor, which eases the creation of special tokens for flickrset widget generation.
 
-Flickrset for Joomla Component:
-===============================
+### Flickrset for Joomla Component: ###
 
 This Joomla component supports both the Flickrset and AddFlickrsetButton plugins. The component is used to (dis)enable debugging by means of show messages on screen.  This can be used to identify possible problems with the plugins.
 
 
-Flickrset Package:
-==================
+### Flickrset Package: ###
 
 This Joomla package holds the two Joomla plugins and the componant which eases the installation on Joomla.
 
-Copyright:
-==========
+### Copyright: ###
 * Copyright (C) 2014 - 2015 Open Source Matters. All rights reserved.
 * Credits: Olivier De Groef
 * Distributed under the GNU General Public License version 2 or later
