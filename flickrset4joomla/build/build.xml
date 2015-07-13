@@ -183,6 +183,7 @@
     <!-- flickrset4joomla package targets -->
     <target name="zip-flickrset4joomla_package" description="Generate the zipped file for flickrset package." depends="zip-flickrset_plugin,zip-add_flickrset_btn_plugin,zip-flickrset4joomla_component,input_flickrset4joomla_package-version">
         <property name="flickrset4joomla_package-xml_file" value="pkg_flickrset.xml" />
+        
         <local name="building-folder" />
         <property name="building-folder" value="${building-rootfolder}/${flickrset4joomla_package-name}" />
 
@@ -193,13 +194,18 @@
         <copy preservelastmodified="" todir="${building-folder}/language" outputencoding="UTF-8">
             <fileset dir="../language" />
         </copy>
+        
+        <replace dir="${building-folder}/language" token="flickrset4joomla_package_version_creation_date" value="${TODAY_BE}" />
+        <replace dir="${building-folder}/language" token="flickrset4joomla_package_version" value="${package-version}" />
+        <replace dir="${building-folder}/language" token="flickrset4joomla_package_author" value="${flickrset4joomla_author}" />
 
-        <replace file="${building-folder}/${flickrset4joomla_package-xml_file}" token="package_version_creation_date" value="${TODAY_BE}" />
-        <replace file="${building-folder}/${flickrset4joomla_package-xml_file}" token="package_version" value="${package-version}" />
+        <replace file="${building-folder}/${flickrset4joomla_package-xml_file}" token="flickrset4joomla_package_version_creation_date" value="${TODAY_BE}" />
+        <replace file="${building-folder}/${flickrset4joomla_package-xml_file}" token="flickrset4joomla_package_version" value="${package-version}" />
         <replace file="${building-folder}/${flickrset4joomla_package-xml_file}" token="flickrset4joomla_package_authoremail" value="${flickrset4joomla_author_email}" />
-        <replace file="${building-folder}/${flickrset4joomla_package-xml_file}" token="flickrset4joomla_package_authorurl" value="${flickrset4joomla_author_url}" />
-        <replace file="${building-folder}/${flickrset4joomla_package-xml_file}" token="flickrset4joomla_packageurl" value="${flickrset4joomla_author_url}" />
+        <replace file="${building-folder}/${flickrset4joomla_package-xml_file}" token="flickrset4joomla_package_author_url" value="${flickrset4joomla_author_url}" />
+        <replace file="${building-folder}/${flickrset4joomla_package-xml_file}" token="flickrset4joomla_package_url" value="${flickrset4joomla_author_url}" />
         <replace file="${building-folder}/${flickrset4joomla_package-xml_file}" token="flickrset4joomla_package_author" value="${flickrset4joomla_author}" />
+        
         <replace file="${building-folder}/${flickrset4joomla_package-xml_file}" token="flickrset_plugin_zip_file" value="${flickrset_plugin-destfile}" />
         <replace file="${building-folder}/${flickrset4joomla_package-xml_file}" token="add_flickrset_btn_plugin_zip_file" value="${add_flickrset_btn_plugin-destfile}" />
         <replace file="${building-folder}/${flickrset4joomla_package-xml_file}" token="flickrset4joomla_component_zip_file" value="${flickrset4joomla_component-destfile}" />

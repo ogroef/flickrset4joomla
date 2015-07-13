@@ -29,7 +29,6 @@ if (!class_exists('FlickrSet4JoomlaPluginHelper')) {
 class plgButtonadd_flickrset_btn extends FlickrSet4JoomlaPluginHelper {
 
     protected $com_content = 'com_content';
-    
     var $plg_name = 'add_flickrset_btn';
     var $plg_version = '';
     var $plg_tag = 'flickrset';
@@ -43,6 +42,18 @@ class plgButtonadd_flickrset_btn extends FlickrSet4JoomlaPluginHelper {
     protected $autoloadLanguage = true;
 
     /**
+     * Private function used to log messages on screen
+     *
+     * @param   mixed    $plg_name   Name of the plugin.
+     * @param   mixed    $log_level  Level of logging.
+     * @param   integer  $log_msg    The message that is used for logging.
+     *
+     */
+    protected function log($plg_name, $log_level, $log_msg) {
+        $this->log_message($plg_name, $log_level, $log_msg);
+    }
+
+    /**
      * Display the button
      *
      * @param   string   $name    The name of the button to display.
@@ -53,6 +64,8 @@ class plgButtonadd_flickrset_btn extends FlickrSet4JoomlaPluginHelper {
      */
     function onDisplay($name, $asset, $author) {
         
+        $this->log($this->plg_name,$this->log_level_module,'Starting...');
+
         $app = JFactory::getApplication();
         $user = JFactory::getUser();
         $doc = JFactory::getDocument();
@@ -61,11 +74,12 @@ class plgButtonadd_flickrset_btn extends FlickrSet4JoomlaPluginHelper {
 
         // Only generate the flickrset button in the content component
         if ($extension === $this->com_content) {
-            log_message($this->plg_name,log_level_module,'Starting...');
+            $this->log($this->plg_name, $this->log_level_statement, 'Rendering the flickrset button');
 
             //Get the version number of the plugin
-            $xml = JFactory::getXML(JPATH_PLUGINS.DIRECTORY_SEPARATOR.'editors-xtd'.DIRECTORY_SEPARATOR.$this->plg_name.DIRECTORY_SEPARATOR.$this->plg_name .'.xml');
+            $xml = JFactory::getXML(JPATH_PLUGINS . DIRECTORY_SEPARATOR . 'editors-xtd' . DIRECTORY_SEPARATOR . $this->plg_name . DIRECTORY_SEPARATOR . $this->plg_name . '.xml');
             $this->plg_version = $xml->version;
+            $this->log($this->plg_name, $this->log_level_statement, 'Using version '. $this->plg_version);
 
             // Add the regular css file
             JHtml::stylesheet('plg_editors-xtd_add_flickrset_btn/plg_editors-xtd_add_flickrset_btn.css', array(), true);
@@ -73,7 +87,7 @@ class plgButtonadd_flickrset_btn extends FlickrSet4JoomlaPluginHelper {
             JHtml::_('behavior.modal');
 
             $link = 'index.php?option=com_flickrset4joomla&amp;view=article&amp;layout=addflickrsetbtn&amp;tmpl=component&amp;e_name=' . $name . '&amp;flickrsettag=' . $this->plg_tag . '&amp;addflickrsetbuttonversion=' . $this->plg_version;
-            
+
             // Create the [Add Flickrset] button object
             $button = new JObject();
 
@@ -83,14 +97,16 @@ class plgButtonadd_flickrset_btn extends FlickrSet4JoomlaPluginHelper {
             $button->set('text', JText::_('PLG_EDITORS-XTD_FLICKRSET_ADD_BUTTON'));
             if ($app->isAdmin()) {
                 $button->set('name', 'flickrset-add-button');
+                $this->log($this->plg_name, $this->log_level_statement, 'Rendering button in backend');
             } else {
                 $button->set('name', 'flickrset-add-button-frontend');
+                $this->log($this->plg_name, $this->log_level_statement, 'Rendering button in frontend');
             }
             $button->set('rel', '');
             $button->set('link', $link);
             $button->set('options', "{handler: 'iframe', size: {x:500, y:310}}");
 
-            log_message($this->plg_name,log_level_module,'End');
+            $this->log($this->plg_name,$this->log_level_module,'End');
 
             return $button;
         } else {

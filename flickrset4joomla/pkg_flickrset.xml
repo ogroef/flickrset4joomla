@@ -7,11 +7,11 @@
     <license>http://www.gnu.org/licenses/gpl-3.0.html GNU/GPL</license>
     <author>flickrset4joomla_package_author</author>
     <authorEmail>flickrset4joomla_package_authoremail</authorEmail>
-    <authorUrl>flickrset4joomla_package_authorurl</authorUrl>
+    <authorUrl>flickrset4joomla_package_author_url</authorUrl>
     <packager>flickrset4joomla_package_author</packager>
-    <packagerurl>flickrset4joomla_packageurl</packagerurl>
-    <version>package_version</version>
-    <creationDate>package_version_creation_date</creationDate>
+    <packagerurl>flickrset4joomla_package_url</packagerurl>
+    <version>flickrset4joomla_package_version</version>
+    <creationDate>flickrset4joomla_package_version_creation_date</creationDate>
     <!-- Files -->
     <files folder="packages">
         <file type="component" id="flickrset4joomla">flickrset4joomla_component_zip_file</file>
