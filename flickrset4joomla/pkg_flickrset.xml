@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<extension type="package" version="3.2">
+<extension type="package" version="3.2" method="upgrade">
     <name>PKG_FLICKRSET_XML_NAME</name>
     <description>PKG_FLICKRSET_XML_DESCRIPTION</description>
     <packagename>flickrset</packagename>
