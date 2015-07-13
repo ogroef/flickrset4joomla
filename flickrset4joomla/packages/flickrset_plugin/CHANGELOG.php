@@ -25,8 +25,14 @@
   ^ Performance fixes
   $ Fixing small language spelling mistakes
 
-3-March-2014
+3-March-2015
   ! Initial Release for Joomla! 3.x
+  
+13-July-2015  
+  $ Fixing translation messages
+  # Fixing CSS problem wiht button shown in mobile browser
+  + Adding title-attribute when generating the flickrset link/button/flash object
+  + Adding possibility to enable online logging
 
 Legend:
 

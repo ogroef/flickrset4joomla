@@ -2,7 +2,7 @@
 
 /**
  *
- * @version     $Id: flickrset.php 0.2 2014/03/01 olivier $
+ * @version     $Id: flickrset.php 0.3 2015/07/13 olivier $
  * @package     FlickrSet4Joomla
  * @subpackage  FlickrSet4Joomla_Plugin
  * @author      Olivier
@@ -34,7 +34,7 @@ class plgContentflickrset extends FlickrSet4JoomlaPluginHelper {
     // Loading the language file on instantiation
     protected $autoloadLanguage = true;
     
-    // Flickr API url
+    // Flickr API url - method - format
     protected $flickrapiurl = 'https://api.flickr.com/services/rest/?';
     protected $flickrphotosetsgetInfomethod = 'flickr.photosets.getInfo';
     protected $flickrrestformat = 'php_serial';

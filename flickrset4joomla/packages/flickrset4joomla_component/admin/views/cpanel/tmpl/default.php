@@ -27,7 +27,7 @@ defined('_JEXEC') or die('Restricted access');
 </div>
 
 <div align="right" class="copyright row-fluid">
-    <?php echo JText::sprintf('COM_FLICKRSET4JOOMLA_LEAVE_A_REVIEW_JED', 'http://extensions.joomla.org/extensions/social-web/social-media/photo-channels/flickr/26557'); ?>
+    <?php echo JText::sprintf('COM_FLICKRSET4JOOMLA_LEAVE_A_REVIEW_JED', 'http://extensions.joomla.org/extensions/26557/details'); ?>
     <br/>
     <?php echo JText::sprintf('COM_FLICKRSET4JOOMLA_DEVELOPED_BY'); ?> <?php echo JHtml::_('email.cloak', 'ogroef@gmail.com', 1, 'Olivier De Groef'); ?>
 </div>

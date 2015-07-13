@@ -2,7 +2,7 @@
 
 /**
  *
- * @version     $Id: sources.php 0.2 2014/12/20 olivier $
+ * @version     $Id: sources.php 0.3 2015/07/10 olivier $
  * @package     FlickrSet4Joomla
  * @subpackage  FlickrSet4Joomla_Plugin
  * @author      Olivier
@@ -21,7 +21,7 @@ defined('_JEXEC') or die('Restricted access');
 
 /* ---------------------------- Embeded template code for FlickerSet as FlashObject --------------------------- */
 $flickrsetflash = "
-<div id=\"{PLAYERID}\">
+<div id=\"{PLAYERID}\" title=\"FlickrSetID_Flash\">
  <object width=\"{OBJECT_WIDTH}\" height=\"{OBJECT_HEIGHT}\">
   <param name=\"flashvars\" value=\"offsite=true&lang={LANGUAGE}&page_show_url=/photos/{FLICKRID}/sets/{FLICKR_SETID}/show/&page_show_back_url=/photos/{FLICKRID}/sets/{FLICKR_SETID}/&set_id={FLICKR_SETID}&jump_to=\" />
   <param name=\"movie\" value=\"http://www.flickr.com/apps/slideshow/show.swf?v=138195\" />
@@ -33,18 +33,20 @@ $flickrsetflash = "
 
 /* -------------------------------- Embeded template code for FlickerSet as button ---------------------------- */
 $flickrsetbutton = "
-<div id=\"{PLAYERID}\">
-   <p> <a class=\"btn\" target=\"_blank\" title=\"{LINK_DISPLAY}\" href=\"http://www.flickr.com/photos/{FLICKRID}/sets/{FLICKR_SETID}\" rel=\"\">
-       <i class=\"icon-flickrset\" />
+<div id=\"{PLAYERID}\" title=\"FlickrSetID_Button\">
+   <p>
+      <a class=\"btn\" target=\"_blank\" title=\"{LINK_DISPLAY}\" href=\"http://www.flickr.com/photos/{FLICKRID}/sets/{FLICKR_SETID}\" rel=\"alternate\">
+       <i class=\"button-flickrset\" />
         {LINK_DISPLAY}
-       </a></p>
+       </a>
+   </p>
 </div>
 ";
 
 /* -------------------------------- Embeded template code for FlickerSet as link ---------------------------- */
 $flickrsetlink = "
-<div id=\"{PLAYERID}\">
-   <a href=\"http://www.flickr.com/photos/{FLICKRID}/sets/{FLICKR_SETID}\" target=\"_blank\"><i class=\"icon-flickrset\" />{LINK_DISPLAY}</a>
+<div id=\"{PLAYERID}\" title=\"FlickrSetID_Link\">
+   <a href=\"http://www.flickr.com/photos/{FLICKRID}/sets/{FLICKR_SETID}\" target=\"_blank\"><i class=\"icon-flickrset\" rel=\"alternate\"/>{LINK_DISPLAY}</a>
 </div>
 ";
 

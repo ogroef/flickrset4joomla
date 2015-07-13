@@ -23,9 +23,12 @@
   + Making possible to add flickr sets of other flickr users
   $ Fixing small language spelling mistakes
 
-3-March-2014
+3-March-2015
   ! Initial Release for Joomla! 3.x
   
+13-July-2015  
+  $ Fixing translation messages
+  + Adding possibility to enable online logging
 Legend:
 
 * -> Security Fix

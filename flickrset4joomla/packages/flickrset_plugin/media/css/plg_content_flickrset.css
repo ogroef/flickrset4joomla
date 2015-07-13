@@ -1,5 +1,5 @@
 /*!
- * @version    $Id: plg_content_flickrset.css 0.2 2014/12/20 olivier $
+ * @version    $Id: plg_content_flickrset.css 0.3 2015/07/10 olivier $
  * @package    Joomla.Platform
  * @subpackage Plugin
  * @author     Olivier
@@ -9,3 +9,10 @@
 .icon-flickrset {
     background: transparent url(../images/flickrset-icon-button.png) 100% 0px no-repeat;
 }
+
+.button-flickrset {
+    font-weight:400;
+    color:#337ab7;
+    border-radius:0
+}
+
