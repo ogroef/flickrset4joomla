@@ -1,5 +1,5 @@
 /*!
- * @version    $Id: plg_content_flickrset.css 0.3 2015/07/10 olivier $
+ * @version    $Id: plg_content_flickrset.css 0.3 2015/07/13 olivier $
  * @package    Joomla.Platform
  * @subpackage Plugin
  * @author     Olivier
@@ -14,5 +14,10 @@
     font-weight:400;
     color:#337ab7;
     border-radius:0
+}
+
+.link-flickrset {
+    text-decoration: none;
+    target-new: window;
 }
 

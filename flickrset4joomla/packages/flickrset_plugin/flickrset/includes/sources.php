@@ -46,7 +46,12 @@ $flickrsetbutton = "
 /* -------------------------------- Embeded template code for FlickerSet as link ---------------------------- */
 $flickrsetlink = "
 <div id=\"{PLAYERID}\" title=\"FlickrSetID_Link\">
-   <a href=\"http://www.flickr.com/photos/{FLICKRID}/sets/{FLICKR_SETID}\" target=\"_blank\"><i class=\"icon-flickrset\" rel=\"alternate\"/>{LINK_DISPLAY}</a>
+   <p>
+      <a href=\"http://www.flickr.com/photos/{FLICKRID}/sets/{FLICKR_SETID}\" target=\"_blank\">
+       <i class=\"link-flickrset\" rel=\"alternate\"/>
+        {LINK_DISPLAY}
+      </a>
+   </p>
 </div>
 ";
 
