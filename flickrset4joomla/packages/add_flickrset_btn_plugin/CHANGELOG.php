@@ -2,7 +2,7 @@
 /**
  * @package		flickrset
  * @subpackage	        com_flickrser4joomla
- * @version		$Id$
+ * @version		$Id: CHANGELOG.php 0.3 2015/07/13 Olivier $
  *
  * @author		Olivier De Groef
  * @authoremail         ogroef@hotmail.com
