@@ -17,6 +17,11 @@
  * other free or open source software licenses.
  */
 ?>
+----------------------- 0.2 Release  [September-2015] ----------------------
+06-September-2015
+  # Missing permission-tab in the configuration screen
+  $ Missing translation for the configuration screen
+
 ----------------------- 0.1 Release  [December-2014] -----------------------
 
 20-December-2014
