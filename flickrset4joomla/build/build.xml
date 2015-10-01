@@ -17,12 +17,28 @@
     <property name="add_flickrset_btn_plugin-name" value="add_flickrset_btn_plugin" />
     <property name="flickrset4joomla_component-name" value="${project-name}_component" />
     <property name="flickrset4joomla_package-name" value="${project-name}_package" />
+    
+    <!-- To lower case -->
+    <scriptdef language="javascript" name="lower">
+        <attribute name="value" /> 
+        <attribute name="property" />
+        project.setProperty(attributes.get("property"),attributes.get("value").toLowerCase());
+    </scriptdef>
+    
+    <!-- Substring -->
+    <scriptdef language="javascript" name="substring" >
+        <attribute name="value" />
+        <attribute name="from" />
+        <attribute name="to" />
+        <attribute name="property" />
+        project.setProperty(attributes.get("property"), attributes.get("value").substring(attributes.get("from"), attributes.get("to")));
+    </scriptdef>
 
     <!-- Extra ant libraries -->
     <target name="defantcontrib">
         <!-- path to the antcontrib libraries. Usually they will be located in ANT_HOME/lib -->
         <path id="antcontrib.classpath">
-            <fileset dir="${lib.dir}${file.separator}antcontriblib">
+            <fileset dir="${lib.dir}${file.separator}extralibs${file.separator}antcontriblib">
                 <include name="**/*.jar"/>
             </fileset>
         </path>
@@ -31,11 +47,41 @@
         <taskdef resource="net/sf/antcontrib/antlib.xml" 
                  classpathref="antcontrib.classpath" />
     </target>
+    
+    <!--  Setting the grand libraries to visualize build script -->
+    <target name="defgrand">
+        <!-- path to the grand libraries. Usually they will be located in ANT_HOME/lib -->
+        <path id="grand.classpath">
+            <fileset dir="${lib.dir}${file.separator}extralibs${file.separator}grandlib">
+                <include name="**/*.jar"/>
+            </fileset>
+        </path>
+        
+        <!-- Type definition for the grand libraries. -->
+        <typedef resource="net/ggtools/grand/antlib.xml"
+                 classpathref="grand.classpath" />
+    </target>
+    
+    <!--  Setting the vizant libraries to visualize build script -->
+    <target name="defvizant">
+        <!-- path to the vizant libraries. Usually they will be located in ANT_HOME/lib -->
+        <path id="vizant.classpath">
+            <fileset dir="${lib.dir}${file.separator}extralibs${file.separator}vizantlib">
+                <include name="**/*.jar"/>
+            </fileset>
+        </path>
+        
+        <!-- Task definition for the vizant libraries. -->
+        <taskdef name="vizant"
+                 classname="vizant.Vizant"
+                 classpathref="vizant.classpath" />
+    </target>
 
     <!-- Init Globals-->
     <target name="init_globals" description="Initializes the globals" depends="defantcontrib">
         <tstamp>
             <format property="TODAY_BE" pattern="MMMM YYYY" locale="nl,BE"/>
+            <format property="TODAY_US" pattern="MMMM d, YYYY" locale="en,US" />
         </tstamp>
     </target>
 
@@ -225,6 +271,27 @@
         <property name="building-folder" value="${building-rootfolder}/${flickrset4joomla_package-name}" />
         <move file="${building-folder}/${flickrset4joomla_package-destfile}" preservelastmodified="yes" todir="${release-version-dir}" />
         <delete file="${building-folder}" />
+    </target>
+
+    <target name="visualizebuildinit">
+        <!-- Task to get the actual build file name -->
+        <basename file="${ant.file}" property="Build.antfile"/>
+        
+        <!-- Properties used during build visualizer-->
+        <property name="Build.visual.filename" value="Build.dot" />
+        <property name="Build.visual.folder" value="${building-rootfolder}" />
+    </target>
+
+    <target name="visualizebuildvizant" depends="defvizant,visualizebuildinit">
+        <echo>Visualizing dependencies of build file with vizant on ${Build.visual.folder}</echo>
+        <vizant antfile="${Build.antfile}" outfile="${Build.visual.folder}${file.separator}${BuildCEMLI.visual.filename}" uniqueref="true"/>
+        <echo>${Build.visual.filename} needs to be post-processed by graphviz (www.graphviz.org) in order to have actual graph</echo>
+    </target>
+    
+    <target name="visualizebuildgrand" depends="defgrand,visualizebuildinit">
+        <echo>Visualizing dependencies of build file with grand on ${Build.visual.folder}</echo>
+        <grand output="${Build.visual.folder}${file.separator}${Build.visual.filename}" buildfile="${Build.antfile}"/>
+        <echo>${Build.visual.filename} needs to be post-processed by graphviz (www.graphviz.org) in order to have actual graph</echo>
     </target>
 
 </project>
