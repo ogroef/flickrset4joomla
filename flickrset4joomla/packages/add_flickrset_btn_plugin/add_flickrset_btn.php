@@ -2,7 +2,7 @@
 
 /**
  *
- * @version     $Id: add_flickrset_btn.php 0.2 2014/02/01 Olivier $
+ * @version     $Id: add_flickrset_btn.php 0.3 2015/12/16 Olivier $
  * @package     FlickrSet4Joomla
  * @subpackage  Add_FlickrSet4Joomla_Button_Plugin
  * @author      Olivier
@@ -86,6 +86,7 @@ class plgButtonadd_flickrset_btn extends FlickrSet4JoomlaPluginHelper {
 
             JHtml::_('behavior.modal');
 
+            // Execute this link when pressing the button
             $link = 'index.php?option=com_flickrset4joomla&amp;view=article&amp;layout=addflickrsetbtn&amp;tmpl=component&amp;e_name=' . $name . '&amp;flickrsettag=' . $this->plg_tag . '&amp;addflickrsetbuttonversion=' . $this->plg_version;
 
             // Create the [Add Flickrset] button object
