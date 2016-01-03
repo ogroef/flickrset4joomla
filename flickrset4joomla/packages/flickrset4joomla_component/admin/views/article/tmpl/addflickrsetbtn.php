@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * @version     $Id: insertflickrset.php 0.1 2014/02/01 Olivier $
+ * @version     $Id: insertflickrset.php 0.2 2015/12/16 Olivier $
  * @package     FlickrSet4Joomla
  * @subpackage  FlickrSet4Joomla_Component
  * @copyright   Copyright (C) 2005-2014 Open Source Matters. All rights reserved.
@@ -23,6 +23,7 @@ JHtml::script('plg_editors-xtd_add_flickrset_btn/add_flickrset_btn.js', false, t
 // Import Joomla! Plugin library file
 JImport('joomla.plugin.plugin');
 
+// Getting the paramters from the url
 $ename = $_GET['e_name'];
 $flickrsettag = $_GET['flickrsettag'];
 $addflickrsetbuttonversion = $_GET['addflickrsetbuttonversion'];
@@ -71,8 +72,8 @@ $addflickrsetbuttonversion = $_GET['addflickrsetbuttonversion'];
                 </td>
                 <td nowrap>
                     <select id="allowfull" name="allowfull">
-                        <option value="Y" selected>Yes</option>
-                        <option value="N">No</option>
+                        <option value="Y" selected><?php echo JText::_('JYES'); ?></option>
+                        <option value="N"><?php echo JText::_('JNO'); ?></option>
                     </select>
                 </td>
             </tr>
