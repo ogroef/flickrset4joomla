@@ -1,6 +1,6 @@
 /**
  *
- * @version     $Id: add_flickrset_btn.js 0.2 2014/02/01 Olivier $
+ * @version     $Id: add_flickrset_btn.js 0.3 2015/12/16 Olivier $
  * @package     FlickrSet4Joomla
  * @subpackage  Add_FlickrSet4Joomla_Button_Plugin
  * @author      Olivier
@@ -18,7 +18,8 @@
 /**
  * cancelflickrset
  * 
- * @param char ename
+ * Function closes the dialog box and returns to the article
+ *
  */
 function cancelflickrset() {
     window.parent.SqueezeBox.close();
@@ -33,7 +34,7 @@ function cancelflickrset() {
  * Fuction inserts {flickrset} custom placement token in the folowing format
  *   {flickrset}flickrsetid|flickrid|width|height|allowfull{/flickrset}
  * 
- * @returns char
+ * @returns boolean
  */
 function insertflickrset(tagname, ename) {
     var v_constructed_result = "{".concat(tagname, "}param1|param2|param3|param4|param5{/", tagname, "}");
@@ -49,62 +50,56 @@ function insertflickrset(tagname, ename) {
     var v_allowfull = document.getElementById("allowfull").value;
 
     // Replacing each token with value from input form, when no input given in form removing the token.
-    if (v_flickrsetid != '')
+    if (v_flickrsetid !== '')
     {
         if (v_flickrsetid !== null && isFinite(v_flickrsetid) && v_flickrsetid.length > 0)
         { // Process flickersetid
             v_constructed_result = v_constructed_result.replace("param1", v_flickrsetid);
 
             // Process width dimension
-            if (v_width != '')
+            if (v_width !== '')
             {
                 v_constructed_result = v_constructed_result.replace("param2", v_width);
             }
-            else
-            {
+            else {
                 v_constructed_result = v_constructed_result.replace("param2", '');
             }
 
             // Process height dimension
-            if (v_height != '')
+            if (v_height !== '')
             {
                 v_constructed_result = v_constructed_result.replace("param3", v_height);
             }
-            else
-            {
+            else {
                 v_constructed_result = v_constructed_result.replace("param3", '');
             }
 
             // Process flickerid
-            if (v_flickrid != '')
+            if (v_flickrid !== '')
             {
                 v_constructed_result = v_constructed_result.replace("param4", v_flickrid);
             }
-            else
-            {
+            else {
                 v_constructed_result = v_constructed_result.replace("param4", '');
             }
 
             // Process allowfull
-            if (v_allowfull != '')
+            if (v_allowfull !== '')
             {
                 v_constructed_result = v_constructed_result.replace("param5", v_allowfull);
             }
-            else
-            {
+            else {
                 v_constructed_result = v_constructed_result.replace("param5", '');
             }
             // Updating the editor text box with the generated tag
             window.parent.jInsertEditorText(v_constructed_result, ename);
             window.parent.SqueezeBox.close();
         }
-        else
-        {
+        else {
             v_constructed_result = '';
         }
     }
-    else
-    {
+    else {
         v_constructed_result = '';
     }
     return false;
