@@ -17,22 +17,27 @@
  * other free or open source software licenses.
  */
 ?>
------------------------ 0.1 Release  [01-December-2014] -----------------------
+----------------------- 0.3 Release  [January-2016] ----------------------
+03-January-2016
+  $ Fixing translation messages
 
-20-December-2014
-  + Making possible to add flickr sets of other flickr users
-  + Using shared libraries of the component
-  ^ Performance fixes
-  $ Fixing small language spelling mistakes
-
-3-March-2015
-  ! Initial Release for Joomla! 3.x
-  
+----------------------- 0.2 Release  [July-2015] ----------------------
 13-July-2015  
   $ Fixing translation messages
   # Fixing CSS problem wiht button shown in mobile browser
   + Adding title-attribute when generating the flickrset link/button/flash object
   + Adding possibility to enable online logging
+
+----------------------- 0.1 Release  [March-2015] -----------------------
+3-March-2015
+  ! Initial Release for Joomla! 3.x
+
+----------------------- 0.1 Release  [December-2014] -----------------------
+20-December-2014
+  + Making possible to add flickr sets of other flickr users
+  + Using shared libraries of the component
+  ^ Performance fixes
+  $ Fixing small language spelling mistakes
 
 Legend:
 

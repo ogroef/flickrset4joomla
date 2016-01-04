@@ -17,13 +17,16 @@
  * other free or open source software licenses.
  */
 ?>
+----------------------- 0.3 Release  [January-2016] ----------------------
+03-January-2016
+  $ Fixing translation messages
+
 ----------------------- 0.2 Release  [September-2015] ----------------------
 06-September-2015
   # Missing permission-tab in the configuration screen
   $ Missing translation for the configuration screen
 
 ----------------------- 0.1 Release  [December-2014] -----------------------
-
 20-December-2014
   ! Initial Release for Joomla! 3.x
 
