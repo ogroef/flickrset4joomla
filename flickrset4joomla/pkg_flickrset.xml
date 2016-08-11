@@ -3,7 +3,7 @@
     <name>PKG_FLICKRSET_XML_NAME</name>
     <description>PKG_FLICKRSET_XML_DESCRIPTION</description>
     <packagename>flickrset</packagename>
-    <copyright>(C) 2013-2015 flickrset4joomla_package_author. All rights reserved.</copyright>
+    <copyright>Copyright(c) flickrset4joomla_package_copyright_range flickrset4joomla_package_author. All rights reserved.</copyright>
     <license>http://www.gnu.org/licenses/gpl-3.0.html GNU/GPL</license>
     <author>flickrset4joomla_package_author</author>
     <authorEmail>flickrset4joomla_package_authoremail</authorEmail>
