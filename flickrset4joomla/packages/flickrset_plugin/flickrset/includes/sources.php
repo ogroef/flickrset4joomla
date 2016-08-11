@@ -29,7 +29,7 @@ $flickrsetflash = "
   <embed type=\"application/x-shockwave-flash\" src=\"http://www.flickr.com/apps/slideshow/show.swf?v=138195\" allowFullScreen=\"{ALLOWFULLSCREEN}\" flashvars=\"offsite=true&lang={LANGUAGE}&page_show_url=/photos/{FLICKRID}/sets/{FLICKR_SETID}/show/&page_show_back_url=/photos/{FLICKRID}/sets/{FLICKR_SETID}/&set_id={FLICKR_SETID}&jump_to=\" width=\"{OBJECT_WIDTH}\" height=\"{OBJECT_HEIGHT}\" />
  </object>
  <br/>
- <small>Created with <a href=\"http://extensions.joomla.org/extensions/26557/details\">flickrset for joomla plugin</a>.</small>
+ <small>Created with <a href=\"http://extensions.joomla.org/extensions/26557/details\">Flickrset for Joomla</a>.</small>
 </div>
 ";
 
