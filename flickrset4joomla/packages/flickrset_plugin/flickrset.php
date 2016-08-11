@@ -43,9 +43,10 @@ class plgContentflickrset extends FlickrSet4JoomlaPluginHelper {
     var $plg_name             = 'flickrset';
     
     // These are used when rendering the flickrset
-    var $plg_version          = '';
-    var $plg_copyrights_start = '';
-    var $plg_copyrights_end   = '';
+    var $plg_version              = '';
+    var $plg_copyrights_start     = '';
+    var $plg_copyrights_end       = '';
+    var $plg_created_with_display = '';
     
     // This is the tag where we look for in the article content
     var $plg_tag              = 'flickrset';
@@ -54,7 +55,7 @@ class plgContentflickrset extends FlickrSet4JoomlaPluginHelper {
     var $plg_tag_button       = 'flickrsetbutton';
     var $plg_tag_link         = 'flickrsetlink';
     var $plg_link_display     = '';
-
+    
     /**
      * Private function used to log messages on screen
      * Only log messages when we are in an article context
@@ -163,7 +164,9 @@ class plgContentflickrset extends FlickrSet4JoomlaPluginHelper {
                     "{OBJECT_WIDTH}",
                     "{OBJECT_HEIGHT}",
                     "{ALLOWFULLSCREEN}",
-                    "{LINK_DISPLAY}");
+                    "{LINK_DISPLAY}",
+                    "{CREATED_WITH_DISPLAY}"
+                    );
 
            // Determine which tagsource to use depending on mobile device
            if ($browser->isMobile() || stristr($agent, 'mobile')) {
@@ -223,9 +226,11 @@ class plgContentflickrset extends FlickrSet4JoomlaPluginHelper {
                     } else {
                       $flickrset_title = '';
                     }
+                    $this->plg_created_with_display = '';
                     $this->plg_link_display = JText::sprintf('PLG_FLICKERSET_PROMPT_LINK_DISPLAY',$flickrset_title);
                     $this->log($context,$this->plg_name,$this->log_level_statement,'Running on mobile browser,  link display: '.$this->plg_link_display);
                 } else {
+                    $this->plg_created_with_display = JText::sprintf('PLG_FLICKERSET_CREATED_WITH_DISPLAY');
                     $this->plg_link_display = '';
                 };
 
@@ -238,7 +243,8 @@ class plgContentflickrset extends FlickrSet4JoomlaPluginHelper {
                     $final_objectwidth,
                     $final_objectheight,
                     $final_allowfullscreen,
-                    $this->plg_link_display
+                    $this->plg_link_display,
+                    $this->plg_created_with_display
                 );
 
                 // Perform the actual tag replacement
