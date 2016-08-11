@@ -18,8 +18,9 @@
  */
 ?>
 ----------------------- 0.3 Release  [January-2016] ----------------------
-03-January-2016
+01-May-2016
   $ Fixing translation messages
+  # Enable debugging was not validated correctly
 
 ----------------------- 0.2 Release  [September-2015] ----------------------
 06-September-2015

@@ -2,10 +2,10 @@
 
 /**
  *
- * @version     $Id: flickrset4joomlapluginhelper.php 0.2 2014/02/01 Olivier $
+ * @version     $Id: flickrset4joomlapluginhelper.php 0.3 2016/05/01 Olivier $
  * @package     FlickrSet4Joomla
  * @subpackage  FlickrSet4Joomla_Component
- * @copyright   Copyright (C) 2005-2014 Open Source Matters. All rights reserved.
+ * @copyright   Copyright (C) 2005-2016 Open Source Matters. All rights reserved.
  * @license     GNU/GPL, see LICENSE.php
  *
  * Joomla! is free software. This version may have been modified pursuant
@@ -78,7 +78,7 @@ abstract class FlickrSet4JoomlaPluginHelper extends JPlugin {
         //$this->log_flickrset4joomla_notice('Function Paramter Debug module/level/message: '.$module.'/'.$level.'/'.$msg);
 
         //According component debug settings, show message on screen
-        if ($comparam_flickr4joomla_debugenabled == 'Y' || $comparam_flickr4joomla_debugmodule == $module) {
+        if ($comparam_flickr4joomla_debugenabled == 'Y' && $comparam_flickr4joomla_debugmodule == $module) {
             if ($comparam_flickr4joomla_debuglevel >= $level) {
                 if ($this->log_level_unexcepted == $level) {
                     $this->log_flickrset4joomla_error($msg);

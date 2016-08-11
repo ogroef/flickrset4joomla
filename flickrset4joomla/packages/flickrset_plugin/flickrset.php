@@ -2,11 +2,11 @@
 
 /**
  *
- * @version     $Id: flickrset.php 0.3 2015/07/13 olivier $
+ * @version     $Id: flickrset.php 0.4 2016/05/04 olivier $
  * @package     FlickrSet4Joomla
  * @subpackage  FlickrSet4Joomla_Plugin
  * @author      Olivier
- * @copyright   Copyright (C) 2005-2014 Open Source Matters. All rights reserved.
+ * @copyright   Copyright (C) 2005-2016 Open Source Matters. All rights reserved.
  * @license     GNU/GPL, see LICENSE.php
  *
  * Joomla! is free software. This version may have been modified pursuant
@@ -110,7 +110,7 @@ class plgContentflickrset extends FlickrSet4JoomlaPluginHelper {
 
         if ($matchresult == false) {
             $this->log($context,$this->plg_name,$this->log_level_statement,'Found no flickrset tags');
-            return;
+            return true;
         } else {
             $this->log($context,$this->plg_name,$this->log_level_statement,'Found flickrset tags');
         };
@@ -118,7 +118,7 @@ class plgContentflickrset extends FlickrSet4JoomlaPluginHelper {
         // Get plugin parameters
         $plgparam_flickrset_flickrid = trim($this->params->get('flickrset_flickrid'));
         
-        // Plugin wont be executed when default flickerid is empty
+        // Plugin wont be executed when default flickrid is empty
         if ($plgparam_flickrset_flickrid == '') {
             $this->log($context,$this->plg_name,$this->log_level_error,'Plugin not executed because plugin <default flickr id>-parameter is empty');
             return true;
@@ -140,7 +140,7 @@ class plgContentflickrset extends FlickrSet4JoomlaPluginHelper {
         $this->log($context,$this->plg_name,$this->log_level_statement,'Runnig plugin version '.$this->plg_version);
         
         // Only when we are sure that plugin needs to be executed get mobile input
-        $browser = JBrowser::getInstance();  // in the future, starting from 3.2, need to use $client = JFactory::getApplication()->client->browser;
+        $browser = JBrowser::getInstance();  // in the future, starting from 3.2, need to use $client = JFactory::getApplication()->client->browser; or JApplicationWebClient
         $agent = $browser->getAgentString();
         
         // Load plugin language,stylesheet file
@@ -154,7 +154,7 @@ class plgContentflickrset extends FlickrSet4JoomlaPluginHelper {
         // Determine if there are instances of $plg_tag and put them in $matches
         //  when no instances found do not perform tag replacement
         if (preg_match_all($regex, $article->text, $matches)) {
-            // An array of all different elements used in the flickerset template
+            // An array of all different elements used in the flickrset template
             $TmplElmtParams = array(
                     "{PLAYERID}",
                     "{FLICKR_SETID}",
@@ -168,7 +168,7 @@ class plgContentflickrset extends FlickrSet4JoomlaPluginHelper {
            // Determine which tagsource to use depending on mobile device
            if ($browser->isMobile() || stristr($agent, 'mobile')) {
               $this->log($context,$this->plg_name,$this->log_level_statement,'Running on a mobile browser: '.$agent);
-              // Show flickerset depending on the plugin mobile setting
+              // Show flickrset depending on the plugin mobile setting
               if ($plgparam_flickrset_mobile_type == 'L') {
                  $usedtagsource = $newtagsource[$this->plg_tag_link];
                  } else {
@@ -192,11 +192,11 @@ class plgContentflickrset extends FlickrSet4JoomlaPluginHelper {
                 $this->log($context,$this->plg_name,$this->log_level_statement,'content without tags: '.$tagcontent);
 
                 // Get an array of parameters
-                // order of parameters: flickersetid|width|height|flickrid|AllowFullScreen
+                // order of parameters: flickrsetid|width|height|flickrid|AllowFullScreen
                 $tagparams = explode('|', $tagcontent);
 
-                // Get the flickersetid strip html/php tags
-                $tagparam_flickersetid = trim(strip_tags($tagparams[0]));
+                // Get the flickrsetid strip html/php tags
+                $tagparam_flickrsetid = trim(strip_tags($tagparams[0]));
 
                 // Get the width and height tags
                 $final_objectwidth = (@$tagparams[1]) ? $tagparams[1] : $plgparam_flickrset_objectwidth;
@@ -210,27 +210,29 @@ class plgContentflickrset extends FlickrSet4JoomlaPluginHelper {
                 $final_allowfullscreen = (@$tag_allowfullscreen === 'Y') ? 'true' : 'false';
 
                 // Set a unique ID
-                $flickerset_playerID = 'FlickrSetID_'.substr(md5($tagparam_flickersetid), 1, 10).'_'.rand();
-
+                $flickrset_playerID = 'FlickrSetID_'.substr(md5($tagparam_flickrsetid), 1, 10).'_'.rand();
+                
                 // Construct the link name when on mobile device
                 if ($browser->isMobile() || stristr($agent, 'mobile')) {
-                    $flickrapi = $this->flickrapiurl.'method='.$this->flickrphotosetsgetInfomethod.'&api_key='.$plgparam_flickrset_flickrapikey.'&photoset_id='.$tagparam_flickersetid.'&format='.$this->flickrrestformat;
-                    $this->log($context,$this->plg_name,$this->log_level_statement,'Running on mobile browser, flickr API: '.$flickrapi);
+                    $flickrapi = $this->flickrapiurl.'method='.$this->flickrphotosetsgetInfomethod.'&api_key='.$plgparam_flickrset_flickrapikey.'&photoset_id='.$tagparam_flickrsetid.'&format='.$this->flickrrestformat;
+                    $this->log($context,$this->plg_name,$this->log_level_statement,'Flickr API: '.$flickrapi);
                     $resp = file_get_contents($flickrapi);
                     $resp_obj = unserialize($resp);
-                    if($resp_obj['stat'] == 'ok') {
-                       $flickerset_title = $resp_obj['photoset']['title']['_content'];
+                    if ($resp_obj['stat'] == 'ok') {
+                      $flickrset_title = $resp_obj['photoset']['title']['_content'];
                     } else {
-                        $flickerset_title = '';
+                      $flickrset_title = '';
                     }
-                    $this->plg_link_display = JText::sprintf('PLG_FLICKERSET_PROMPT_LINK_DISPLAY',$flickerset_title);
-                    $this->log($context,$this->plg_name,$this->log_level_statement,'Link display: '.$this->plg_link_display);
+                    $this->plg_link_display = JText::sprintf('PLG_FLICKERSET_PROMPT_LINK_DISPLAY',$flickrset_title);
+                    $this->log($context,$this->plg_name,$this->log_level_statement,'Running on mobile browser,  link display: '.$this->plg_link_display);
+                } else {
+                    $this->plg_link_display = '';
                 };
 
-                // An array of all different elements values used in the flickerset template
+                // An array of all different elements values used in the flickrset template
                 $TmplElmtParamValues = array(
-                    $flickerset_playerID,
-                    $tagparam_flickersetid,
+                    $flickrset_playerID,
+                    $tagparam_flickrsetid,
                     $final_flickrid,
                     $lang->getTag(),
                     $final_objectwidth,

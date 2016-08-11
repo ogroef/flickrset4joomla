@@ -38,7 +38,7 @@
     <target name="defantcontrib">
         <!-- path to the antcontrib libraries. Usually they will be located in ANT_HOME/lib -->
         <path id="antcontrib.classpath">
-            <fileset dir="${lib.dir}${file.separator}extralibs${file.separator}antcontriblib">
+            <fileset dir="${extralib.dir}${file.separator}antcontriblib">
                 <include name="**/*.jar"/>
             </fileset>
         </path>
@@ -52,7 +52,7 @@
     <target name="defgrand">
         <!-- path to the grand libraries. Usually they will be located in ANT_HOME/lib -->
         <path id="grand.classpath">
-            <fileset dir="${lib.dir}${file.separator}extralibs${file.separator}grandlib">
+            <fileset dir="${extralib.dir}${file.separator}grandlib">
                 <include name="**/*.jar"/>
             </fileset>
         </path>

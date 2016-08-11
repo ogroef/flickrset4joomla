@@ -2,11 +2,11 @@
 
 /**
  *
- * @version     $Id: sources.php 0.3 2015/07/10 olivier $
+ * @version     $Id: sources.php 0.4 2016/05/04 olivier $
  * @package     FlickrSet4Joomla
  * @subpackage  FlickrSet4Joomla_Plugin
  * @author      Olivier
- * @copyright   Copyright (C) 2005-2014 Open Source Matters. All rights reserved.
+ * @copyright   Copyright (C) 2005-2016 Open Source Matters. All rights reserved.
  * @license     GNU/GPL, see LICENSE.php
  *
  * Joomla! is free software. This version may have been modified pursuant
@@ -19,21 +19,23 @@
 // no direct access
 defined('_JEXEC') or die('Restricted access');
 
-/* ---------------------------- Embeded template code for FlickerSet as FlashObject --------------------------- */
+/* ---------------------------- Embeded template code for FlickrSet as flashobject --------------------------- */
 $flickrsetflash = "
-<div id=\"{PLAYERID}\" title=\"FlickrSetID_Flash\">
+<div id=\"{PLAYERID}\" name=\"FlickrSet_{FLICKR_SETID}_Flash\">
  <object width=\"{OBJECT_WIDTH}\" height=\"{OBJECT_HEIGHT}\">
   <param name=\"flashvars\" value=\"offsite=true&lang={LANGUAGE}&page_show_url=/photos/{FLICKRID}/sets/{FLICKR_SETID}/show/&page_show_back_url=/photos/{FLICKRID}/sets/{FLICKR_SETID}/&set_id={FLICKR_SETID}&jump_to=\" />
   <param name=\"movie\" value=\"http://www.flickr.com/apps/slideshow/show.swf?v=138195\" />
   <param name=\"allowFullScreen\" value=\"{ALLOWFULLSCREEN}\" />
   <embed type=\"application/x-shockwave-flash\" src=\"http://www.flickr.com/apps/slideshow/show.swf?v=138195\" allowFullScreen=\"{ALLOWFULLSCREEN}\" flashvars=\"offsite=true&lang={LANGUAGE}&page_show_url=/photos/{FLICKRID}/sets/{FLICKR_SETID}/show/&page_show_back_url=/photos/{FLICKRID}/sets/{FLICKR_SETID}/&set_id={FLICKR_SETID}&jump_to=\" width=\"{OBJECT_WIDTH}\" height=\"{OBJECT_HEIGHT}\" />
  </object>
+ <br/>
+ <small>Created with <a href=\"http://extensions.joomla.org/extensions/26557/details\">flickrset for joomla plugin</a>.</small>
 </div>
 ";
 
-/* -------------------------------- Embeded template code for FlickerSet as button ---------------------------- */
+/* -------------------------------- Embeded template code for FlickrSet as button ---------------------------- */
 $flickrsetbutton = "
-<div id=\"{PLAYERID}\" title=\"FlickrSetID_Button\">
+<div id=\"{PLAYERID}\" name=\"FlickrSet_{FLICKR_SETID}_Button\">
    <p>
       <a class=\"btn\" target=\"_blank\" title=\"{LINK_DISPLAY}\" href=\"http://www.flickr.com/photos/{FLICKRID}/sets/{FLICKR_SETID}\" rel=\"alternate\">
        <i class=\"button-flickrset\" />
@@ -43,9 +45,9 @@ $flickrsetbutton = "
 </div>
 ";
 
-/* -------------------------------- Embeded template code for FlickerSet as link ---------------------------- */
+/* -------------------------------- Embeded template code for FlickrSet as link ---------------------------- */
 $flickrsetlink = "
-<div id=\"{PLAYERID}\" title=\"FlickrSetID_Link\">
+<div id=\"{PLAYERID}\" name=\"FlickrSet_{FLICKR_SETID}_Link\">
    <p>
       <a href=\"http://www.flickr.com/photos/{FLICKRID}/sets/{FLICKR_SETID}\" target=\"_blank\">
        <i class=\"link-flickrset\" rel=\"alternate\"/>
@@ -57,9 +59,7 @@ $flickrsetlink = "
 
 /* -------------------------------- Tags & formats -------------------------------- */
 $newtagsource = array(
-// flickr.com - http://www.flickr.com/photos/sciandra/sets/72157631445023884/show/?embed=1
     "flickrset" => $flickrsetflash,
-// flickr.com - http://www.flickr.com/photos/sciandra/sets/72157631445023884
     "flickrsetlink" => $flickrsetlink,
     "flickrsetbutton" => $flickrsetbutton
 );

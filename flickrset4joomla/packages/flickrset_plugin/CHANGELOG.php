@@ -1,15 +1,15 @@
 <?php
 /**
- * @package		flickrset
- * @subpackage	        com_flickrser4joomla
- * @version		0.2
+ * @package     flickrset
+ * @subpackage  com_flickrser4joomla
+ * @version     0.3
  *
- * @author		Olivier De Groef
- * @authoremail         ogroef@hotmail.com
- * @link		
- * @copyright	        Copyright (C) 2005-2014 Open Source Matters. All rights reserved.
+ * @author      Olivier De Groef
+ * @authoremail ogroef@hotmail.com
+ * @link
+ * @copyright   Copyright (C) 2005-2014 Open Source Matters. All rights reserved.
  * 
- * @license		http://www.gnu.org/licenses/gpl-3.0.html GNU/GPL v3
+ * @license     http://www.gnu.org/licenses/gpl-3.0.html GNU/GPL v3
  *
  * * Flickrset4Joomla is free software. This version may have been modified pursuant
  * to the GNU General Public License, and as distributed it includes or
@@ -17,9 +17,12 @@
  * other free or open source software licenses.
  */
 ?>
------------------------ 0.3 Release  [January-2016] ----------------------
-03-January-2016
+----------------------- 0.3 Release  [August-2016] ----------------------
+11-August-2016
   $ Fixing translation messages
+  # Incorrect attribute when replacing the flickrset link/button/flash object
+  # Fixing small bugs when running on a mobile device
+  + Adding footnote reference to flickrset4joomla 
 
 ----------------------- 0.2 Release  [July-2015] ----------------------
 13-July-2015  
