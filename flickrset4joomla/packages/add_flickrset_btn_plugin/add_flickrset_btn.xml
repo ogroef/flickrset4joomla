@@ -3,7 +3,7 @@
     <name>PLG_ADD_FLICKRSET_BUTTON_XML_NAME</name>
     <description>PLG_ADD_FLICKRSET_BUTTON_XML_DESCRIPTION</description>
     <author>add_flickrset_btn_plugin_author</author>
-    <copyright>Copyright (C) 2013-2015 add_flickrset_btn_plugin_author. Open Source Matters. All rights reserved.</copyright>
+    <copyright>Copyright (c) add_flickrset_btn_plugin_copyright_range add_flickrset_btn_plugin_author. Open Source Matters. All rights reserved.</copyright>
     <license>http://www.gnu.org/licenses/gpl-3.0.html GNU/GPL</license>
     <authorEmail>add_flickrset_btn_plugin_authoremail</authorEmail>
     <authorUrl>add_flickrset_btn_plugin_authorurl</authorUrl>

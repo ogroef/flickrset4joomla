@@ -3,7 +3,7 @@
     <name>PLG_FLICKERSET_XML_NAME</name>
     <description>PLG_FLICKERSET_XML_DESCRIPTION</description>
     <author>flickrset_plugin_author</author>
-    <copyright>Copyright (C) 2013-2015 flickrset_plugin_author. Open Source Matters. All rights reserved.</copyright>
+    <copyright>Copyright (c) flickrset_plugin_copyright_range flickrset_plugin_author. Open Source Matters. All rights reserved.</copyright>
     <license>http://www.gnu.org/licenses/gpl-3.0.html GNU/GPL</license>
     <authorEmail>flickrset_plugin_authoremail</authorEmail>
     <authorUrl>flickrset_plugin_authorurl</authorUrl>
