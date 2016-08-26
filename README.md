@@ -29,7 +29,7 @@ This Joomla component supports both the Flickrset and AddFlickrsetButton plugins
 This Joomla package holds the two Joomla plugins and the componant which eases the installation on Joomla.
 
 ### Copyright: ###
-* Copyright (C) 2014 - 2015 Open Source Matters. All rights reserved.
+* Copyright (C) 2014 - 2016 Open Source Matters. All rights reserved.
 * Credits: Olivier De Groef
 * Distributed under the GNU General Public License version 2 or later
 * See [License details](http://docs.joomla.org/Joomla_Licenses)
