@@ -5,8 +5,8 @@
  * @version     $Id: add_flickrset_btn.php 0.3 2015/12/16 Olivier $
  * @package     FlickrSet4Joomla
  * @subpackage  Add_FlickrSet4Joomla_Button_Plugin
- * @author      Olivier
- * @copyright   Copyright (C) 2005-2014 Open Source Matters. All rights reserved.
+ * @author      add_flickrset_btn_plugin_author
+ * @copyright   Copyright (C) add_flickrset_btn_plugin_copyright_range Open Source Matters. All rights reserved.
  * @license     GNU/GPL, see LICENSE.php
  *
  * Joomla! is free software. This version may have been modified pursuant

@@ -5,8 +5,8 @@
  * @version     $Id: flickrset4joomla.php 0.1 2014/02/01 Olivier $
  * @package     FlickrSet4Joomla
  * @subpackage  FlickrSet4Joomla_Component
- * @author      Olivier
- * @copyright   Copyright (C) 2005-2014 Open Source Matters. All rights reserved.
+ * @author      flickrset4joomla_component_author
+ * @copyright   Copyright (C) flickrset4joomla_component_copyright_range Open Source Matters. All rights reserved.
  * @license     GNU/GPL, see LICENSE.php
  *
  * Joomla! is free software. This version may have been modified pursuant

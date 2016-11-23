@@ -17,7 +17,11 @@
                 <field name="flickrset_flickrid" required="true" type="text" size="20" label="PLG_FLICKERSET_FIELD_FLICKRSET_FLICKRID_LBL" description="PLG_FLICKERSET_FIELD_FLICKRSET_FLICKRID_DESC"/>
                 <field name="flickrset_spacer10" type="spacer" hr="true" />
                 <field name="flickrset_spacer11" type="spacer" class="text" label="PLG_FLICKERSET_FIELD_FLICKRSET_LAYOUT_LBL"/>
-                <field name="flickrset_allowfullscreen" type="radio" class="btn-group btn-group-yesno" default="Y" label="PLG_FLICKERSET_FIELD_FLICKRSET_ALLOWFULLSCREEN_LBL" description="PLG_FLICKERSET_FIELD_FLICKRSET_ALLOWFULLSCREEN_DESC">
+                <field name="flickrset_type" required="true" type="list" size="20" label="PLG_FLICKERSET_FIELD_FLICKRSET_TYPE_LBL" description="PLG_FLICKERSET_FIELD_FLICKRSET_LINK_TYPE_DESC" default="S">
+                    <option value="F">PLG_FLICKERSET_FIELD_FLICKRSET_FLASH_OPTION_LBL</option>
+                    <option value="S">PLG_FLICKERSET_FIELD_FLICKRSET_FLICKR_SS_OPTION_LBL</option>
+                </field>                
+                <field name="flickrset_allowfullscreen" type="radio" class="btn-group btn-group-yesno" label="PLG_FLICKERSET_FIELD_FLICKRSET_ALLOWFULLSCREEN_LBL" description="PLG_FLICKERSET_FIELD_FLICKRSET_ALLOWFULLSCREEN_DESC" default="Y">
                     <option value="Y">JYES</option>
                     <option value="N">JNO</option>
                 </field>
@@ -27,9 +31,10 @@
             <fieldset name="MOBILE" label="PLG_FLICKERSET_FIELD_FLICKRSET_MOBILE_LBL">
                 <field name="flickrset_flickrapikey" required="true" type="text" size="80" label="PLG_FLICKERSET_FIELD_FLICKRSET_FLICKRAPIKEY_LBL" description="PLG_FLICKERSET_FIELD_FLICKRSET_FLICKRAPIKEY_DESC"/>
                 <field name="flickrset_spacer20" type="spacer" hr="true" />
-                <field name="flickrset_mobile_type" required="true" type="list" size="20" label="PLG_FLICKERSET_FIELD_FLICKRSET_MOBILE_TYPE_LBL" description="PLG_FLICKERSET_FIELD_FLICKRSET_MOBILE_LINK_TYPE_DESC" default="L">
+                <field name="flickrset_mobile_type" required="true" type="list" size="20" label="PLG_FLICKERSET_FIELD_FLICKRSET_MOBILE_TYPE_LBL" description="PLG_FLICKERSET_FIELD_FLICKRSET_MOBILE_LINK_TYPE_DESC" default="S">
                     <option value="L">PLG_FLICKERSET_FIELD_FLICKRSET_MOBILE_OPTION_LINK_LBL</option>
                     <option value="B">PLG_FLICKERSET_FIELD_FLICKRSET_MOBILE_OPTION_BUTTON_LBL</option>
+                    <option value="S">PLG_FLICKERSET_FIELD_FLICKRSET_MOBILE_OPTION_FLICKR_SS_LBL</option>
                 </field>                
             </fieldset>
         </fields>
