@@ -2,7 +2,7 @@
 
 /**
  *
- * @version     $Id: sources.php 0.5 2016/08/26 olivier $
+ * @version     $Id: sources.php 0.6 2016/12/11 olivier $
  * @package     FlickrSet4Joomla
  * @subpackage  FlickrSet4Joomla_Plugin
  * @author      flickrset_plugin_author
@@ -33,8 +33,7 @@ $flickrsetflash = "
   <param name=\"movie\" value=\"http://www.flickr.com/apps/slideshow/show.swf?v=138195\" />
   <param name=\"allowFullScreen\" value=\"{ALLOWFULLSCREEN}\" />
   <embed type=\"application/x-shockwave-flash\" src=\"http://www.flickr.com/apps/slideshow/show.swf?v=138195\" allowFullScreen=\"{ALLOWFULLSCREEN}\" flashvars=\"offsite=true&lang={LANGUAGE}&page_show_url=/photos/{FLICKRID}/sets/{FLICKR_SETID}/show/&page_show_back_url=/photos/{FLICKRID}/sets/{FLICKR_SETID}/&set_id={FLICKR_SETID}&jump_to=\" width=\"{OBJECT_WIDTH}\" height=\"{OBJECT_HEIGHT}\" />
- </object>
- <br/>".$createdby."
+ </object><br/>".$createdby."
 </div>
 ";
 
@@ -53,7 +52,7 @@ $flickrsetess = "
  </a>
  <script async src=\"http://embedr.flickr.com/assets/client-code.js\"
          charset=\"utf-8\">
- </script>".$createdby."
+ </script><br/>".$createdby."
 </div>
 ";
 
