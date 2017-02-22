@@ -14,8 +14,9 @@
     <creationDate>flickrset4joomla_package_version_creation_date</creationDate>
     <!-- Files -->
     <files folder="packages">
+        <!-- Components -->
         <file type="component" id="flickrset4joomla">flickrset4joomla_component_zip_file</file>
-        
+        <!-- Plugins -->
         <file type="plugin" id="flickrset" group="content">flickrset_plugin_zip_file</file>
         <file type="plugin" id="add_flickrset_btn" group="editors-xtd">add_flickrset_btn_plugin_zip_file</file>
     </files>
