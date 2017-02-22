@@ -135,12 +135,12 @@ class plgContentflickrset extends FlickrSet4JoomlaPluginHelper {
         }
         
         // Get the other plugin parameters, we donot need them when flickrid is not setup
-        $plgparam_flickrset_allowfullscreen = trim($this->params->get('flickrset_allowfullscreen', $this->default_allowfullscreen));
-        $plgparam_flickrset_objectwidth = trim($this->params->get('flickrset_objectwidth', $this->default_objectwidth));
-        $plgparam_flickrset_objectheight = trim($this->params->get('flickrset_objectheight', $this->default_objectheight));
+        $plgparam_flickrset_allowfullscreen = trim($this->params->get('flickrset_allowfullscreen', self::default_allowfullscreen));
+        $plgparam_flickrset_objectwidth = trim($this->params->get('flickrset_objectwidth', self::default_objectwidth));
+        $plgparam_flickrset_objectheight = trim($this->params->get('flickrset_objectheight', self::default_objectheight));
         $plgparam_flickrset_flickrapikey = trim($this->params->get('flickrset_flickrapikey'));
-        $plgparam_flickrset_type = trim($this->params->get('flickrset_type', $this->default_link_type));
-        $plgparam_flickrset_mobile_type = trim($this->params->get('flickrset_mobile_type', $this->default_mobile_link_type));
+        $plgparam_flickrset_type = trim($this->params->get('flickrset_type', self::default_link_type));
+        $plgparam_flickrset_mobile_type = trim($this->params->get('flickrset_mobile_type', self::default_mobile_link_type));
         $this->log($context,$this->plg_name,$this->log_level_statement,'Plugin parameter flickrid/allowfullscreen/objectwidth/objectheight/flickrapikey/type/mobile_type: '.$plgparam_flickrset_flickrid.'/'.$plgparam_flickrset_allowfullscreen.'/'.$plgparam_flickrset_objectwidth.'/'.$plgparam_flickrset_objectheight.'/'.$plgparam_flickrset_flickrapikey.'/'.$plgparam_flickrset_type.'/'.$plgparam_flickrset_mobile_type);
 
         //Get the version number of the plugin
@@ -262,24 +262,26 @@ class plgContentflickrset extends FlickrSet4JoomlaPluginHelper {
                               $flickrset_farm = $resp_obj['photoset']['farm'];
                          }
                      }
+                
+                     // Construct the link name when on mobile device
+                     //  More information about the different suffixes can be found here: https://www.flickr.com/services/api/misc.urls.html
+                     if ($browser->isMobile() || stristr($agent, 'mobile')
+                        ) {
+                          $this->plg_created_with_display = '';
+                          $this->plg_link_display = JText::sprintf('PLG_FLICKERSET_PROMPT_LINK_DISPLAY',$flickrset_title);
+                          // On a mobile device we override the width in percentage in order to get it correct on the device.
+                          $final_objectwidth = '100%';
+                          $final_sizesuffix = 'm';
+                     } else
+                          {
+                          $this->plg_created_with_display = JText::sprintf('PLG_FLICKERSET_CREATED_WITH_DISPLAY');
+                          $this->plg_link_display = '';
+                          $final_sizesuffix = 'n';
+                     }
+                
+                     //Building the image url for the flickr slideshow
+                     $this->plg_flickrsetimg = 'https://farm'.$flickrset_farm.'.staticflickr.com/'.$flickrset_server.'/'.$flickrset_primary.'_'.$flickrset_secret.'_'.$final_sizesuffix.'.jpg';
                 }
-                
-                // Construct the link name when on mobile device
-                //  More information about the different suffixes can be found here: https://www.flickr.com/services/api/misc.urls.html
-                if ($browser->isMobile() || stristr($agent, 'mobile')) {
-                    $this->plg_created_with_display = '';
-                    $this->plg_link_display = JText::sprintf('PLG_FLICKERSET_PROMPT_LINK_DISPLAY',$flickrset_title);
-                    // On a mobile device we override the width in percentage in order to get it correct on the device.
-                    $final_objectwidth = '100%';
-                    $final_sizesuffix = 'm';
-                } else {
-                    $this->plg_created_with_display = JText::sprintf('PLG_FLICKERSET_CREATED_WITH_DISPLAY');
-                    $this->plg_link_display = $flickrset_title;
-                    $final_sizesuffix = 'n';
-                };
-                
-                //Building the image url for the flickr slideshow
-                $this->plg_flickrsetimg = 'https://farm'.$flickrset_farm.'staticflickr.com/'.$flickrset_server.'/'.$flickrset_primary.'_'.$flickrset_secret.'_'.$final_sizesuffix.'.jpg';
 
                 // An array of all different elements values used in the flickrset template
                 $TmplElmtParamValues = array(

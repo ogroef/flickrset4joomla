@@ -2,12 +2,12 @@
 /**
  * @package     flickrset
  * @subpackage  com_flickrser4joomla
- * @version     0.3
+ * @version     $Id: CHANGELOG.php 0.3 2016/08/13 Olivier $
  *
- * @author      Olivier De Groef
- * @authoremail ogroef@hotmail.com
+ * @author      flickrset_plugin_author
+ * @authoremail flickrset_plugin_authoremail
  * @link
- * @copyright   Copyright (C) 2005-2014 Open Source Matters. All rights reserved.
+ * @copyright   Copyright (C) flickrset_plugin_copyright_range flickrset_plugin_author. Open Source Matters. All rights reserved.
  * 
  * @license     http://www.gnu.org/licenses/gpl-3.0.html GNU/GPL v3
  *
@@ -17,6 +17,14 @@
  * other free or open source software licenses.
  */
 ?>
+----------------------- 0.5 Release  [Februari-2017] ----------------------
+11-August-2016
+  # Fixing small bugs when running the flickr slideshow
+
+----------------------- 0.4 Release  [November-2016] ----------------------
+11-August-2016
+  # Fixing small bugs when running on a mobile device
+
 ----------------------- 0.3 Release  [August-2016] ----------------------
 11-August-2016
   $ Fixing translation messages

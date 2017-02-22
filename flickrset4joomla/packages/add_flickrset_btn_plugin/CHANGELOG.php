@@ -4,10 +4,10 @@
  * @subpackage	        com_flickrser4joomla
  * @version		$Id: CHANGELOG.php 0.3 2015/07/13 Olivier $
  *
- * @author		Olivier De Groef
- * @authoremail         ogroef@hotmail.com
+ * @author		add_flickrset_btn_plugin_author
+ * @authoremail         add_flickrset_btn_plugin_authoremail
  * @link		
- * @copyright	Copyright (C) 2010-2013 Helios Ciancio. All Rights Reserved
+ * @copyright	Copyright (C) add_flickrset_btn_plugin_copyright_range add_flickrset_btn_plugin_author. All Rights Reserved
  * 
  * @license		http://www.gnu.org/licenses/gpl-3.0.html GNU/GPL v3
  *

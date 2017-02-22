@@ -1,10 +1,10 @@
 <?php
 /**
  *
- * @version     $Id: default.php 0.1 2014/02/01 Olivier $
+ * @version     $Id: default.php 0.2 2016/12/11 Olivier $
  * @package     FlickrSet4Joomla
  * @subpackage  FlickrSet4Joomla_Component
- * @copyright   Copyright (C) 2005-2014 Open Source Matters. All rights reserved.
+ * @copyright   Copyright (C) flickrset4joomla_component_copyright_range Open Source Matters. All rights reserved.
  * @license     GNU/GPL, see LICENSE.php
  *
  * Joomla! is free software. This version may have been modified pursuant
@@ -21,7 +21,7 @@ defined('_JEXEC') or die('Restricted access');
 <div align="center" style="clear: both">
     <br>
     <?php
-    $xml = JFactory::getXML(JPATH_COMPONENT . DS . 'flickrset4joomla.xml');
+    $xml = JFactory::getXML(JPATH_COMPONENT . DIRECTORY_SEPARATOR . 'flickrset4joomla.xml');
     echo JText::sprintf('COM_FLICKRSET4JOOMLA_FOOTER', $xml->version);
     ?>
 </div>

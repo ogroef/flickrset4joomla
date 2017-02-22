@@ -2,12 +2,12 @@
 /**
  * @package      flickrset
  * @subpackage   com_flickrser4joomla
- * @version      $Id: CHANGELOG.php 0.1 2014/12/20 Olivier $
+ * @version      $Id: CHANGELOG.php 0.3 2016/05/01 Olivier $
  *
- * @author       Olivier De Groef
- * @authoremail  ogroef@hotmail.com
+ * @author       flickrset4joomla_component_author
+ * @authoremail  flickrset4joomla_component_authoremail
  * @link
- * @copyright    Copyright (C) 2014-2015 Olivier De Groef. All Rights Reserved
+ * @copyright    Copyright (C) flickrset4joomla_component_copyright_range flickrset4joomla_component_author. All Rights Reserved
  * 
  * @license      http://www.gnu.org/licenses/gpl-3.0.html GNU/GPL v3
  *
