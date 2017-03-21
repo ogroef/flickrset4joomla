@@ -2,7 +2,7 @@
 
 /**
  *
- * @version     $Id: flickrset.php 0.4 2016/08/30 olivier $
+ * @version     $Id: flickrset.php 0.5 2017/03/21 olivier $
  * @package     FlickrSet4Joomla
  * @subpackage  FlickrSet4Joomla_Plugin
  * @author      flickrset_plugin_author
@@ -248,11 +248,14 @@ class plgContentflickrset extends FlickrSet4JoomlaPluginHelper {
                      $plgparam_flickrset_mobile_type == self::default_mobile_link_type
                    ) {
                      $flickrapi = $this->flickrapiurl.'method='.$this->flickrphotosetsgetInfomethod.'&api_key='.$plgparam_flickrset_flickrapikey.'&photoset_id='.$tagparam_flickrsetid.'&format='.$this->flickrrestformat;
-                     $this->log($context,$this->plg_name,$this->log_level_statement,'Flickr API: '.$flickrapi);
+                     $this->log($context,$this->plg_name,$this->log_level_statement,'Flickr API Url: '.$flickrapi);
                      $resp = file_get_contents($flickrapi);
+                     $this->log($context,$this->plg_name,$this->log_level_statement,'Flickr API Response: '.$resp);
                      $resp_obj = unserialize($resp);
+                     $this->log($context,$this->plg_name,$this->log_level_statement,'Flickr API return status: '.$resp_obj['stat']);
                      if ($resp_obj['stat'] == 'ok') {
                          $flickrset_title = $resp_obj['photoset']['title']['_content'];
+                         $this->log($context,$this->plg_name,$this->log_level_statement,'Flickrset Title: '.$flickrset_title);
                          if ( $plgparam_flickrset_type == self::default_link_type ||
                               $plgparam_flickrset_mobile_type == self::default_mobile_link_type
                             ) {
@@ -260,6 +263,7 @@ class plgContentflickrset extends FlickrSet4JoomlaPluginHelper {
                               $flickrset_secret = $resp_obj['photoset']['secret'];
                               $flickrset_server = $resp_obj['photoset']['server'];
                               $flickrset_farm = $resp_obj['photoset']['farm'];
+                              $this->log($context,$this->plg_name,$this->log_level_statement,'Flickr API return data Farm: '.$flickrset_farm.' Server: '.$flickrset_server.' Primary: '.$flickrset_primary.' Secret: '.$flickrset_secret);
                          }
                      }
                 
