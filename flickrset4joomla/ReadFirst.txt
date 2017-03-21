@@ -8,6 +8,8 @@ Here you will find the component and plugins of Flickrset4Joomla.
 - mysql >= 5.0.0
 - PHP >= 5.3.1
 
+- PHP "allow_url_fopen"-option must be enabled.  See your php.ini file to modify this setting.
+
 ***** INSTALLATION *****
 To install Flickrset4Joomla package: extract the package and install the component and plugin zip-files with the joomla installer.
 If you install each zip file separately you must first install the component and afterwards the plugins.
