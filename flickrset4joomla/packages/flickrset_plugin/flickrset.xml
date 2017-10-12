@@ -25,8 +25,12 @@
                     <option value="Y">JYES</option>
                     <option value="N">JNO</option>
                 </field>
-                <field name="flickrset_objectwidth" required="true" type="text" size="10" label="PLG_FLICKERSET_FIELD_FLICKRSET_OBJECTWIDTH_LBL" description="PLG_FLICKERSET_FIELD_FLICKRSET_OBJECTWIDTH_DESC" default= "400"/>
-                <field name="flickrset_objectheight" required="true" type="text" size="10" label="PLG_FLICKERSET_FIELD_FLICKRSET_OBJECTHEIGHT_LBL" description="PLG_FLICKERSET_FIELD_FLICKRSET_OBJECTHEIGHT_DESC" default= "300"/>
+                <field name="flickrset_objectwidth" required="true" type="number" size="10" label="PLG_FLICKERSET_FIELD_FLICKRSET_OBJECTWIDTH_LBL" description="PLG_FLICKERSET_FIELD_FLICKRSET_OBJECTWIDTH_DESC" default= "400"/>
+                <field name="flickrset_objectheight" required="true" type="number" size="10" label="PLG_FLICKERSET_FIELD_FLICKRSET_OBJECTHEIGHT_LBL" description="PLG_FLICKERSET_FIELD_FLICKRSET_OBJECTHEIGHT_DESC" default= "300"/>
+                <field name="flickrset_showcreatedby" type="radio" class="btn-group btn-group-yesno" label="PLG_FLICKERSET_FIELD_FLICKRSET_SHOWCREATEDBY_LBL" description="PLG_FLICKERSET_FIELD_FLICKRSET_SHOWCREATEDBY_DESC" default= "Y">
+                    <option value="Y">JYES</option>
+                    <option value="N">JNO</option>
+                </field>
             </fieldset>
             <fieldset name="MOBILE" label="PLG_FLICKERSET_FIELD_FLICKRSET_MOBILE_LBL">
                 <field name="flickrset_flickrapikey" required="true" type="text" size="80" label="PLG_FLICKERSET_FIELD_FLICKRSET_FLICKRAPIKEY_LBL" description="PLG_FLICKERSET_FIELD_FLICKRSET_FLICKRAPIKEY_DESC"/>
