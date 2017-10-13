@@ -178,8 +178,7 @@ class plgContentflickrset extends FlickrSet4JoomlaPluginHelper {
                     "{OBJECT_HEIGHT}",
                     "{ALLOWFULLSCREEN}",
                     "{LINK_DISPLAY}",
-                    "{CREATED_WITH_DISPLAY}",
-                    "{CREATED_BY}"
+                    "{CREATED_WITH_DISPLAY}"
                     );
 
             // Determine which tagsource to use depending on mobile device
@@ -284,8 +283,7 @@ class plgContentflickrset extends FlickrSet4JoomlaPluginHelper {
                           $final_objectwidth = '100%';
                           $final_sizesuffix = 'm';
                      } else
-                          {
-                          $this->plg_created_with_display = JText::sprintf('PLG_FLICKERSET_CREATED_WITH_DISPLAY');
+                          $this->plg_created_with_display = JText::sprintf('PLG_FLICKERSET_CREATED_WITH_DISPLAY'); 
                           $this->plg_link_display = '';
                           $final_sizesuffix = 'n';
                      }
@@ -305,8 +303,7 @@ class plgContentflickrset extends FlickrSet4JoomlaPluginHelper {
                     $final_objectheight,
                     $final_allowfullscreen,
                     $this->plg_link_display,
-                    $this->plg_created_with_display,
-                    $plgparam_flickrset_showcreatedby
+                    $this->plg_created_with_display
                 );
 
                 // Perform the actual tag replacement
