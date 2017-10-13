@@ -2,7 +2,7 @@
 
 /**
  *
- * @version     $Id: flickrset.php 0.6 2017/03/22 olivier $
+ * @version     $Id: flickrset.php 0.7 2017/10/13 olivier $
  * @package     FlickrSet4Joomla
  * @subpackage  FlickrSet4Joomla_Plugin
  * @author      flickrset_plugin_author
@@ -40,6 +40,7 @@ class plgContentflickrset extends FlickrSet4JoomlaPluginHelper {
     const default_mobile_link_type = 'S';
     const default_objectwidth = 400;
     const default_objectheight = 300;
+    const default_showcreatedby = 'Y';
     
     // Flickr API url - method - format
     protected $flickrapiurl = 'https://api.flickr.com/services/rest/?';
@@ -141,6 +142,7 @@ class plgContentflickrset extends FlickrSet4JoomlaPluginHelper {
         $plgparam_flickrset_flickrapikey = trim($this->params->get('flickrset_flickrapikey'));
         $plgparam_flickrset_type = trim($this->params->get('flickrset_type', self::default_link_type));
         $plgparam_flickrset_mobile_type = trim($this->params->get('flickrset_mobile_type', self::default_mobile_link_type));
+        $plgparam_flickrset_showcreatedby = trim($this->params->get('flickrset_showcreatedby', self::default_showcreatedby));
         $this->log($context,$this->plg_name,$this->log_level_statement,'Plugin parameter flickrid/allowfullscreen/objectwidth/objectheight/flickrapikey/type/mobile_type: '.$plgparam_flickrset_flickrid.'/'.$plgparam_flickrset_allowfullscreen.'/'.$plgparam_flickrset_objectwidth.'/'.$plgparam_flickrset_objectheight.'/'.$plgparam_flickrset_flickrapikey.'/'.$plgparam_flickrset_type.'/'.$plgparam_flickrset_mobile_type);
 
         //Get the version number of the plugin
@@ -176,7 +178,8 @@ class plgContentflickrset extends FlickrSet4JoomlaPluginHelper {
                     "{OBJECT_HEIGHT}",
                     "{ALLOWFULLSCREEN}",
                     "{LINK_DISPLAY}",
-                    "{CREATED_WITH_DISPLAY}"
+                    "{CREATED_WITH_DISPLAY}",
+                    "{CREATED_BY}"
                     );
 
             // Determine which tagsource to use depending on mobile device
@@ -302,7 +305,8 @@ class plgContentflickrset extends FlickrSet4JoomlaPluginHelper {
                     $final_objectheight,
                     $final_allowfullscreen,
                     $this->plg_link_display,
-                    $this->plg_created_with_display
+                    $this->plg_created_with_display,
+                    $plgparam_flickrset_showcreatedby
                 );
 
                 // Perform the actual tag replacement
