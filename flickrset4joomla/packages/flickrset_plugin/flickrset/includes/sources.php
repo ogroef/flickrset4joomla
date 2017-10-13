@@ -19,11 +19,14 @@
 // no direct access
 defined('_JEXEC') or die('Restricted access');
 
-/**/
-$createdby = "
+/*-------------------------- Embeded template code for FlickrSet creatd by data--------------------------*/
+$createdbydata = "
 <small>{CREATED_WITH_DISPLAY} <a href=\"https://extensions.joomla.org/extensions/26557/details\" target=\"_blank\">Flickrset for Joomla</a>.
 </small>
 ";
+
+/* ---------------------------- Embeded template code for FlickrSet creatd by --------------------------- */
+$createdby = ('{CREATED_BY}' == 'Y') ? $createdbydata : '';
 
 /* ---------------------------- Embeded template code for FlickrSet as flashobject --------------------------- */
 $flickrsetflash = "
