@@ -181,6 +181,9 @@ class plgContentflickrset extends FlickrSet4JoomlaPluginHelper {
                     "{CREATED_WITH_DISPLAY}"
                     );
 
+            // Set the show created by in order (not) to show
+            $showcreatedby = $plgparam_flickrset_showcreatedby;
+
             // Determine which tagsource to use depending on mobile device
             if ($browser->isMobile() || stristr($agent, 'mobile')) {
                $this->log($context,$this->plg_name,$this->log_level_statement,'Running on a MOBILE browser: '.$agent);
