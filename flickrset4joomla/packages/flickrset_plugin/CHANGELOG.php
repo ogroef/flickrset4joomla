@@ -17,6 +17,12 @@
  * other free or open source software licenses.
  */
 ?>
+----------------------- 0.6 Release  [October-2017] ----------------------
+31-October-2017
+  # Fixing small bugs when running the flickr slideshow
+  # Fixing issue 3: load the sources with secure connection
+  + Adding possibility to enable/disable the "created by"-footnote
+
 ----------------------- 0.5 Release  [Februari-2017] ----------------------
 11-August-2016
   # Fixing small bugs when running the flickr slideshow
