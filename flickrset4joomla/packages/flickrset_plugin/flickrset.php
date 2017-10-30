@@ -42,8 +42,12 @@ class plgContentflickrset extends FlickrSet4JoomlaPluginHelper {
     const default_objectheight = 300;
     const default_showcreatedby = 'Y';
     
+    // Flickr API request protocol
+    var $isSecure = false;
+    var $flickrrequestprotocol = '';
+    
     // Flickr API url - method - format
-    protected $flickrapiurl = 'https://api.flickr.com/services/rest/?';
+    protected $flickrapiurl = 'api.flickr.com/services/rest/?';
     protected $flickrphotosetsgetInfomethod = 'flickr.photosets.getInfo';
     protected $flickrrestformat = 'php_serial';
     
@@ -160,6 +164,14 @@ class plgContentflickrset extends FlickrSet4JoomlaPluginHelper {
         JPlugin::loadLanguage('plg_content_flickrset',JPATH_ADMINISTRATOR);
         JHtml::stylesheet('plg_content_flickrset/plg_content_flickrset.css', array(),true);
         
+        // Determine the request protocol
+        if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') {
+           $this->isSecure = true;
+        } elseif (!empty($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https' || !empty($_SERVER['HTTP_X_FORWARDED_SSL']) && $_SERVER['HTTP_X_FORWARDED_SSL'] == 'on') {
+                 $this->isSecure = true;
+        }
+        $this->flickrrequestprotocol = $isSecure ? 'https' : 'http';
+        
         // Expression to search for (positions)
         $regex = "/{".$this->plg_tag."}.*?{\/".$this->plg_tag."}/i";
         $this->log($context,$this->plg_name,$this->log_level_statement,'Regular expression to find positions of tags: '.$regex);
@@ -179,6 +191,7 @@ class plgContentflickrset extends FlickrSet4JoomlaPluginHelper {
                     "{ALLOWFULLSCREEN}",
                     "{LINK_DISPLAY}",
                     "{CREATED_WITH_DISPLAY}"
+                    "{REQUEST_PROTOCOL}"
                     );
 
             // Set the show created by in order (not) to show
@@ -252,7 +265,7 @@ class plgContentflickrset extends FlickrSet4JoomlaPluginHelper {
                      $plgparam_flickrset_type == self::default_link_type ||
                      $plgparam_flickrset_mobile_type == self::default_mobile_link_type
                    ) {
-                     $flickrapi = $this->flickrapiurl.'method='.$this->flickrphotosetsgetInfomethod.'&api_key='.$plgparam_flickrset_flickrapikey.'&photoset_id='.$tagparam_flickrsetid.'&format='.$this->flickrrestformat;
+                     $flickrapi = $this->flickrrequestprotocol.'://'.$this->flickrapiurl.'method='.$this->flickrphotosetsgetInfomethod.'&api_key='.$plgparam_flickrset_flickrapikey.'&photoset_id='.$tagparam_flickrsetid.'&format='.$this->flickrrestformat;
                      $this->log($context,$this->plg_name,$this->log_level_statement,'Flickr API Url: '.$flickrapi);
                      $resp = file_get_contents($flickrapi);
                      $resp_obj = unserialize($resp);
@@ -306,7 +319,8 @@ class plgContentflickrset extends FlickrSet4JoomlaPluginHelper {
                     $final_objectheight,
                     $final_allowfullscreen,
                     $this->plg_link_display,
-                    $this->plg_created_with_display
+                    $this->plg_created_with_display,
+                    $this->flickrrequestprotocol
                 );
 
                 // Perform the actual tag replacement
