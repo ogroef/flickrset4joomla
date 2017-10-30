@@ -190,7 +190,7 @@ class plgContentflickrset extends FlickrSet4JoomlaPluginHelper {
                     "{OBJECT_HEIGHT}",
                     "{ALLOWFULLSCREEN}",
                     "{LINK_DISPLAY}",
-                    "{CREATED_WITH_DISPLAY}"
+                    "{CREATED_WITH_DISPLAY}",
                     "{REQUEST_PROTOCOL}"
                     );
 
@@ -298,7 +298,7 @@ class plgContentflickrset extends FlickrSet4JoomlaPluginHelper {
                           // On a mobile device we override the width in percentage in order to get it correct on the device.
                           $final_objectwidth = '100%';
                           $final_sizesuffix = 'm';
-                     } else
+                     } else {
                           $this->plg_created_with_display = JText::sprintf('PLG_FLICKERSET_CREATED_WITH_DISPLAY'); 
                           $this->plg_link_display = '';
                           $final_sizesuffix = 'n';
