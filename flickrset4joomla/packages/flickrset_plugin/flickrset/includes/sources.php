@@ -23,7 +23,7 @@ $showcreatedby = "";
 
 /* ---------------------------- Embeded template code for FlickrSet creatd by --------------------------- */
 $createdby = ($showcreatedby == "Y" ? "
-<small>{CREATED_WITH_DISPLAY} <a href=\"https://extensions.joomla.org/extensions/26557/details\" target=\"_blank\">Flickrset for Joomla</a>.
+<small>{CREATED_WITH_DISPLAY} <a href=\"{REQUEST_PROTOCOL}\"://extensions.joomla.org/extensions/26557/details\" target=\"_blank\">Flickrset for Joomla</a>.
 </small>
 " : "");
 
@@ -32,9 +32,9 @@ $flickrsetflash = "
 <div style=\"text-align:center;margin:auto;\" id=\"{PLAYERID}\" name=\"FlickrSet_{FLICKR_SETID}_Flash\">
  <object width=\"{OBJECT_WIDTH}\" height=\"{OBJECT_HEIGHT}\">
   <param name=\"flashvars\" value=\"offsite=true&lang={LANGUAGE}&page_show_url=/photos/{FLICKRID}/sets/{FLICKR_SETID}/show/&page_show_back_url=/photos/{FLICKRID}/sets/{FLICKR_SETID}/&set_id={FLICKR_SETID}&jump_to=\" />
-  <param name=\"movie\" value=\"https://www.flickr.com/apps/slideshow/show.swf?v=138195\" />
+  <param name=\"movie\" value=\"{REQUEST_PROTOCOL}\"://www.flickr.com/apps/slideshow/show.swf?v=138195\" />
   <param name=\"allowFullScreen\" value=\"{ALLOWFULLSCREEN}\" />
-  <embed type=\"application/x-shockwave-flash\" src=\"https://www.flickr.com/apps/slideshow/show.swf?v=138195\" allowFullScreen=\"{ALLOWFULLSCREEN}\" flashvars=\"offsite=true&lang={LANGUAGE}&page_show_url=/photos/{FLICKRID}/sets/{FLICKR_SETID}/show/&page_show_back_url=/photos/{FLICKRID}/sets/{FLICKR_SETID}/&set_id={FLICKR_SETID}&jump_to=\" width=\"{OBJECT_WIDTH}\" height=\"{OBJECT_HEIGHT}\" />
+  <embed type=\"application/x-shockwave-flash\" src=\"{REQUEST_PROTOCOL}\"://www.flickr.com/apps/slideshow/show.swf?v=138195\" allowFullScreen=\"{ALLOWFULLSCREEN}\" flashvars=\"offsite=true&lang={LANGUAGE}&page_show_url=/photos/{FLICKRID}/sets/{FLICKR_SETID}/show/&page_show_back_url=/photos/{FLICKRID}/sets/{FLICKR_SETID}/&set_id={FLICKR_SETID}&jump_to=\" width=\"{OBJECT_WIDTH}\" height=\"{OBJECT_HEIGHT}\" />
  </object><br/>".$createdby."
 </div>
 ";
@@ -45,14 +45,14 @@ $flickrsetess = "
  <a data-flickr-embed=\"true\"
     data-header=\"true\"
     data-footer=\"false\"
-    href=\"https://www.flickr.com/photos/{FLICKRID}/albums/{FLICKR_SETID}\"
+    href=\"{REQUEST_PROTOCOL}\"://www.flickr.com/photos/{FLICKRID}/albums/{FLICKR_SETID}\"
     title=\"{LINK_DISPLAY}\">
     <img src=\"{FLICKR_SETIMG}\"
          width=\"{OBJECT_WIDTH}\"
          height=\"{OBJECT_HEIGHT}\"
          alt=\"{LINK_DISPLAY}\">
  </a>
- <script async src=\"https://embedr.flickr.com/assets/client-code.js\"
+ <script async src=\"{REQUEST_PROTOCOL}\"://embedr.flickr.com/assets/client-code.js\"
          charset=\"utf-8\">
  </script><br/>".$createdby."
 </div>
@@ -62,7 +62,7 @@ $flickrsetess = "
 $flickrsetbutton = "
 <div id=\"{PLAYERID}\" name=\"FlickrSet_{FLICKR_SETID}_Button\">
    <p>
-      <a class=\"btn\" target=\"_blank\" title=\"{LINK_DISPLAY}\" href=\"https://www.flickr.com/photos/{FLICKRID}/sets/{FLICKR_SETID}/player\" rel=\"alternate\">
+      <a class=\"btn\" target=\"_blank\" title=\"{LINK_DISPLAY}\" href=\"{REQUEST_PROTOCOL}\"://www.flickr.com/photos/{FLICKRID}/sets/{FLICKR_SETID}/player\" rel=\"alternate\">
        <i class=\"button-flickrset\" />
         {LINK_DISPLAY}
        </a>
@@ -74,7 +74,7 @@ $flickrsetbutton = "
 $flickrsetlink = "
 <div id=\"{PLAYERID}\" name=\"FlickrSet_{FLICKR_SETID}_Link\">
    <p>
-      <a href=\"https://www.flickr.com/photos/{FLICKRID}/sets/{FLICKR_SETID}/player\" target=\"_blank\">
+      <a href=\"{REQUEST_PROTOCOL}\"://www.flickr.com/photos/{FLICKRID}/sets/{FLICKR_SETID}/player\" target=\"_blank\">
        <i class=\"link-flickrset\" rel=\"alternate\"/>
         {LINK_DISPLAY}
       </a>
