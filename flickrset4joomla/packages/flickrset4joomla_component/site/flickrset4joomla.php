@@ -2,7 +2,7 @@
 
 /**
  *
- * @version     $Id: flickrset4joomla.php 0.1 2014/02/01 Olivier $
+ * @version     $Id: flickrset4joomla.php 0.2 2017/09/28 Olivier $
  * @package     FlickrSet4Joomla
  * @subpackage  FlickrSet4Joomla_Component
  * @author      flickrset4joomla_component_author
@@ -19,11 +19,14 @@
 // no direct access
 defined('_JEXEC') or die('Restricted access');
 
+$php_min_version = "5.3.1";
+
 // verify PHP version
-if (version_compare(PHP_VERSION, '5.3.1') < 0) {
-    return JError::raiseWarning(20000, JText::sprintf('COM_FLICKRSET4JOOMLA_PHP_VERSION_INCOMPATIBLE', PHP_VERSION, '5.3.1'));
+if (version_compare(PHP_VERSION, $php_min_version ) < 0) {
+    return JError::raiseWarning(20000, JText::sprintf('COM_FLICKRSET4JOOMLA_PHP_VERSION_INCOMPATIBLE', PHP_VERSION, $php_min_version));
 }
 
+// check JUser object authorization against an access control object and optionally an access extension object
 if (!JFactory::getUser()->authorise('core.manage', 'com_flickrset4joomla')) {
     return JError::raiseWarning(20404, JText::_('JERROR_ALERTNOAUTHOR'));
 }
@@ -31,6 +34,8 @@ if (!JFactory::getUser()->authorise('core.manage', 'com_flickrset4joomla')) {
 // import joomla controller library
 jimport('joomla.application.component.controller');
 
+// Get an instance of the controller
 $controller = JControllerLegacy::getInstance('flickrset4joomla');
+
 $controller->execute(JFactory::getApplication()->input->get('task'));
 $controller->redirect();

@@ -20,7 +20,8 @@
 ----------------------- 0.6 Release  [October-2017] ----------------------
 31-October-2017
   # Fixing small bugs when running the flickr slideshow
-  # Fixing issue 3: load the sources with secure connection
+  # Fixing issue 3: load the sources depending on the activated https/http request protocol
+  # Fixing spelling mistakes
   + Adding possibility to enable/disable the "created by"-footnote
 
 ----------------------- 0.5 Release  [Februari-2017] ----------------------

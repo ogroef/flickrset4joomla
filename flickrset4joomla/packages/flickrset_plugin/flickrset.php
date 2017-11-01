@@ -33,7 +33,7 @@ class plgContentflickrset extends FlickrSet4JoomlaPluginHelper {
 
     // Loading the language file on instantiation
     protected $autoloadLanguage = true;
-    
+
     // Constants: defaulting the options
     const default_allowfullscreen = 'Y';
     const default_link_type = 'S';
@@ -41,35 +41,35 @@ class plgContentflickrset extends FlickrSet4JoomlaPluginHelper {
     const default_objectwidth = 400;
     const default_objectheight = 300;
     const default_showcreatedby = 'Y';
-    
-    // Flickr API request protocol
+
+    // Flickr API request protocol (defaulting to http://)
     var $isSecure = false;
-    var $flickrrequestprotocol = '';
+    var $flickrrequestprotocol = 'http://';
     
     // Flickr API url - method - format
     protected $flickrapiurl = 'api.flickr.com/services/rest/?';
     protected $flickrphotosetsgetInfomethod = 'flickr.photosets.getInfo';
     protected $flickrrestformat = 'php_serial';
-    
+
     // Plugin name
     var $plg_name = 'flickrset';
-    
+
     // These are used when rendering the flickrset
     var $plg_version              = '';
     var $plg_copyrights_start     = '';
     var $plg_flickrsetimg         = '';
     var $plg_copyrights_end       = '';
     var $plg_created_with_display = '';
-    
+
     // This is the tag where we look for in the article content
     var $plg_tag              = 'flickrset';
     var $plg_tag_ess          = 'flickrsetess';
-    
+
     // These are used when navigating with a mobile device
     var $plg_tag_button       = 'flickrsetbutton';
     var $plg_tag_link         = 'flickrsetlink';
     var $plg_link_display     = '';
-    
+
     /**
      * Private function used to log messages on screen
      * Only log messages when we are in an article context
@@ -132,13 +132,13 @@ class plgContentflickrset extends FlickrSet4JoomlaPluginHelper {
 
         // Get plugin parameters
         $plgparam_flickrset_flickrid = trim($this->params->get('flickrset_flickrid'));
-        
+
         // Plugin wont be executed when default flickrid is empty
         if ($plgparam_flickrset_flickrid == '') {
             $this->log($context,$this->plg_name,$this->log_level_error,'Plugin not executed because plugin <default flickr id>-parameter is empty');
             return true;
         }
-        
+
         // Get the other plugin parameters, we donot need them when flickrid is not setup
         $plgparam_flickrset_allowfullscreen = trim($this->params->get('flickrset_allowfullscreen', self::default_allowfullscreen));
         $plgparam_flickrset_objectwidth = trim($this->params->get('flickrset_objectwidth', self::default_objectwidth));
@@ -154,24 +154,26 @@ class plgContentflickrset extends FlickrSet4JoomlaPluginHelper {
         $this->plg_version = $xml->version;
         $this->plg_copyrights_start = "\n\n<!-- \"FlickrSet\" Plugin version ".$this->plg_version." starts here -->\n";
         $this->plg_copyrights_end   = "\n<!-- \"FlickrSet\" Plugin version ".$this->plg_version." ends here -->\n\n";
-        $this->log($context,$this->plg_name,$this->log_level_statement,'Runnig plugin version '.$this->plg_version);
-        
+        $this->log($context,$this->plg_name,$this->log_level_statement,'Running plugin version '.$this->plg_version);
+
         // Only when we are sure that plugin needs to be executed get mobile input
         $browser = JBrowser::getInstance();  // in the future, starting from 3.2, need to use $client = JFactory::getApplication()->client->browser; or JApplicationWebClient
         $agent = $browser->getAgentString();
-        
+
         // Load plugin language,stylesheet file
         JPlugin::loadLanguage('plg_content_flickrset',JPATH_ADMINISTRATOR);
         JHtml::stylesheet('plg_content_flickrset/plg_content_flickrset.css', array(),true);
-        
+
         // Determine the request protocol
+        $this->log($context,$this->plg_name,$this->log_level_statement,'_SERVER var https: '.$_SERVER['HTTPS']);
         if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') {
            $this->isSecure = true;
         } elseif (!empty($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https' || !empty($_SERVER['HTTP_X_FORWARDED_SSL']) && $_SERVER['HTTP_X_FORWARDED_SSL'] == 'on') {
                  $this->isSecure = true;
         }
-        $this->flickrrequestprotocol = $isSecure ? 'https' : 'http';
-        
+        $this->flickrrequestprotocol = ($this->isSecure ? 'https' : 'http').'://';
+        $this->log($context,$this->plg_name,$this->log_level_statement,'Flickr Request Protocol: '.$this->flickrrequestprotocol);
+
         // Expression to search for (positions)
         $regex = "/{".$this->plg_tag."}.*?{\/".$this->plg_tag."}/i";
         $this->log($context,$this->plg_name,$this->log_level_statement,'Regular expression to find positions of tags: '.$regex);
@@ -196,6 +198,7 @@ class plgContentflickrset extends FlickrSet4JoomlaPluginHelper {
 
             // Set the show created by in order (not) to show
             $showcreatedby = $plgparam_flickrset_showcreatedby;
+            $this->log($context,$this->plg_name,$this->log_level_statement,'Show created by: '.$showcreatedby);
 
             // Determine which tagsource to use depending on mobile device
             if ($browser->isMobile() || stristr($agent, 'mobile')) {
@@ -224,7 +227,7 @@ class plgContentflickrset extends FlickrSet4JoomlaPluginHelper {
                  $this->log($context,$this->plg_name,$this->log_level_statement,'5) Used tag source: '.$this->plg_tag);
                }
             }
-              
+
             // Get the current language
             $lang = JFactory::getLanguage();
             $this->log($context,$this->plg_name,$this->log_level_statement,'Found language: '.$lang->getTag());
@@ -265,7 +268,7 @@ class plgContentflickrset extends FlickrSet4JoomlaPluginHelper {
                      $plgparam_flickrset_type == self::default_link_type ||
                      $plgparam_flickrset_mobile_type == self::default_mobile_link_type
                    ) {
-                     $flickrapi = $this->flickrrequestprotocol.'://'.$this->flickrapiurl.'method='.$this->flickrphotosetsgetInfomethod.'&api_key='.$plgparam_flickrset_flickrapikey.'&photoset_id='.$tagparam_flickrsetid.'&format='.$this->flickrrestformat;
+                     $flickrapi = $this->flickrrequestprotocol.$this->flickrapiurl.'method='.$this->flickrphotosetsgetInfomethod.'&api_key='.$plgparam_flickrset_flickrapikey.'&photoset_id='.$tagparam_flickrsetid.'&format='.$this->flickrrestformat;
                      $this->log($context,$this->plg_name,$this->log_level_statement,'Flickr API Url: '.$flickrapi);
                      $resp = file_get_contents($flickrapi);
                      $resp_obj = unserialize($resp);
@@ -288,7 +291,7 @@ class plgContentflickrset extends FlickrSet4JoomlaPluginHelper {
                          $this->log($context,$this->plg_name,$this->log_level_error,'Flickr API failure code: '.$resp_obj['code']);
                          $this->log($context,$this->plg_name,$this->log_level_error,'Flickr API failure message: '.$resp_obj['message']);
                      }
-                
+
                      // Construct the link name when on mobile device
                      //  More information about the different suffixes can be found here: https://www.flickr.com/services/api/misc.urls.html
                      if ($browser->isMobile() || stristr($agent, 'mobile')
@@ -303,9 +306,9 @@ class plgContentflickrset extends FlickrSet4JoomlaPluginHelper {
                           $this->plg_link_display = '';
                           $final_sizesuffix = 'n';
                      }
-                
+
                      //Building the image url for the flickr slideshow
-                     $this->plg_flickrsetimg = 'https://farm'.$flickrset_farm.'.staticflickr.com/'.$flickrset_server.'/'.$flickrset_primary.'_'.$flickrset_secret.'_'.$final_sizesuffix.'.jpg';
+                     $this->plg_flickrsetimg = $this->flickrrequestprotocol.'farm'.$flickrset_farm.'.staticflickr.com/'.$flickrset_server.'/'.$flickrset_primary.'_'.$flickrset_secret.'_'.$final_sizesuffix.'.jpg';
                 }
 
                 // An array of all different elements values used in the flickrset template
