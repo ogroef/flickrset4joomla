@@ -2,7 +2,7 @@
 
 /**
  *
- * @version     $Id: sources.php 0.7 2017/09/28 olivier $
+ * @version     $Id: sources.php 0.8 2018/02/12 olivier $
  * @package     FlickrSet4Joomla
  * @subpackage  FlickrSet4Joomla_Plugin
  * @author      flickrset_plugin_author
