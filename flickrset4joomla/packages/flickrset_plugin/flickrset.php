@@ -40,7 +40,7 @@ class plgContentflickrset extends FlickrSet4JoomlaPluginHelper {
     const default_mobile_link_type = 'S';
     const default_objectwidth = 400;
     const default_objectheight = 300;
-    const default_showcreatedby = 'Y';
+    const default_showcreatedwith = 'Y';
 
     // Flickr API request protocol (defaulting to http://)
     var $isSecure = false;
@@ -146,7 +146,7 @@ class plgContentflickrset extends FlickrSet4JoomlaPluginHelper {
         $plgparam_flickrset_flickrapikey = trim($this->params->get('flickrset_flickrapikey'));
         $plgparam_flickrset_type = trim($this->params->get('flickrset_type', self::default_link_type));
         $plgparam_flickrset_mobile_type = trim($this->params->get('flickrset_mobile_type', self::default_mobile_link_type));
-        $plgparam_flickrset_showcreatedby = trim($this->params->get('flickrset_showcreatedby', self::default_showcreatedby));
+        $plgparam_flickrset_showcreatedwith = trim($this->params->get('flickrset_showcreatedwith', self::default_showcreatedwith));
         $this->log($context,$this->plg_name,$this->log_level_statement,'Plugin parameter flickrid/allowfullscreen/objectwidth/objectheight/flickrapikey/type/mobile_type: '.$plgparam_flickrset_flickrid.'/'.$plgparam_flickrset_allowfullscreen.'/'.$plgparam_flickrset_objectwidth.'/'.$plgparam_flickrset_objectheight.'/'.$plgparam_flickrset_flickrapikey.'/'.$plgparam_flickrset_type.'/'.$plgparam_flickrset_mobile_type);
 
         //Get the version number of the plugin
@@ -192,13 +192,14 @@ class plgContentflickrset extends FlickrSet4JoomlaPluginHelper {
                     "{OBJECT_HEIGHT}",
                     "{ALLOWFULLSCREEN}",
                     "{LINK_DISPLAY}",
+                    "{SHOW_CREATED_WITH}",
                     "{CREATED_WITH_DISPLAY}",
                     "{REQUEST_PROTOCOL}"
                     );
 
             // Set the show created by in order (not) to show
-            $showcreatedby = $plgparam_flickrset_showcreatedby;
-            $this->log($context,$this->plg_name,$this->log_level_statement,'Show created by: '.$showcreatedby);
+            $final_showcreatedwith = $plgparam_flickrset_showcreatedwith;
+            $this->log($context,$this->plg_name,$this->log_level_statement,'Show created by: '.$final_showcreatedwith);
 
             // Determine which tagsource to use depending on mobile device
             if ($browser->isMobile() || stristr($agent, 'mobile')) {
@@ -322,6 +323,7 @@ class plgContentflickrset extends FlickrSet4JoomlaPluginHelper {
                     $final_objectheight,
                     $final_allowfullscreen,
                     $this->plg_link_display,
+                    $final_showcreatedwith,
                     $this->plg_created_with_display,
                     $this->flickrrequestprotocol
                 );
