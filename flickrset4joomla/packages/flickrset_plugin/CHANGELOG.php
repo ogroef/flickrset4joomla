@@ -2,7 +2,7 @@
 /**
  * @package     flickrset
  * @subpackage  com_flickrser4joomla
- * @version     $Id: CHANGELOG.php 0.3 2016/08/13 Olivier $
+ * @version     $Id: CHANGELOG.php 0.6 2018/02/12 Olivier $
  *
  * @author      flickrset_plugin_author
  * @authoremail flickrset_plugin_authoremail
@@ -22,7 +22,7 @@
   # Fixing small bugs when running the flickr slideshow
   # Fixing issue 3: load the sources depending on the activated https/http request protocol
   # Fixing spelling mistakes
-  + Adding possibility to enable/disable the "created by"-footnote
+  + Adding possibility to enable/disable the "created with"-footnote on non-mobile devices (Mobile is never showing this footnote)
 
 ----------------------- 0.5 Release  [Februari-2017] ----------------------
 11-August-2016
