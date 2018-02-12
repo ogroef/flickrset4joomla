@@ -27,7 +27,7 @@
                 </field>
                 <field name="flickrset_objectwidth" required="true" type="number" size="10" label="PLG_FLICKERSET_FIELD_FLICKRSET_OBJECTWIDTH_LBL" description="PLG_FLICKERSET_FIELD_FLICKRSET_OBJECTWIDTH_DESC" default= "400"/>
                 <field name="flickrset_objectheight" required="true" type="number" size="10" label="PLG_FLICKERSET_FIELD_FLICKRSET_OBJECTHEIGHT_LBL" description="PLG_FLICKERSET_FIELD_FLICKRSET_OBJECTHEIGHT_DESC" default= "300"/>
-                <field name="flickrset_showcreatedby" type="radio" class="btn-group btn-group-yesno" label="PLG_FLICKERSET_FIELD_FLICKRSET_SHOWCREATEDBY_LBL" description="PLG_FLICKERSET_FIELD_FLICKRSET_SHOWCREATEDBY_DESC" default= "Y">
+                <field name="flickrset_showcreatedwith" type="radio" class="btn-group btn-group-yesno" label="PLG_FLICKERSET_FIELD_FLICKRSET_SHOWCREATEDWITH_LBL" description="PLG_FLICKERSET_FIELD_FLICKRSET_SHOWCREATEDWITH_DESC" default= "Y">
                     <option value="Y">JYES</option>
                     <option value="N">JNO</option>
                 </field>
