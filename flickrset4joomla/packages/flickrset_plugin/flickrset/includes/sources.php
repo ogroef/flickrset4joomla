@@ -19,7 +19,7 @@
 // no direct access
 defined('_JEXEC') or die('Restricted access');
 
-$showcreatedby = "Y";
+$showcreatedby = "{SHOW_CREATED_WITH}";
 
 /* ---------------------------- Embeded template code for FlickrSet creatd by --------------------------- */
 $createdby = ($showcreatedby == "Y" ? "
