@@ -2,7 +2,7 @@
 
 /**
  *
- * @version     $Id: flickrset.php 0.7 2017/10/13 olivier $
+ * @version     $Id: flickrset.php 0.8 2018/02/12 olivier $
  * @package     FlickrSet4Joomla
  * @subpackage  FlickrSet4Joomla_Plugin
  * @author      flickrset_plugin_author
@@ -192,14 +192,13 @@ class plgContentflickrset extends FlickrSet4JoomlaPluginHelper {
                     "{OBJECT_HEIGHT}",
                     "{ALLOWFULLSCREEN}",
                     "{LINK_DISPLAY}",
-                    "{SHOW_CREATED_WITH}",
                     "{CREATED_WITH_DISPLAY}",
                     "{REQUEST_PROTOCOL}"
                     );
 
             // Set the show created by in order (not) to show
-            $final_showcreatedwith = $plgparam_flickrset_showcreatedwith;
-            $this->log($context,$this->plg_name,$this->log_level_statement,'Show created by: '.$final_showcreatedwith);
+            $showcreatedby = $plgparam_flickrset_showcreatedwith;
+            $this->log($context,$this->plg_name,$this->log_level_statement,'Show created by: '.$showcreatedby);
 
             // Determine which tagsource to use depending on mobile device
             if ($browser->isMobile() || stristr($agent, 'mobile')) {
@@ -323,7 +322,6 @@ class plgContentflickrset extends FlickrSet4JoomlaPluginHelper {
                     $final_objectheight,
                     $final_allowfullscreen,
                     $this->plg_link_display,
-                    $final_showcreatedwith,
                     $this->plg_created_with_display,
                     $this->flickrrequestprotocol
                 );

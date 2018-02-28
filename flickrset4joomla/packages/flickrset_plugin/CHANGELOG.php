@@ -17,10 +17,10 @@
  * other free or open source software licenses.
  */
 ?>
------------------------ 0.6 Release  [October-2017] ----------------------
-31-October-2017
+----------------------- 0.6 Release  [February-2018] ----------------------
+12-February-2018
   # Fixing small bugs when running the flickr slideshow
-  # Fixing issue 3: load the sources depending on the activated https/http request protocol
+  # Fixing GitHub Issue 3: load the sources depending on the activated request protocol (http or https)
   # Fixing spelling mistakes
   + Adding possibility to enable/disable the "created with"-footnote on non-mobile devices (Mobile is never showing this footnote)
 
