@@ -19,13 +19,8 @@
 // no direct access
 defined('_JEXEC') or die('Restricted access');
 
-$showcreatedby = "Y";
-
-/* ---------------------------- Embeded template code for FlickrSet creatd by --------------------------- */
-$createdby = ($showcreatedby == "Y" ? "
-<small>{CREATED_WITH_DISPLAY} <a href=\"{REQUEST_PROTOCOL}extensions.joomla.org/extensions/26557/details\" target=\"_blank\">Flickrset for Joomla</a>.
-</small>
-" : "");
+/* ----------------------------------- Embeded FlickrSet creatsd by link ------------------------------------- */
+$createdwithlink = "<small>{CREATED_WITH_DISPLAY} <a href=\"{REQUEST_PROTOCOL}extensions.joomla.org/extensions/26557/details\" target=\"_blank\">Flickrset for Joomla</a>.</small>";
 
 /* ---------------------------- Embeded template code for FlickrSet as flashobject --------------------------- */
 $flickrsetflash = "
@@ -35,7 +30,7 @@ $flickrsetflash = "
   <param name=\"movie\" value=\"{REQUEST_PROTOCOL}www.flickr.com/apps/slideshow/show.swf?v=138195\" />
   <param name=\"allowFullScreen\" value=\"{ALLOWFULLSCREEN}\" />
   <embed type=\"application/x-shockwave-flash\" src=\"{REQUEST_PROTOCOL}www.flickr.com/apps/slideshow/show.swf?v=138195\" allowFullScreen=\"{ALLOWFULLSCREEN}\" flashvars=\"offsite=true&lang={LANGUAGE}&page_show_url=/photos/{FLICKRID}/sets/{FLICKR_SETID}/show/&page_show_back_url=/photos/{FLICKRID}/sets/{FLICKR_SETID}/&set_id={FLICKR_SETID}&jump_to=\" width=\"{OBJECT_WIDTH}\" height=\"{OBJECT_HEIGHT}\" />
- </object><br/>".$createdby."
+ </object><br/>{CREATEDWITH_LINK}
 </div>
 ";
 
@@ -54,7 +49,7 @@ $flickrsetess = "
  </a>
  <script async src=\"{REQUEST_PROTOCOL}embedr.flickr.com/assets/client-code.js\"
          charset=\"utf-8\">
- </script><br/>".$createdby."
+ </script><br/>{CREATEDWITH_LINK}
 </div>
 ";
 
@@ -83,11 +78,10 @@ $flickrsetlink = "
 ";
 
 /* -------------------------------- Tags & formats -------------------------------- */
-$newtagsource = array(
-    "flickrset" => $flickrsetflash,
-    "flickrsetess" => $flickrsetess,
-    "flickrsetlink" => $flickrsetlink,
-    "flickrsetbutton" => $flickrsetbutton
-);
+$newtagsource = array( "flickrset" => $flickrsetflash
+                     , "flickrsetess" => $flickrsetess
+                     , "flickrsetlink" => $flickrsetlink
+                     , "flickrsetbutton" => $flickrsetbutton
+                     );
 
 ?>

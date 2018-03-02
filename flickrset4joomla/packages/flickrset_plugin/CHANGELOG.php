@@ -20,7 +20,7 @@
 ----------------------- 0.6 Release  [February-2018] ----------------------
 12-February-2018
   # Fixing small bugs when running the flickr slideshow
-  # Fixing GitHub Issue 3: load the sources depending on the activated request protocol (http or https)
+  # Fixing Issue 3: load the sources depending on the activated request protocol (http or https)
   # Fixing spelling mistakes
   + Adding possibility to enable/disable the "created with"-footnote on non-mobile devices (Mobile is never showing this footnote)
 

@@ -112,8 +112,8 @@ class plgContentflickrset extends FlickrSet4JoomlaPluginHelper {
             return true;
         }
 
-        // Includes
-        require(dirname(__FILE__).DIRECTORY_SEPARATOR.$this->plg_name.DIRECTORY_SEPARATOR.'includes'.DIRECTORY_SEPARATOR.'sources.php');
+        // Includes (open the file and include the content at this position)
+        require_once(dirname(__FILE__).DIRECTORY_SEPARATOR.$this->plg_name.DIRECTORY_SEPARATOR.'includes'.DIRECTORY_SEPARATOR.'sources.php');
 
         // Simple performance check to determine whether plugin should process further
         //  Verify if tag is found as a key in the newtagsource array
@@ -192,13 +192,17 @@ class plgContentflickrset extends FlickrSet4JoomlaPluginHelper {
                     "{OBJECT_HEIGHT}",
                     "{ALLOWFULLSCREEN}",
                     "{LINK_DISPLAY}",
+                    "{CREATEDWITH_LINK}",
                     "{CREATED_WITH_DISPLAY}",
                     "{REQUEST_PROTOCOL}"
                     );
 
             // Set the show created by in order (not) to show
-            $showcreatedby = $plgparam_flickrset_showcreatedwith;
-            $this->log($context,$this->plg_name,$this->log_level_statement,'Show created by: '.$showcreatedby);
+            $this->log($context,$this->plg_name,$this->log_level_statement,'Show created by: '.$plgparam_flickrset_showcreatedwith);
+            if ($plgparam_flickrset_showcreatedwith == 'N'){
+                $createdwithlink = "";
+            }
+            $this->log($context,$this->plg_name,$this->log_level_statement,'Created with link: '.$createdwithlink);
 
             // Determine which tagsource to use depending on mobile device
             if ($browser->isMobile() || stristr($agent, 'mobile')) {
@@ -234,7 +238,7 @@ class plgContentflickrset extends FlickrSet4JoomlaPluginHelper {
             
             // start the replace loop
             foreach ($matches[0] as $key => $match) {
-                $this->log($context,$this->plg_name,$this->log_level_statement,'Processing tag: '.$match);
+                $this->log($context,$this->plg_name,$this->log_level_statement,'* Processing tag: '.$match);
                 
                 // Remove the tags
                 $tagcontent = preg_replace("/{.+?}/", "", $match);
@@ -322,6 +326,7 @@ class plgContentflickrset extends FlickrSet4JoomlaPluginHelper {
                     $final_objectheight,
                     $final_allowfullscreen,
                     $this->plg_link_display,
+                    $createdwithlink,
                     $this->plg_created_with_display,
                     $this->flickrrequestprotocol
                 );
