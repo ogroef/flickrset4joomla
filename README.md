@@ -6,7 +6,7 @@ The flickrset4joomla is a project that holds joomla plugins/component that enabl
 
 Only public photos will be visible in the embedded flickrset widget/button/link.
 
-These plugins/component are developed/tested against a Joomla 3.2.1/3.2.2/3.3.5/3.3.6/3.4/3.5/3.6 instance.
+These plugins/component are developed/tested against a Joomla 3.2.[1-2]/3.3.[5-6]/3.[4-5-6-7-8] instance.
 
 The following plugins and component are part of the Flickrset4joomla project.
 
@@ -29,7 +29,7 @@ This Joomla component supports both the Flickrset and AddFlickrsetButton plugins
 This Joomla package holds the two Joomla plugins and the component which eases the installation on Joomla.
 
 ### Copyright: ###
-* Copyright (C) 2014 - 2017 Open Source Matters. All rights reserved.
+* Copyright (C) 2014 - 2018 Open Source Matters. All rights reserved.
 * Credits: Olivier De Groef
 * Distributed under the GNU General Public License version 2 or later
 * See [License details](http://docs.joomla.org/Joomla_Licenses)
