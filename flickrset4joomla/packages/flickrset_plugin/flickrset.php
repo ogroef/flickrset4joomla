@@ -153,7 +153,7 @@ class plgContentflickrset extends FlickrSet4JoomlaPluginHelper {
         $xml = JFactory::getXML(JPATH_PLUGINS.DIRECTORY_SEPARATOR.'content'.DIRECTORY_SEPARATOR.$this->plg_name.DIRECTORY_SEPARATOR.$this->plg_name.'.xml');
         $this->plg_version = $xml->version;
         $this->plg_copyrights_start = "\n\n<!-- \"FlickrSet\" Plugin version ".$this->plg_version." starts here -->\n";
-        $this->plg_copyrights_end   = "\n<!-- \"FlickrSet\" Plugin version ".$this->plg_version." ends here -->\n\n";
+        $this->plg_copyrights_end   = "\n\n<!-- \"FlickrSet\" Plugin version ".$this->plg_version." ends here -->\n";
         $this->log($context,$this->plg_name,$this->log_level_statement,'Running plugin version '.$this->plg_version);
 
         // Only when we are sure that plugin needs to be executed get mobile input
