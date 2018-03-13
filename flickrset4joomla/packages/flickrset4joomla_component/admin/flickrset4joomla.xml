@@ -28,8 +28,8 @@
     <administration>
         <menu>COM_FLICKRSET4JOOMLA_XML_MENU</menu>
         
+        <!-- Component administration Files -->
         <files folder="admin">
-            <!-- Component administration Files -->
             <filename>CHANGELOG.php</filename>
             <filename>COPYRIGHT.php</filename>
             <filename>script.php</filename>
