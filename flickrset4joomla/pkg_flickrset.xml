@@ -26,4 +26,9 @@
         <language tag="nl-NL">language/nl-NL/nl-NL.pkg_flickrset.sys.ini</language>
         <language tag="fr-FR">language/fr-FR/fr-FR.pkg_flickrset.sys.ini</language>
     </languages>
+    <!-- Update Servers -->
+    <updateservers>
+        <!-- Note: No spaces or linebreaks allowed between the server tags -->
+        <server type="extension" name="Flicker4Joomla Update Site">https://raw.githubusercontent.com/ogroef/flickrset4joomla/master/manifest.xml</server>
+    </updateservers>
 </extension>
