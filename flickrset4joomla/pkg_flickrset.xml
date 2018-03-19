@@ -9,11 +9,13 @@
     <authorEmail>flickrset4joomla_package_authoremail</authorEmail>
     <authorUrl>flickrset4joomla_package_author_url</authorUrl>
     <packager>flickrset4joomla_package_author</packager>
+    <packageremail>flickrset4joomla_package_authoremail</packageremail>
     <packagerurl>flickrset4joomla_package_url</packagerurl>
     <version>flickrset4joomla_package_version</version>
     <creationDate>flickrset4joomla_package_version_creation_date</creationDate>
     <!-- Files -->
     <files folder="packages">
+        <!-- The id for each extension is the element stored in the DB -->
         <!-- Components -->
         <file type="component" id="flickrset4joomla">flickrset4joomla_component_zip_file</file>
         <!-- Plugins -->
@@ -21,10 +23,10 @@
         <file type="plugin" id="add_flickrset_btn" group="editors-xtd">add_flickrset_btn_plugin_zip_file</file>
     </files>
     <!-- Translations -->
-    <languages>
-        <language tag="en-GB">language/en-GB/en-GB.pkg_flickrset.sys.ini</language>
-        <language tag="nl-NL">language/nl-NL/nl-NL.pkg_flickrset.sys.ini</language>
-        <language tag="fr-FR">language/fr-FR/fr-FR.pkg_flickrset.sys.ini</language>
+    <languages folder="language">
+        <language tag="en-GB">en-GB/en-GB.pkg_flickrset.sys.ini</language>
+        <language tag="nl-NL">nl-NL/nl-NL.pkg_flickrset.sys.ini</language>
+        <language tag="fr-FR">fr-FR/fr-FR.pkg_flickrset.sys.ini</language>
     </languages>
     <!-- Update Servers -->
     <updateservers>
