@@ -35,4 +35,4 @@ This Joomla package holds the two Joomla plugins and the component which eases t
 * See [License details](http://docs.joomla.org/Joomla_Licenses)
 
 
-Last updated: Mar-2017
+Last updated: Jun-2018
