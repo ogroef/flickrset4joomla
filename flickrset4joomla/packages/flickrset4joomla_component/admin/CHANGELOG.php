@@ -32,7 +32,6 @@
   ! Initial Release for Joomla! 3.x
 
 Legend:
-
 * -> Security Fix
 # -> Bug Fix
 $ -> Language fix or change

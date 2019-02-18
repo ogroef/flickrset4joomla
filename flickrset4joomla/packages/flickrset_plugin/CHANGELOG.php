@@ -58,7 +58,6 @@
   $ Fixing small language spelling mistakes
 
 Legend:
-
 * -> Security Fix
 # -> Bug Fix
 $ -> Language fix or change
